@@ -492,6 +492,8 @@ export default function ZiroPOSFeaturesPage() {
       </section>
 
       {/* Subscription & Business Capabilities */}
+
+      {/* Subscription & Business Capabilities */}
       <section className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
@@ -500,47 +502,53 @@ export default function ZiroPOSFeaturesPage() {
             </span>
 
             <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Flexible capabilities for different business needs.
+              A configurable platform for different business needs.
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-muted">
-              Not every business needs the same operational tools. ZiroPOS
-              follows a configurable platform direction where subscription plans
-              and business capabilities work together to accommodate different
-              business requirements.
+              Every business has different operational requirements. ZiroPOS is
+              designed around a configurable platform structure that connects
+              business context, subscription plans, service status, and
+              available business capabilities.
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 number: "01",
-                title: "Business Requirements",
+                title: "Business Context",
                 description:
-                  "Different business types and operational scales can have different requirements, from essential sales activities to more complex store operations.",
+                  "Business type and scale help describe operational requirements and the level of service a business may need.",
               },
               {
                 number: "02",
                 title: "Subscription Plans",
                 description:
-                  "Subscription plans define the service arrangement and determine which platform entitlements are included.",
+                  "Plans define the included feature entitlements and usage limits available to a customer.",
               },
               {
                 number: "03",
-                title: "Platform Capabilities",
+                title: "Subscription Status",
                 description:
-                  "Capabilities represent the business features and operational tools made available according to the platform configuration.",
+                  "Subscriptions determine the service status and active period associated with a customer's plan.",
+              },
+              {
+                number: "04",
+                title: "Business Capabilities",
+                description:
+                  "Capabilities represent the business features and operational tools made available to a tenant.",
               },
             ].map((item) => (
               <article
                 key={item.number}
-                className="rounded-2xl border border-border bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:bg-white hover:shadow-md sm:p-9"
+                className="rounded-2xl border border-border bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:bg-white hover:shadow-md"
               >
                 <span className="text-sm font-semibold text-accent">
                   {item.number}
                 </span>
 
-                <h3 className="mt-8 text-xl font-semibold text-foreground sm:text-2xl">
+                <h3 className="mt-8 text-xl font-semibold text-foreground">
                   {item.title}
                 </h3>
 
@@ -571,9 +579,9 @@ export default function ZiroPOSFeaturesPage() {
 
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  "Business Type",
-                  "Business Scale",
-                  "Subscription",
+                  "Business Type & Scale",
+                  "Subscription Plan",
+                  "Service Status",
                   "Capabilities",
                 ].map((item, index) => (
                   <div
