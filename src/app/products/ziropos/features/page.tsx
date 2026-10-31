@@ -217,6 +217,99 @@ export default function ZiroPOSFeaturesPage() {
           </div>
         </div>
       </section>
+
+      {/* Role-Based Team Management */}
+      <section className="bg-surface py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+              Role-Based Team Management
+            </span>
+
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              The right responsibilities for every team member.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-muted">
+              Business operations involve different people with different
+              responsibilities. ZiroPOS is designed around structured
+              operational roles, helping each team member focus on the
+              activities relevant to their responsibilities.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                number: "01",
+                title: "Owner",
+                description:
+                  "Business oversight, store management, reports, and business configuration.",
+              },
+              {
+                number: "02",
+                title: "Admin",
+                description:
+                  "Product management, employee administration, inventory, and operational configuration.",
+              },
+              {
+                number: "03",
+                title: "Supervisor",
+                description:
+                  "Operational oversight, team supervision, and approval of sensitive actions where authorized.",
+              },
+              {
+                number: "04",
+                title: "Kasir",
+                description:
+                  "Sales transactions, payment processing, and daily cashier activities.",
+              },
+              {
+                number: "05",
+                title: "Waiter",
+                description:
+                  "Customer service, order handling, and coordination with operational teams.",
+              },
+              {
+                number: "06",
+                title: "Kitchen",
+                description:
+                  "Order queues, preparation workflows, and production status coordination.",
+              },
+            ].map((role) => (
+              <article
+                key={role.number}
+                className="rounded-2xl border border-border bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
+              >
+                <span className="text-sm font-semibold text-accent">
+                  {role.number}
+                </span>
+
+                <h3 className="mt-8 text-xl font-semibold text-foreground">
+                  {role.title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-muted">
+                  {role.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-blue-200 bg-blue-50/70 p-6 sm:p-8">
+            <h3 className="text-lg font-semibold text-foreground">
+              Structured access, not just different dashboards.
+            </h3>
+
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
+              Roles define operational responsibilities, while platform
+              capabilities and permissions determine which features and actions
+              are available. These concepts are designed to work together
+              without being treated as interchangeable.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
