@@ -32,6 +32,8 @@ export default function AboutPage() {
   return (
     <>
       {/* About Hero */}
+
+      {/* About Hero */}
       <section className="relative isolate overflow-hidden bg-[#101828] text-white">
         <div
           aria-hidden="true"
@@ -48,22 +50,70 @@ export default function AboutPage() {
           className="absolute -right-40 -top-40 -z-10 h-[500px] w-[500px] rounded-full bg-blue-600/20 blur-[120px]"
         />
 
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
-          <div className="max-w-3xl">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:px-8 lg:py-32">
+          {/* Left Content */}
+          <div>
             <span className="text-sm font-semibold tracking-[0.16em] text-blue-300 uppercase">
               About Zirocraft
             </span>
 
-            <h1 className="mt-6 text-4xl leading-tight font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 max-w-2xl text-4xl leading-tight font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               Building technology with{" "}
               <span className="text-blue-400">purpose.</span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
               We are a technology company focused on creating practical digital
               solutions that address real business needs and support long-term
               growth.
             </p>
+          </div>
+
+          {/* Right Visual */}
+          <div className="relative mx-auto flex w-full max-w-md items-center justify-center">
+            <div className="absolute h-72 w-72 rounded-full bg-blue-600/20 blur-[90px]" />
+
+            <div className="relative w-full rounded-3xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl backdrop-blur-xl sm:p-8">
+              <div className="flex items-center justify-between border-b border-white/10 pb-5">
+                <span className="text-sm font-semibold tracking-wide text-white">
+                  ZIROCRAFT
+                </span>
+
+                <span className="h-2 w-2 rounded-full bg-blue-400" />
+              </div>
+
+              <div className="flex min-h-64 flex-col items-center justify-center">
+                <div className="flex h-32 w-32 items-center justify-center rounded-[2rem] border border-white/15 bg-gradient-to-br from-blue-400/20 to-blue-700/20 shadow-xl">
+                  <span className="text-7xl font-bold tracking-tighter text-white">
+                    z<span className="text-blue-400">.</span>
+                  </span>
+                </div>
+
+                <p className="mt-7 text-sm font-medium text-slate-300">
+                  Building practical technology.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2 border-t border-white/10 pt-5">
+                <div className="text-center">
+                  <span className="text-xs font-semibold text-blue-300">
+                    Practical
+                  </span>
+                </div>
+
+                <div className="text-center">
+                  <span className="text-xs font-semibold text-blue-300">
+                    Adaptable
+                  </span>
+                </div>
+
+                <div className="text-center">
+                  <span className="text-xs font-semibold text-blue-300">
+                    Maintainable
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
