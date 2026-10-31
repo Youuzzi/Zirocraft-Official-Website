@@ -4,36 +4,39 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
+
+      {/* Hero Section */}
       <section className="relative isolate overflow-hidden bg-[#101828] text-white">
         <div
           aria-hidden="true"
           className="absolute inset-0 -z-10 opacity-20"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
+              "linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
           }}
         />
 
         <div
           aria-hidden="true"
-          className="absolute -right-40 -top-40 -z-10 h-[500px] w-[500px] rounded-full bg-blue-600/20 blur-[120px]"
+          className="absolute -right-40 -top-40 -z-10 h-[520px] w-[520px] rounded-full bg-blue-600/20 blur-[140px]"
         />
 
-        <div className="mx-auto grid min-h-[620px] max-w-7xl items-center gap-16 px-6 py-24 lg:grid-cols-2 lg:px-8 lg:py-32">
+        <div className="mx-auto grid min-h-[650px] max-w-7xl items-center gap-16 px-6 py-24 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-28">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-blue-300 uppercase">
-              Technology Company
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-blue-300 uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+              Building with purpose
             </span>
 
             <h1 className="mt-8 text-5xl leading-[1.08] font-semibold tracking-tight sm:text-6xl lg:text-7xl">
-              Building practical technology for{" "}
-              <span className="text-blue-400">growing businesses.</span>
+              Technology built around the way{" "}
+              <span className="text-blue-400">businesses work.</span>
             </h1>
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
-              We build technology solutions designed to help businesses operate,
-              adapt, and grow in an increasingly digital world.
+              We create practical digital solutions designed to address real
+              operational needs and support businesses as they grow.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -53,24 +56,64 @@ export default function Home() {
             </div>
           </div>
 
-          <div
-            aria-hidden="true"
-            className="relative mx-auto hidden aspect-square w-full max-w-md items-center justify-center lg:flex"
-          >
-            <div className="absolute inset-8 rounded-full border border-white/10" />
-            <div className="absolute inset-16 rounded-full border border-white/10" />
-            <div className="absolute inset-24 rounded-full border border-blue-400/20" />
+          <div aria-hidden="true" className="relative mx-auto w-full max-w-lg">
+            <div className="absolute -inset-8 rounded-full bg-blue-500/10 blur-3xl" />
 
-            <div className="absolute h-64 w-64 rounded-full bg-blue-500/20 blur-3xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-9">
+              <div className="flex items-center justify-between border-b border-white/10 pb-6">
+                <span className="text-sm font-semibold tracking-[0.18em] text-slate-300 uppercase">
+                  Our approach
+                </span>
+                <span className="text-sm font-bold text-blue-400">z.</span>
+              </div>
 
-            <div className="relative flex h-48 w-48 items-center justify-center rounded-[2rem] border border-white/15 bg-white/10 shadow-2xl shadow-blue-950/40 backdrop-blur-xl">
-              <span className="text-6xl font-bold tracking-tighter">
-                z<span className="text-blue-400">.</span>
-              </span>
+              <div className="py-8">
+                <p className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
+                  Built with purpose.
+                  <br />
+                  <span className="text-slate-400">Designed for reality.</span>
+                </p>
+              </div>
+
+              <div className="space-y-0">
+                {[
+                  {
+                    number: "01",
+                    title: "Practical",
+                    description: "Focused on real business needs.",
+                  },
+                  {
+                    number: "02",
+                    title: "Adaptable",
+                    description: "Designed with changing needs in mind.",
+                  },
+                  {
+                    number: "03",
+                    title: "Maintainable",
+                    description: "Built with long-term development in mind.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.number}
+                    className="flex items-center gap-5 border-t border-white/10 py-5"
+                  >
+                    <span className="text-sm font-medium text-blue-400">
+                      {item.number}
+                    </span>
+
+                    <div>
+                      <h2 className="font-semibold text-white">{item.title}</h2>
+                      <p className="mt-1 text-sm text-slate-400">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="absolute right-2 top-20 h-3 w-3 rounded-full bg-blue-400 shadow-[0_0_24px_rgba(96,165,250,0.8)]" />
-            <div className="absolute bottom-16 left-4 h-2 w-2 rounded-full bg-blue-300" />
+            <div className="absolute -right-3 top-12 h-3 w-3 rounded-full bg-blue-400 shadow-[0_0_24px_rgba(96,165,250,0.8)] sm:-right-5" />
+            <div className="absolute -bottom-4 left-12 h-2 w-2 rounded-full bg-blue-300" />
           </div>
         </div>
       </section>
