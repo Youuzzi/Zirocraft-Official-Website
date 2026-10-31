@@ -167,210 +167,140 @@ export default function ZiroPOSPage() {
       </section>
 
       {/* Overview */}
-      <section id="overview" className="bg-white py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:gap-24 lg:px-8">
+
+      {/* Platform Overview */}
+      <section
+        id="overview"
+        className="relative overflow-hidden bg-white py-24 sm:py-32"
+      >
+        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
+          {/* Overview Content */}
           <div>
             <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
               Platform Overview
             </span>
 
-            <h2 className="mt-5 text-3xl leading-tight font-semibold tracking-tight text-foreground sm:text-4xl">
-              A connected platform for everyday business operations.
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-base leading-8 text-muted">
-            <p>
-              ZiroPOS is envisioned as more than a conventional cashier
-              application. Its direction is to bring essential business
-              operations into a structured and connected platform.
-            </p>
-
-            <p>
-              The platform is being developed around business transactions,
-              employees, store operations, branches, and configurable access.
-              These areas form the foundation for businesses with different
-              operational needs.
-            </p>
-
-            <p>
-              Rather than forcing every business to follow the same structure,
-              ZiroPOS aims to provide a flexible foundation that can evolve
-              alongside each business.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Environments */}
-      <section className="bg-surface py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
-              Business Environments
-            </span>
-
-            <h2 className="mt-5 text-3xl leading-tight font-semibold tracking-tight text-foreground sm:text-4xl">
-              Different businesses. Different operational needs.
+            <h2 className="mt-5 text-3xl leading-tight font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              One platform connecting essential business operations.
             </h2>
 
-            <p className="mt-6 text-lg leading-8 text-muted">
-              From small businesses to more complex operations, ZiroPOS is being
-              designed with different business environments in mind.
+            <p className="mt-7 text-lg leading-8 text-muted">
+              Running a business involves more than recording sales. It requires
+              people, locations, transactions, and daily operations to work
+              together.
             </p>
+
+            <p className="mt-5 leading-8 text-muted">
+              ZiroPOS is being developed around this broader operational
+              picture. Its goal is to provide a structured foundation that can
+              adapt to different business environments and operational
+              requirements.
+            </p>
+
+            <div className="mt-10 border-l-2 border-accent pl-5">
+              <p className="text-base leading-7 font-medium text-foreground">
+                Different businesses should not have to follow one rigid
+                operational structure.
+              </p>
+            </div>
           </div>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {businessTypes.map((business) => (
-              <article
-                key={business.number}
-                className="rounded-2xl border border-border bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                <span className="text-sm font-semibold text-accent">
-                  {business.number}
+          {/* Conceptual Platform Diagram */}
+          <div className="relative">
+            <div
+              aria-hidden="true"
+              className="absolute -inset-8 rounded-full bg-blue-500/5 blur-3xl"
+            />
+
+            <div className="relative rounded-3xl border border-border bg-surface p-5 shadow-sm sm:p-8">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold tracking-[0.14em] text-muted uppercase">
+                  Platform Ecosystem
                 </span>
 
-                <h3 className="mt-8 text-xl font-semibold tracking-tight text-foreground">
-                  {business.title}
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-muted">
-                  {business.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Operational Structure */}
-      <section className="bg-white py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:gap-24 lg:px-8">
-          <div>
-            <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
-              Connected Operations
-            </span>
-
-            <h2 className="mt-5 text-3xl leading-tight font-semibold tracking-tight text-foreground sm:text-4xl">
-              Business operations should work together.
-            </h2>
-
-            <p className="mt-6 text-lg leading-8 text-muted">
-              Managing a business involves more than recording sales. Employees,
-              stores, transactions, and daily activities are interconnected.
-              ZiroPOS is being developed with this broader operational picture
-              in mind.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              {
-                title: "Transactions",
-                detail: "Sales and daily business activity",
-              },
-              {
-                title: "Employees",
-                detail: "People and operational responsibilities",
-              },
-              {
-                title: "Stores",
-                detail: "Locations and branch operations",
-              },
-              {
-                title: "Management",
-                detail: "Business oversight and configuration",
-              },
-            ].map((item, index) => (
-              <div
-                key={item.title}
-                className={`rounded-2xl border border-border p-6 ${
-                  index === 0 || index === 3
-                    ? "bg-[#101828] text-white"
-                    : "bg-surface text-foreground"
-                }`}
-              >
-                <span
-                  className={`text-xs font-semibold ${
-                    index === 0 || index === 3 ? "text-blue-300" : "text-accent"
-                  }`}
-                >
-                  0{index + 1}
+                <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+                  Concept
                 </span>
+              </div>
 
-                <h3 className="mt-7 text-lg font-semibold">{item.title}</h3>
+              {/* Central Platform */}
+              <div className="mt-8 rounded-2xl bg-[#101828] p-6 text-white shadow-lg">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/15 text-xl font-bold text-blue-400">
+                    Z
+                  </div>
 
-                <p
-                  className={`mt-3 text-sm leading-6 ${
-                    index === 0 || index === 3 ? "text-slate-300" : "text-muted"
-                  }`}
-                >
-                  {item.detail}
+                  <div>
+                    <p className="text-lg font-semibold tracking-tight">
+                      ZiroPOS
+                    </p>
+                    <p className="mt-1 text-xs text-slate-400">
+                      Business Operations Platform
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 h-px bg-white/10" />
+
+                <p className="mt-5 text-sm leading-6 text-slate-300">
+                  A connected foundation for managing different business
+                  operational needs.
                 </p>
               </div>
-            ))}
+
+              {/* Connector */}
+              <div
+                aria-hidden="true"
+                className="mx-auto h-9 w-px bg-gradient-to-b from-blue-500 to-slate-300"
+              />
+
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  {
+                    number: "01",
+                    title: "Business",
+                    detail: "Business identity and configuration",
+                  },
+                  {
+                    number: "02",
+                    title: "Stores",
+                    detail: "Locations and branches",
+                  },
+                  {
+                    number: "03",
+                    title: "People",
+                    detail: "Employees and responsibilities",
+                  },
+                  {
+                    number: "04",
+                    title: "Operations",
+                    detail: "Transactions and daily activities",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.number}
+                    className="rounded-xl border border-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md sm:p-5"
+                  >
+                    <span className="text-xs font-semibold text-accent">
+                      {item.number}
+                    </span>
+
+                    <h3 className="mt-4 text-base font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-2 text-xs leading-6 text-muted sm:text-sm">
+                      {item.detail}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-6 text-center text-xs leading-5 text-muted">
+                Conceptual representation of the ZiroPOS product direction.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Product Principles */}
-      <section className="bg-surface py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
-              Product Principles
-            </span>
-
-            <h2 className="mt-5 text-3xl leading-tight font-semibold tracking-tight text-foreground sm:text-4xl">
-              A foundation designed for long-term growth.
-            </h2>
-          </div>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {principles.map((principle) => (
-              <article
-                key={principle.number}
-                className="rounded-2xl border border-border bg-white p-8"
-              >
-                <span className="text-sm font-semibold text-accent">
-                  {principle.number}
-                </span>
-
-                <h3 className="mt-8 text-2xl font-semibold tracking-tight text-foreground">
-                  {principle.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-muted">
-                  {principle.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Closing CTA */}
-      <section className="bg-white px-6 py-24 sm:py-32">
-        <div className="mx-auto max-w-5xl rounded-3xl bg-[#101828] px-8 py-16 text-center text-white sm:px-16 sm:py-20">
-          <span className="text-sm font-semibold tracking-[0.16em] text-blue-300 uppercase">
-            ZiroPOS by Zirocraft
-          </span>
-
-          <h2 className="mx-auto mt-5 max-w-3xl text-3xl leading-tight font-semibold tracking-tight sm:text-5xl">
-            Building a more adaptable way to manage business operations.
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-xl leading-8 text-slate-300">
-            Want to learn more about ZiroPOS or discuss your business needs? Get
-            in touch with our team.
-          </p>
-
-          <Link
-            href="/contact"
-            className="mt-9 inline-flex min-h-12 items-center justify-center rounded-full bg-blue-600 px-7 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
-          >
-            Get in Touch
-          </Link>
         </div>
       </section>
     </>
