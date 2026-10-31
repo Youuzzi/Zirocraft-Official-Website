@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ZiroPOSFeaturesPage() {
   return (
-    <main>
+    <div>
       {/* Hero Section */}
       <section className="relative isolate overflow-hidden bg-[#101828] text-white">
         <div
@@ -492,8 +492,6 @@ export default function ZiroPOSFeaturesPage() {
       </section>
 
       {/* Subscription & Business Capabilities */}
-
-      {/* Subscription & Business Capabilities */}
       <section className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
@@ -651,6 +649,6 @@ export default function ZiroPOSFeaturesPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

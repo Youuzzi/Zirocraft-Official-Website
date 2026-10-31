@@ -4,8 +4,6 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-
-      {/* Hero Section */}
       <section className="relative isolate overflow-hidden bg-[#101828] text-white">
         <div
           aria-hidden="true"

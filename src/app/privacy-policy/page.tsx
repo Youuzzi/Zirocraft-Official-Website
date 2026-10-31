@@ -81,7 +81,7 @@ const sections = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="border-b border-border bg-surface py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -171,6 +171,6 @@ export default function PrivacyPolicyPage() {
           </aside>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

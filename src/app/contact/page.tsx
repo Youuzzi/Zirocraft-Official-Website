@@ -4,7 +4,7 @@ const contactEmail = "zirocraftid@gmail.com";
 
 export default function ContactPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -134,6 +134,6 @@ export default function ContactPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
