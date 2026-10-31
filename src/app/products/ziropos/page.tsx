@@ -303,6 +303,128 @@ export default function ZiroPOSPage() {
           </div>
         </div>
       </section>
+
+      {/* Business Environments */}
+      <section className="bg-surface py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+              Business Environments
+            </span>
+
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Designed around different ways of doing business.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-muted">
+              Every business operates differently. ZiroPOS is being developed
+              with different business environments and operational needs in
+              mind.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {businessTypes.map((business) => (
+              <article
+                key={business.number}
+                className="rounded-2xl border border-border bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
+              >
+                <span className="text-sm font-semibold text-accent">
+                  {business.number}
+                </span>
+
+                <h3 className="mt-8 text-xl font-semibold text-foreground">
+                  {business.title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-muted">
+                  {business.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Principles */}
+      <section className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+              Product Principles
+            </span>
+
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Built on principles that support business growth.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-muted">
+              The direction of ZiroPOS is guided by a few fundamental principles
+              that shape its architecture and product experience.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-3">
+            {principles.map((principle) => (
+              <article
+                key={principle.number}
+                className="border-t border-border pt-7"
+              >
+                <span className="text-sm font-semibold text-accent">
+                  {principle.number}
+                </span>
+
+                <h3 className="mt-5 text-2xl font-semibold text-foreground">
+                  {principle.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-muted">
+                  {principle.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="relative isolate overflow-hidden bg-[#101828] py-24 text-white sm:py-28">
+        <div
+          aria-hidden="true"
+          className="absolute -right-32 -top-40 -z-10 h-[450px] w-[450px] rounded-full bg-blue-600/20 blur-[120px]"
+        />
+
+        <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
+          <span className="text-sm font-semibold tracking-[0.16em] text-blue-400 uppercase">
+            Explore ZiroPOS
+          </span>
+
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl leading-tight font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            Building a more structured way to manage business operations.
+          </h2>
+
+          <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+            Discover the direction of ZiroPOS and learn how Zirocraft is
+            developing technology for different business needs.
+          </p>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-blue-600 px-7 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+            >
+              Talk to Our Team
+            </Link>
+
+            <Link
+              href="/products"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Explore Our Products
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
