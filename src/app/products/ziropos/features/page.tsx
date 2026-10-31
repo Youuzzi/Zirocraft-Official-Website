@@ -310,6 +310,339 @@ export default function ZiroPOSFeaturesPage() {
           </div>
         </div>
       </section>
+
+      {/* Operational Workflow & Control */}
+      <section className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+              Operational Workflow & Control
+            </span>
+
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Connected workflows for everyday business operations.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-muted">
+              Daily business activities involve more than individual
+              transactions. ZiroPOS is being developed to support connected
+              workflows that bring sales, payments, team coordination, and
+              operational oversight into a structured environment.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-5 md:grid-cols-2">
+            {[
+              {
+                number: "01",
+                title: "Sales & Orders",
+                description:
+                  "Support for recording sales activities and managing order workflows across different business environments.",
+              },
+              {
+                number: "02",
+                title: "Payment Processing",
+                description:
+                  "A structured approach to recording payments and tracking transaction completion.",
+              },
+              {
+                number: "03",
+                title: "Team Coordination",
+                description:
+                  "Operational responsibilities designed to connect relevant team members throughout daily workflows.",
+              },
+              {
+                number: "04",
+                title: "Operational Oversight",
+                description:
+                  "A foundation for monitoring business activities and supporting authorized operational supervision.",
+              },
+            ].map((workflow) => (
+              <article
+                key={workflow.number}
+                className="group rounded-2xl border border-border bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:bg-white hover:shadow-md sm:p-9"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-accent">
+                    {workflow.number}
+                  </span>
+
+                  <span
+                    aria-hidden="true"
+                    className="h-px w-12 bg-blue-200 transition-all duration-300 group-hover:w-20 group-hover:bg-blue-500"
+                  />
+                </div>
+
+                <h3 className="mt-8 text-xl font-semibold text-foreground sm:text-2xl">
+                  {workflow.title}
+                </h3>
+
+                <p className="mt-4 max-w-xl text-sm leading-7 text-muted">
+                  {workflow.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-3xl bg-[#101828] p-8 text-white sm:p-10">
+            <span className="text-xs font-semibold tracking-[0.16em] text-blue-400 uppercase">
+              Connected Operations
+            </span>
+
+            <h3 className="mt-5 max-w-2xl text-2xl leading-tight font-semibold tracking-tight sm:text-3xl">
+              Every operational activity should have a clear place in the bigger
+              business picture.
+            </h3>
+
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-300">
+              The ZiroPOS product direction emphasizes structured workflows,
+              clear responsibilities, and better visibility across business
+              operations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Operational Visibility & Accountability */}
+      <section className="bg-surface py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
+            <div>
+              <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+                Operational Visibility & Accountability
+              </span>
+
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                Clear responsibilities. More accountable operations.
+              </h2>
+
+              <p className="mt-6 text-lg leading-8 text-muted">
+                Business operations require more than access to information.
+                They also require clear responsibilities and traceable actions.
+                ZiroPOS is being developed with operational accountability as an
+                important part of its foundation.
+              </p>
+            </div>
+
+            <div className="space-y-5">
+              {[
+                {
+                  number: "01",
+                  title: "Activity History",
+                  description:
+                    "A structured history of important operational activities to support better visibility into business changes.",
+                },
+                {
+                  number: "02",
+                  title: "Sensitive Action Tracking",
+                  description:
+                    "A product direction that emphasizes traceability for sensitive activities such as discounts, voids, and refunds.",
+                },
+                {
+                  number: "03",
+                  title: "Approval & Responsibility",
+                  description:
+                    "A foundation for controlled approvals and clearly identified responsibility when sensitive actions require authorization.",
+                },
+                {
+                  number: "04",
+                  title: "Structured Access",
+                  description:
+                    "Access to operational actions is designed around defined roles, capabilities, and permissions.",
+                },
+              ].map((item) => (
+                <article
+                  key={item.number}
+                  className="flex gap-5 rounded-2xl border border-border bg-white p-6 transition-all duration-300 hover:border-blue-200 hover:shadow-md sm:p-7"
+                >
+                  <span className="pt-1 text-sm font-semibold text-accent">
+                    {item.number}
+                  </span>
+
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-muted">
+                      {item.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-20 rounded-3xl border border-blue-100 bg-blue-50/70 p-8 sm:p-10">
+            <p className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+              Built Around Accountability
+            </p>
+
+            <h3 className="mt-5 max-w-3xl text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              Important business actions should be visible, traceable, and
+              connected to clear responsibilities.
+            </h3>
+
+            <p className="mt-5 max-w-3xl text-sm leading-7 text-muted">
+              This principle helps establish a more structured operational
+              environment where business activities can be reviewed with greater
+              clarity.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Subscription & Business Capabilities */}
+      <section className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+              Subscription & Business Capabilities
+            </span>
+
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Flexible capabilities for different business needs.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-muted">
+              Not every business needs the same operational tools. ZiroPOS
+              follows a configurable platform direction where subscription plans
+              and business capabilities work together to accommodate different
+              business requirements.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                number: "01",
+                title: "Business Requirements",
+                description:
+                  "Different business types and operational scales can have different requirements, from essential sales activities to more complex store operations.",
+              },
+              {
+                number: "02",
+                title: "Subscription Plans",
+                description:
+                  "Subscription plans define the service arrangement and determine which platform entitlements are included.",
+              },
+              {
+                number: "03",
+                title: "Platform Capabilities",
+                description:
+                  "Capabilities represent the business features and operational tools made available according to the platform configuration.",
+              },
+            ].map((item) => (
+              <article
+                key={item.number}
+                className="rounded-2xl border border-border bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:bg-white hover:shadow-md sm:p-9"
+              >
+                <span className="text-sm font-semibold text-accent">
+                  {item.number}
+                </span>
+
+                <h3 className="mt-8 text-xl font-semibold text-foreground sm:text-2xl">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-muted">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-16 overflow-hidden rounded-3xl bg-[#101828] p-8 text-white sm:p-12">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+              <div>
+                <span className="text-xs font-semibold tracking-[0.16em] text-blue-400 uppercase">
+                  Configurable Platform
+                </span>
+
+                <h3 className="mt-5 text-2xl font-semibold tracking-tight sm:text-3xl">
+                  One platform, adaptable to different operational needs.
+                </h3>
+
+                <p className="mt-5 text-sm leading-7 text-slate-300">
+                  The goal is to provide businesses with a platform structure
+                  that can evolve alongside their operational requirements,
+                  without forcing every customer into the same configuration.
+                </p>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  "Business Type",
+                  "Business Scale",
+                  "Subscription",
+                  "Capabilities",
+                ].map((item, index) => (
+                  <div
+                    key={item}
+                    className="rounded-xl border border-white/10 bg-white/5 p-5"
+                  >
+                    <span className="text-xs font-semibold text-blue-400">
+                      0{index + 1}
+                    </span>
+                    <p className="mt-3 text-sm font-semibold text-white">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="relative isolate overflow-hidden bg-[#101828] py-24 text-white sm:py-32">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 opacity-20"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-40 -right-40 -z-10 h-[420px] w-[420px] rounded-full bg-blue-600/20 blur-[120px]"
+        />
+
+        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+          <span className="text-sm font-semibold tracking-[0.16em] text-blue-400 uppercase">
+            Explore ZiroPOS
+          </span>
+
+          <h2 className="mt-6 text-3xl leading-tight font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            Building a more connected way to manage business operations.
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            Discover the direction behind ZiroPOS and how its platform
+            architecture is being developed to support different business
+            environments and operational needs.
+          </p>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/products/ziropos"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-blue-600 px-7 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+            >
+              Explore ZiroPOS
+            </Link>
+
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Talk to Our Team
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
