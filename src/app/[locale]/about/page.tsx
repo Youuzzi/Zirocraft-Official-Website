@@ -1,30 +1,20 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-export async function generateMetadata({ params }: PageProps<"/[locale]/about">): Promise<Metadata> {
-  const { locale } = await params;
-  return locale === "id"
-    ? { title: "Tentang Zirocraft", description: "Kenali Zirocraft dan pendekatannya dalam membangun teknologi praktis." }
-    : { title: "About Zirocraft", description: "Learn about Zirocraft and its approach to building practical technology." };
-}
-
-export default async function AboutPage({ params }: PageProps<"/[locale]/about">) {
-  const { locale } = await params;
-  if (locale !== "id" && locale !== "en") notFound();
-  const id = locale === "id";
-  const principles = id ? [
-    ["01", "Praktis", "Berfokus pada kebutuhan nyata dan masalah operasional."],
-    ["02", "Adaptif", "Dikembangkan dengan mempertimbangkan kebutuhan bisnis yang terus berubah."],
-    ["03", "Berkelanjutan", "Mengutamakan rekayasa yang terarah dan pengembangan jangka panjang."]
-  ] : [
-    ["01", "Practical", "Focused on real needs and operational challenges."],
-    ["02", "Adaptable", "Developed with changing business needs in mind."],
-    ["03", "Maintainable", "Thoughtful engineering for sustainable long-term development."]
-  ];
-  return <>
-    <section className="bg-[#101828] py-24 text-white sm:py-32"><div className="mx-auto max-w-7xl px-6 lg:px-8"><span className="text-sm font-semibold tracking-[0.16em] text-blue-300 uppercase">{id ? "Tentang Kami" : "Who We Are"}</span><h1 className="mt-6 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-6xl">{id ? "Membangun teknologi praktis untuk bisnis yang berkembang." : "Building practical technology for growing businesses."}</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">{id ? "Zirocraft adalah perusahaan teknologi yang berfokus pada pengembangan solusi digital untuk kebutuhan operasional nyata." : "Zirocraft is a technology company focused on developing digital solutions for real operational needs."}</p></div></section>
-    <section className="bg-white py-20 sm:py-28"><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="max-w-3xl"><h2 className="text-3xl font-semibold tracking-tight text-foreground">{id ? "Pendekatan kami" : "Our approach"}</h2><p className="mt-6 text-lg leading-8 text-muted">{id ? "Kami percaya teknologi yang baik harus membantu menyelesaikan masalah, mudah beradaptasi, dan dapat dikembangkan secara bertanggung jawab." : "We believe good technology should solve problems, adapt to changing needs, and be developed responsibly."}</p></div><div className="mt-14 grid gap-6 md:grid-cols-3">{principles.map(([number,title,description])=><article key={number} className="rounded-2xl border border-border p-8"><span className="text-sm font-semibold text-accent">{number}</span><h3 className="mt-6 text-xl font-semibold text-foreground">{title}</h3><p className="mt-3 leading-7 text-muted">{description}</p></article>)}</div></div></section>
-    <section className="bg-surface px-6 py-20 text-center"><h2 className="text-3xl font-semibold text-foreground">{id ? "Kenali produk Zirocraft" : "Explore Zirocraft products"}</h2><Link href={`/${locale}/products`} className="mt-7 inline-flex rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white hover:bg-accent-hover">{id ? "Lihat portofolio produk" : "View product portfolio"}</Link></section>
-  </>;
+const posImage="https://images.unsplash.com/photo-1742836531271-98fd8151d257?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
+const warehouseImage="https://images.pexels.com/photos/6170405/pexels-photo-6170405.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-6170405.jpg&fm=jpg";
+export async function generateMetadata({params}:PageProps<"/[locale]/about">):Promise<Metadata>{const {locale}=await params;return locale==="id"?{title:"Tentang Zirocraft",description:"Kenali Zirocraft dan pendekatannya dalam membangun teknologi praktis."}:{title:"About Zirocraft",description:"Learn about Zirocraft and its approach to building practical technology."};}
+export default async function AboutPage({params}:PageProps<"/[locale]/about">){
+ const {locale}=await params;if(locale!=="id"&&locale!=="en")notFound();const id=locale==="id";
+ const principles=id?[["01","Praktis","Berfokus pada kebutuhan nyata dan masalah operasional."],["02","Adaptif","Mempertimbangkan kebutuhan bisnis yang terus berubah."],["03","Terpelihara","Mengutamakan rekayasa yang terarah dan pengembangan jangka panjang."]]:[["01","Practical","Focused on real needs and operational challenges."],["02","Adaptable","Built with changing business needs in mind."],["03","Maintainable","Thoughtful engineering for sustainable long-term development."]];
+ return <>
+ <section className="bg-[#f7f8fa] py-20 sm:py-28"><div className="site-container grid items-end gap-10 lg:grid-cols-[1.1fr_.9fr]"><div><span className="eyebrow">{id?"Tentang Zirocraft":"About Zirocraft"}</span><h1 className="display-heading mt-7 max-w-4xl text-5xl font-semibold sm:text-7xl">{id?"Teknologi yang berangkat dari kebutuhan nyata.":"Technology that starts with real needs."}</h1></div><p className="body-copy max-w-xl text-lg">{id?"Zirocraft berfokus pada pengembangan solusi digital yang membantu menjawab tantangan operasional di berbagai bidang.":"Zirocraft focuses on developing digital solutions that help address operational challenges across different fields."}</p></div></section>
+ <section className="section-space bg-white"><div className="site-container grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+ <div className="relative grid grid-cols-[1fr_.72fr] items-end gap-4"><div className="image-frame relative aspect-[4/5] rounded-[1.5rem]"><Image src={posImage} alt={id?"Lingkungan operasional kasir retail":"Retail point-of-sale environment"} fill sizes="(max-width:1024px) 60vw,35vw" className="object-cover"/></div><div className="image-frame relative mb-10 aspect-[3/4] rounded-[1.5rem]"><Image src={warehouseImage} alt={id?"Aktivitas pemeriksaan barang di gudang":"Warehouse inventory inspection activity"} fill sizes="(max-width:1024px) 45vw,25vw" className="object-cover"/></div><span className="absolute -bottom-5 left-4 text-[10px] font-bold uppercase tracking-[.18em] text-[#667085]">Zirocraft / Portfolio</span></div>
+ <div><span className="eyebrow">{id?"Siapa kami":"Who we are"}</span><h2 className="display-heading mt-6 text-4xl font-semibold sm:text-5xl">{id?"Membangun solusi, bukan sekadar menambah teknologi.":"Building solutions, not technology for its own sake."}</h2><p className="body-copy mt-7 text-lg">{id?"Kami melihat teknologi sebagai alat untuk membuat proses kerja lebih terstruktur, membantu bisnis memahami operasionalnya, dan membuka ruang untuk berkembang. Fokus tersebut tercermin dalam portofolio produk yang sedang kami kembangkan.":"We see technology as a way to make work more structured, help businesses understand their operations, and create room to grow. That focus is reflected in the product portfolio we are developing."}</p></div>
+ </div></section>
+ <section className="section-space bg-[#f0f2f6]"><div className="site-container"><div className="max-w-2xl"><span className="eyebrow">{id?"Prinsip kami":"Our principles"}</span><h2 className="display-heading mt-6 text-4xl font-semibold sm:text-5xl">{id?"Nilai yang memandu proses pengembangan.":"Principles that guide how we build."}</h2></div><div className="mt-12 grid gap-0 border-t border-[#d9dee7] md:grid-cols-3">{principles.map(([number,title,description])=><article key={number} className="border-b border-[#d9dee7] py-8 md:border-b-0 md:border-r md:px-8 md:py-10 md:first:pl-0 md:last:border-r-0"><span className="text-xs font-bold tracking-[.18em] text-[#3157d5]">{number}</span><h3 className="mt-6 text-2xl font-semibold">{title}</h3><p className="body-copy mt-3">{description}</p></article>)}</div></div></section>
+ <section className="bg-[#111827] py-16 text-white"><div className="site-container flex flex-col justify-between gap-8 md:flex-row md:items-center"><div><span className="text-xs font-bold uppercase tracking-[.18em] text-[#a9baf7]">{id?"Portofolio kami":"Our portfolio"}</span><h2 className="mt-4 text-3xl font-semibold">{id?"Dua bidang operasional. Satu arah pengembangan.":"Two operational fields. One direction."}</h2></div><Link href={"/"+locale+"/products"} className="button-primary w-fit bg-white text-[#111827] hover:bg-[#e9edf5]">{id?"Jelajahi produk":"Explore products"} ↗</Link></div></section>
+ </>;
 }

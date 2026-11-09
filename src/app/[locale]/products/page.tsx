@@ -1,29 +1,20 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { products, productText } from "@/lib/products";
-
-export async function generateMetadata({ params }: PageProps<"/[locale]/products">): Promise<Metadata> {
-  const { locale } = await params;
-  return locale === "id"
-    ? { title: "Produk", description: "Jelajahi produk Zirocraft untuk mendukung operasional bisnis dan pergudangan." }
-    : { title: "Products", description: "Explore Zirocraft products for business and warehouse operations." };
-}
-
-export default async function ProductsPage({ params }: PageProps<"/[locale]/products">) {
-  const { locale } = await params;
-  if (locale !== "id" && locale !== "en") notFound();
-  const t = getDictionary(locale);
-  return <>
-    <section className="bg-[#101828] py-24 text-white sm:py-32"><div className="mx-auto max-w-7xl px-6 lg:px-8">
-      <span className="text-sm font-semibold tracking-[0.16em] text-blue-300 uppercase">{t.products.eyebrow}</span><h1 className="mt-6 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-6xl">{t.products.title}</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">{t.products.description}</p>
-    </div></section>
-    <section className="bg-white py-20 sm:py-28"><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="grid gap-6 md:grid-cols-2">
-      {products.map((product) => { const copy = productText(product, locale); return <article key={product.slug} className="overflow-hidden rounded-3xl border border-border bg-white">
-        <div className="bg-[#101828] p-8 text-white sm:p-10"><span className="text-xs font-semibold uppercase tracking-wider text-blue-300">{copy.category}</span><h2 className="mt-8 text-3xl font-semibold">{product.name}</h2><p className="mt-4 max-w-lg leading-7 text-slate-300">{copy.summary}</p></div>
-        <div className="p-8 sm:p-10"><span className="inline-flex rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800">{t.home.status}</span><p className="mt-5 leading-7 text-muted">{copy.description}</p><Link href={`/${locale}/products/${product.slug}`} className="mt-7 inline-flex font-semibold text-accent hover:text-accent-hover">{t.home.learnMore} <span aria-hidden="true" className="ml-2">→</span></Link></div>
-      </article>})}
-    </div></div></section>
-  </>;
+const posImage="https://images.unsplash.com/photo-1742836531271-98fd8151d257?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
+const warehouseImage="https://images.pexels.com/photos/6170405/pexels-photo-6170405.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-6170405.jpg&fm=jpg";
+export async function generateMetadata({params}:PageProps<"/[locale]/products">):Promise<Metadata>{const {locale}=await params;return locale==="id"?{title:"Produk",description:"Jelajahi produk Zirocraft untuk mendukung operasional bisnis dan pergudangan."}:{title:"Products",description:"Explore Zirocraft products for business and warehouse operations."};}
+export default async function ProductsPage({params}:PageProps<"/[locale]/products">){
+ const {locale}=await params;if(locale!=="id"&&locale!=="en")notFound();const t=getDictionary(locale);const id=locale==="id";
+ return <>
+ <section className="bg-[#f7f8fa] py-20 sm:py-28"><div className="site-container grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end"><div><span className="eyebrow">{t.products.eyebrow}</span><h1 className="display-heading mt-7 max-w-4xl text-5xl font-semibold sm:text-7xl">{t.products.title}</h1></div><p className="body-copy max-w-xl text-lg">{t.products.description}</p></div></section>
+ <section className="section-space bg-white"><div className="site-container space-y-10">{products.map((product,index)=>{const copy=productText(product,locale);const isPos=product.slug==="ziropos";return <article key={product.slug} className="grid overflow-hidden rounded-[1.7rem] border border-[#e3e7ed] lg:grid-cols-[1.02fr_.98fr]">
+ <div className={"image-frame relative min-h-[300px] "+(index===1?"lg:order-2":"")}><Image src={isPos?posImage:warehouseImage} alt={isPos?(id?"Perangkat tablet pada area kasir":"Tablet at a retail checkout"):(id?"Pekerja memeriksa paket di gudang":"Worker inspecting parcels in a warehouse")} fill sizes="(max-width:1024px) 100vw,50vw" className="object-cover"/></div>
+ <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14"><div className="flex flex-wrap items-center justify-between gap-3"><span className={"text-xs font-bold uppercase tracking-[.16em] "+(isPos?"text-[#167c78]":"text-[#c47732]")}>{copy.category}</span><span className="rounded-full bg-[#f2f4f7] px-3 py-1.5 text-[10px] font-semibold text-[#667085]">{t.home.status}</span></div><h2 className="mt-7 text-4xl font-semibold tracking-tight">{product.name}</h2><p className="body-copy mt-5 text-base">{copy.summary}</p><p className="body-copy mt-4 text-sm">{copy.description}</p><Link href={"/"+locale+"/products/"+product.slug} className="mt-8 inline-flex w-fit items-center gap-3 text-sm font-semibold text-[#111827] transition-colors hover:text-[#3157d5]">{t.home.learnMore}<span aria-hidden="true">↗</span></Link></div>
+ </article>})}</div></section>
+ <section className="bg-[#f0f2f6] py-16"><div className="site-container flex flex-col justify-between gap-6 md:flex-row md:items-center"><p className="max-w-2xl text-xl font-medium leading-relaxed text-[#344054]">{id?"Portofolio akan berkembang seiring kebutuhan dan arah pengembangan Zirocraft.":"The portfolio will evolve alongside Zirocraft's needs and development direction."}</p><Link href={"/"+locale+"/contact"} className="button-primary w-fit">{t.home.contact} ↗</Link></div></section>
+ </>;
 }
