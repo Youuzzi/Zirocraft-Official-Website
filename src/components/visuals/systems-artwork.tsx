@@ -14,7 +14,7 @@ export default function SystemsArtwork({ compact = false, variant = "company" }:
   const systemId = variant === "company" ? "SYSTEM 01" : variant === "pos" ? "POS 01" : "WMS 01";
 
   return (
-    <div className="system-panel relative min-h-[390px] w-full" aria-label={palette.label}>
+    <div className={`system-panel relative w-full ${compact ? "min-h-[260px]" : "min-h-[390px]"}`} aria-label={palette.label}>
       <div className="absolute left-6 top-6 z-10 flex items-center gap-3 font-mono text-[10px] tracking-[.16em] text-white/55 sm:left-8 sm:top-8">
         <span className="h-2 w-2 rounded-full" style={{ backgroundColor: palette.accent }} />
         <span>ZIROCRAFT / {systemId}</span>

@@ -44,9 +44,10 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           {products.map((product, index) => {
             const copy = productText(product, locale);
             const pos = product.slug === "ziropos";
-            return <article key={product.slug} className="group flex min-h-[430px] flex-col justify-between bg-[#f8f7f3] p-8 sm:p-12">
+            return <article key={product.slug} className="group flex min-h-[650px] flex-col bg-[#f8f7f3] p-6 sm:p-10">
               <div className="flex items-start justify-between gap-5"><span className={"font-mono text-[10px] tracking-[.16em] "+(pos ? "text-[#167c78]" : "text-[#b36b2d]")}>0{index+1} / {pos ? "COMMERCE" : "WAREHOUSE"}</span><span className="border border-[#d8d6d0] px-3 py-1.5 font-mono text-[9px] uppercase tracking-[.12em] text-[#69717b]">{t.home.status}</span></div>
-              <div className="py-12"><div className={"mb-7 grid h-12 w-12 place-items-center border-2 "+(pos ? "border-[#167c78]" : "border-[#c47732]")}><span className={"font-mono text-sm "+(pos ? "text-[#167c78]" : "text-[#c47732]")}>{pos ? "P" : "W"}</span></div><h3 className="display-heading text-4xl font-semibold sm:text-5xl">{product.name}</h3><p className="mt-3 font-mono text-[10px] uppercase tracking-[.12em] text-[#69717b]">{copy.category}</p><p className="body-copy mt-6 max-w-lg">{copy.summary}</p></div>
+              <div className="my-8"><SystemsArtwork compact variant={pos ? "pos" : "warehouse"} /></div>
+              <div className="flex-1 pb-8"><h3 className="display-heading text-4xl font-semibold sm:text-5xl">{product.name}</h3><p className="mt-3 font-mono text-[10px] uppercase tracking-[.12em] text-[#69717b]">{copy.category}</p><p className="body-copy mt-6 max-w-lg">{copy.summary}</p></div>
               <Link href={"/"+locale+"/products/"+product.slug} className="flex items-center justify-between border-t border-[#d8d6d0] pt-5 text-sm font-semibold"><span>{t.home.learnMore}</span><span className="text-xl transition-transform group-hover:translate-x-2" aria-hidden="true">↗</span></Link>
             </article>;
           })}
