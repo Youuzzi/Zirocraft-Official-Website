@@ -23,6 +23,8 @@ Core visual language:
 - Product catalogue and detail pages distinguish POS and WMS and clearly state development status.
 - Contact page uses the confirmed contact email and does not simulate a non-functional form.
 - Shared navigation, mobile disclosure, language switching, footer, and legal page layouts updated.
+- Navigation now keeps the compact disclosure menu through tablet widths and switches to the full desktop navigation at the large breakpoint.
+- Added a keyboard-accessible skip-to-content link and removed the unconfirmed temporary domain from `metadataBase` until the production domain is verified.
 - Product information remains centralized in `src/lib/products.ts`.
 - Product-specific SVG storytelling now differs structurally: POS transaction/payment/record flow, WMS storage/rack/dispatch flow, and a separate connected-systems composition for the company.
 - Homepage portfolio panels now include the corresponding POS and WMS visual systems instead of generic letter marks.
@@ -60,6 +62,6 @@ No local execution by the assistant is claimed. Do not mark these checks passed 
 1. Pull the current feature branch and run the local quality gates.
 2. Review the homepage at desktop, tablet, and mobile widths; pay particular attention to the taller illustrated portfolio panels.
 3. Audit About, Products, product details, Contact, and legal pages for visual rhythm and responsive behavior.
-4. Refine typography, spacing, image choices, and navigation based on rendered screenshots.
+4. Refine typography, spacing, image choices, and navigation based on rendered screenshots, including tablet navigation behavior.
 5. Verify image source-to-file mapping and legal/metadata launch requirements.
 6. Re-run quality gates and obtain owner visual acceptance before merging to `main`.
