@@ -62,3 +62,10 @@ They do not establish:
 The repository's `AGENTS.md` requires reading the relevant documentation shipped with the locally installed Next.js package before making further Next.js application-source changes. The installed package is Next.js 16.4.3.
 
 Before the next source-code implementation pass, make the relevant local documentation under `node_modules/next/dist/docs/` available for review. Do not rely solely on generic or older Next.js documentation.
+
+
+## 6. Navigation interaction follow-up
+
+A small client-side disclosure wrapper now manages the existing native `details/summary` menus. It closes after selecting a destination, on outside pointer interaction, on Escape (restoring focus to the summary), and after route changes. This retains native disclosure semantics while improving desktop and mobile menu behavior.
+
+Owner-side lint, TypeScript, production-build, and browser checks are required after pulling the updated branch. Keyboard, touch, and screen-reader behavior remain unverified until browser QA.
