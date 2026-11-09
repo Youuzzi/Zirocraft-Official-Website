@@ -92,3 +92,33 @@ This is owner-reported local runtime/build evidence, not an independent executio
 Commit `288855021530e6abdc71c841a69bdf1986574f90` centralizes the two existing illustrative Unsplash image sources in `src/lib/site-images.ts`. Homepage, About, product catalogue, product detail, and Contact now import the shared image configuration rather than duplicating long URLs. The existing images and their illustrative role are unchanged. Source image requests are bounded to 2000px wide at quality 75; Next.js `Image` continues to handle responsive rendering.
 
 This is a source-maintenance change only. No claim is made that image loading speed, Core Web Vitals, or visual quality has been measured. Owner-side lint, TypeScript, and production-build checks are required after pulling this commit.
+
+
+## 9. Editorial systems redesign — implementation record
+
+The redesign implementation has now moved beyond the initial incremental visual polish. The following source changes were committed on `feature/corporate-product-portfolio`:
+
+| Commit | Scope |
+|---|---|
+| `8d6555e` | Replaced the global visual foundation and added reusable SVG systems artwork |
+| `6c643ec` | Rebuilt the homepage around the “The Systems Behind Business” concept |
+| `166e0aa` | Rebuilt About, product catalogue, product detail, and Contact pages; updated the visual direction and image register |
+| `b4cab2a` | Reworked the shared navbar, footer, and legal page layouts |
+
+The active visual system uses warm paper, deep ink, cobalt signal, and distinct teal/amber product accents. Product illustrations are original conceptual SVG diagrams and must not be represented as actual product interfaces.
+
+## 10. Current verification status
+
+The commits above have been written to the feature branch through the GitHub repository API. They have **not** yet been pulled and tested in the repository owner's local environment after this redesign pass.
+
+Required owner-side checks after pulling the latest branch:
+
+- `npm run lint`
+- `npx tsc --noEmit`
+- `npm run build`
+
+Browser review is also required for desktop/mobile composition, menu interactions, image loading, contrast, keyboard navigation, and reduced-motion behavior. No visual QA or new build pass is claimed by this record.
+
+## 11. External image source review
+
+The Unsplash source pages for the existing retail and warehouse reference candidates were checked. The retail page credits Blake Wisz and the warehouse page credits Russ Murray. Unsplash states its license allows free personal and commercial use, but recognizable people, brands, logos, and other protected material shown in a photograph may require separate permissions. The exact mapping between the existing CDN image URLs in `src/lib/site-images.ts` and these source pages still needs to be verified before the register treats them as confirmed exact matches.
