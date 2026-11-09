@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = { title: "About Zirocraft", description: "Learn about Zirocraft and its approach to building practical technology." };
+export async function generateMetadata({ params }: PageProps<"/[locale]/about">): Promise<Metadata> {
+  const { locale } = await params;
+  return locale === "id"
+    ? { title: "Tentang Zirocraft", description: "Kenali Zirocraft dan pendekatannya dalam membangun teknologi praktis." }
+    : { title: "About Zirocraft", description: "Learn about Zirocraft and its approach to building practical technology." };
+}
 
 export default async function AboutPage({ params }: PageProps<"/[locale]/about">) {
   const { locale } = await params;
