@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = { title: "Terms of Service", description: "Terms for accessing and using the Zirocraft website." };
-const sections = {
+type LegalSection = [string, string[]];
+const sections: Record<"en" | "id", LegalSection[]> = {
   en: [
     ["1. Acceptance of These Terms", ["These Terms govern your access to and use of the Zirocraft website. By using the website, you acknowledge that you have read and understood them. If you do not agree, discontinue use."]],
     ["2. About Zirocraft", ["Zirocraft is a technology company focused on practical technology solutions for growing businesses. This website provides general information about Zirocraft, its products, and business activities."]],
