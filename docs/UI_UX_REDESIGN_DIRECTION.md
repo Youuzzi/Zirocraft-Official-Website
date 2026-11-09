@@ -1,6 +1,6 @@
 # Zirocraft Website — Visual Redesign Direction
 
-**Document:** Visual Redesign Direction v1.1  
+**Document:** Visual Redesign Direction v1.0  
 **Status:** Approved design direction for implementation  
 **Target branch:** `feature/corporate-product-portfolio`  
 **Scope:** Full visual and interaction redesign of the corporate website
@@ -17,8 +17,6 @@ The redesign is structural, not cosmetic: page composition, typography, spacing,
 
 Use a light-first visual language with strong typography, generous whitespace, precise alignment, subtle technical motifs, and a restrained accent palette.
 
-The experience must be visually engaging, not sparse or text-only. Clean design means deliberate hierarchy and composition—not removing visual content. Balance whitespace with photography, original illustrations, layered compositions, and meaningful interaction. The site should feel complete and memorable while remaining calm and professional.
-
 The experience should feel:
 - **Confident:** clear statements and strong hierarchy, without exaggerated marketing language.
 - **Considered:** editorial layouts, intentional whitespace, and fewer but more meaningful components.
@@ -30,7 +28,7 @@ Avoid:
 - Repeating the same navy full-width hero on every page.
 - Blue gradients, glowing blobs, and grid backgrounds as the default visual identity.
 - Generic SaaS dashboard mockups that could be mistaken for real product screenshots.
-- Excessive pill badges, rounded cards, decorative borders, oversized empty hero sections, and long uninterrupted text-only sections.
+- Excessive pill badges, rounded cards, decorative borders, and oversized empty hero sections.
 - Fake metrics, client logos, testimonials, awards, release dates, or unsupported product capabilities.
 
 ## 3. Visual system
@@ -65,12 +63,9 @@ Product accents are navigational/illustrative cues, not separate brands. Keep lo
 
 - Prefer clean rectangular compositions with moderate corner radii over rounding every component.
 - Use shadows only to establish hierarchy for overlays or floating navigation.
-- Mix photography, original generated artwork, and abstract CSS/SVG compositions. The site must not become a text-only editorial layout.
-- Use photography selectively: people working with technology, retail and point-of-sale environments, warehouse operations, logistics, inventory handling, and collaborative workspaces. Choose images with coherent lighting, composition, and color treatment so they feel like one visual system.
-- Use licensed imagery from reputable sources such as Unsplash or Pexels, or generate original visuals when a more specific art direction is needed. Check the applicable license and any depicted-person, trademark, or property restrictions before publication; do not imply that pictured people or businesses are Zirocraft customers or endorsers.
-- Keep a small asset register documenting each external image's source page, creator when available, license/source, and intended use. Prefer downloading and hosting approved assets locally rather than depending on fragile hotlinked image URLs.
-- Generate custom conceptual visuals for product-specific sections where stock photography would be generic or misleading. They may express operational concepts, but must never be presented as actual product screenshots or deployed features.
-- Use the official logo assets only; no invented product screenshots, customer logos, or customer imagery.
+- Create abstract CSS/SVG compositions that express systems, flow, inventory, and connected operations.
+- Never present conceptual graphics as actual application UI.
+- Use the official logo assets only; no invented product screenshots or customer imagery.
 
 ## 4. Global shell
 
@@ -143,16 +138,11 @@ Keep the pages visually consistent with the new shell, but prioritize clarity an
 
 ## 6. Interaction and motion
 
-Motion is part of the visual identity, not an afterthought. Use it to make the interface feel polished and responsive, while keeping content immediately accessible.
-
-- Use purposeful hover, focus, and pressed states, including small movement or depth changes on interactive elements.
-- Use restrained entrance reveals for section content, image masks, subtle staggered sequences, and transitions between meaningful interface states.
-- Use product-specific micro-animations in conceptual artwork—for example, a restrained flow path or inventory movement for ZiroLogistics, and connected transaction/operation signals for ZiroPOS. These are explanatory visual metaphors, not claims about implemented product behavior.
-- Use smooth menu/dropdown transitions, button feedback, and carefully timed page/route transitions where supported by the installed framework.
-- Prefer performant animation properties such as opacity and transform; avoid layout-thrashing effects and large continuous animations.
-- Respect `prefers-reduced-motion` by removing or substantially reducing non-essential movement.
-- Avoid scroll-jacking, parallax-heavy effects, rapid flashing, auto-playing media with sound, and animation that delays access to content.
-- All interactive elements must work by keyboard and touch; motion must never be the only way to understand a state or access information.
+- Use purposeful hover, focus, and pressed states.
+- Use subtle entrance or scroll-linked motion only where it improves comprehension.
+- Respect `prefers-reduced-motion`.
+- Avoid scroll-jacking, parallax-heavy effects, auto-playing media, and animation that delays access to content.
+- All interactive elements must work by keyboard and touch.
 - Dropdowns and mobile navigation must expose correct accessible state.
 
 ## 7. Responsive behavior
@@ -180,9 +170,6 @@ Design from small screens upward:
 - [ ] Desktop, tablet, and mobile layouts are deliberately composed and usable.
 - [ ] Header, dropdown, mobile menu, language switcher, and footer links work.
 - [ ] Keyboard focus, contrast, semantic structure, and reduced-motion behavior are reviewed.
-- [ ] The site uses a deliberate mix of photography, original artwork, and conceptual graphics; it does not feel sparse or text-only.
-- [ ] External imagery has a recorded source and license review; no image implies an unverified customer relationship.
-- [ ] Motion is purposeful, performant, accessible, and respects reduced-motion preferences.
 - [ ] Conceptual graphics cannot be mistaken for product screenshots.
 - [ ] No unsupported business or product claims are introduced.
 - [ ] Lint, TypeScript, and production build pass after implementation.
