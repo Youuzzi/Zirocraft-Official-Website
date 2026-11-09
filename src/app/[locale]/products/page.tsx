@@ -4,7 +4,12 @@ import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { products, productText } from "@/lib/products";
 
-export const metadata: Metadata = { title: "Products", description: "Explore Zirocraft products for business and warehouse operations." };
+export async function generateMetadata({ params }: PageProps<"/[locale]/products">): Promise<Metadata> {
+  const { locale } = await params;
+  return locale === "id"
+    ? { title: "Produk", description: "Jelajahi produk Zirocraft untuk mendukung operasional bisnis dan pergudangan." }
+    : { title: "Products", description: "Explore Zirocraft products for business and warehouse operations." };
+}
 
 export default async function ProductsPage({ params }: PageProps<"/[locale]/products">) {
   const { locale } = await params;
