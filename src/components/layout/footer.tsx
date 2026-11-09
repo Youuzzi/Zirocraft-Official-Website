@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CurrentYear from "@/components/layout/current-year";
 import type { Locale } from "@/lib/i18n/dictionaries";
 
 type Props = {
@@ -48,7 +49,7 @@ export default function Footer({ locale, dictionary }: Props) {
         </div>
 
         <div className="mt-12 border-t border-border pt-6">
-          <p className="text-sm text-muted">© {new Date().getFullYear()} Zirocraft. {t.rights}</p>
+          <p className="text-sm text-muted">© <CurrentYear /> Zirocraft. {t.rights}</p>
         </div>
       </div>
     </footer>
