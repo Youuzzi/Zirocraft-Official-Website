@@ -1,11 +1,9 @@
 import Image from "next/image";
+import { siteImages } from "@/lib/site-images";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { products, productText } from "@/lib/products";
-
-const posImage = "https://images.unsplash.com/photo-1556740767-414a9c4860c1?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
-const warehouseImage = "https://images.unsplash.com/photo-1749244768351-2726dc23d26c?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -32,7 +30,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           <div className="absolute -right-5 -top-7 h-36 w-36 rounded-full border border-[#3157d5]/20" />
           <div className="absolute -bottom-8 -left-8 h-44 w-44 rounded-full bg-[#dfe7fb]" />
           <div className="image-frame relative aspect-[1.08/1] rounded-[2rem] shadow-[0_28px_80px_rgba(17,24,39,.13)]">
-            <Image src={posImage} alt={id ? "Perangkat tablet pada meja kasir toko" : "Tablet point-of-sale setup at a retail counter"} fill priority sizes="(max-width: 1024px) 100vw, 52vw" className="object-cover" />
+            <Image src={siteImages.retail} alt={id ? "Perangkat tablet pada meja kasir toko" : "Tablet point-of-sale setup at a retail counter"} fill priority sizes="(max-width: 1024px) 100vw, 52vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/50 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4 text-white sm:bottom-8 sm:left-8 sm:right-8">
               <div><span className="text-[10px] font-bold uppercase tracking-[.2em] text-white/75">Zirocraft / 01</span><p className="mt-2 text-xl font-semibold sm:text-2xl">{id ? "Teknologi untuk operasional" : "Technology for operations"}</p></div>
@@ -59,7 +57,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           const isPos = product.slug === "ziropos";
           return <article key={product.slug} className="group overflow-hidden rounded-[1.65rem] border border-[#e3e7ed] bg-white transition-transform duration-500 hover:-translate-y-1">
             <div className="image-frame relative aspect-[16/9]">
-              <Image src={isPos ? posImage : warehouseImage} alt={isPos ? (id ? "Perangkat kasir digital di lingkungan retail" : "Digital point-of-sale setup in a retail environment") : (id ? "Pekerja memeriksa paket di area gudang" : "Warehouse worker inspecting packages on shelves")} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+              <Image src={isPos ? siteImages.retail : siteImages.warehouse} alt={isPos ? (id ? "Perangkat kasir digital di lingkungan retail" : "Digital point-of-sale setup in a retail environment") : (id ? "Pekerja memeriksa paket di area gudang" : "Warehouse worker inspecting packages on shelves")} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
               <div className="absolute left-5 top-5 rounded-full border border-white/50 bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.16em] text-[#111827]">{isPos ? "01 / BUSINESS" : "02 / WAREHOUSE"}</div>
             </div>
             <div className="p-7 sm:p-9">
