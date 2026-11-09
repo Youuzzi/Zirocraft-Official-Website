@@ -69,3 +69,19 @@ Before the next source-code implementation pass, make the relevant local documen
 A small client-side disclosure wrapper now manages the existing native `details/summary` menus. It closes after selecting a destination, on outside pointer interaction, on Escape (restoring focus to the summary), and after route changes. This retains native disclosure semantics while improving desktop and mobile menu behavior.
 
 Owner-side lint, TypeScript, production-build, and browser checks are required after pulling the updated branch. Keyboard, touch, and screen-reader behavior remain unverified until browser QA.
+
+
+## 7. Owner-reported verification — navigation interaction follow-up
+
+After pulling commit `965164841546484ce4c7d8e628324135b9028a83`, the repository owner reported the following local checks on 2026-11-09:
+
+| Check | Result |
+|---|---|
+| `npm run lint` | Passed |
+| `npx tsc --noEmit` | Passed |
+| `npm run build` | Passed |
+| Next.js production compilation | Passed (Next.js 16.4.3, Turbopack) |
+| Static page generation | 31/31 generated |
+| Final optimization | Passed |
+
+This is owner-reported local runtime/build evidence, not an independent execution by the assistant. It verifies compilation and static generation, but does not replace browser-based interaction, responsive-layout, accessibility, or visual QA.
