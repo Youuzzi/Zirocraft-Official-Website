@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 const contactEmail="zirocraftid@gmail.com";
-const contactImage="https://images.unsplash.com/photo-1742836531271-98fd8151d257?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
+const contactImage="https://images.unsplash.com/photo-1556740767-414a9c4860c1?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
 export async function generateMetadata({params}:PageProps<"/[locale]/contact">):Promise<Metadata>{const {locale}=await params;return locale==="id"?{title:"Kontak Zirocraft",description:"Hubungi Zirocraft untuk pertanyaan, diskusi produk, atau kolaborasi."}:{title:"Contact Zirocraft",description:"Get in touch with Zirocraft for inquiries, product discussions, or collaboration."};}
 export default async function ContactPage({params}:PageProps<"/[locale]/contact">){
  const {locale}=await params;if(locale!=="id"&&locale!=="en")notFound();const id=locale==="id";

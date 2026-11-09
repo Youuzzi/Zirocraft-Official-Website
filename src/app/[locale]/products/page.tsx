@@ -4,8 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { products, productText } from "@/lib/products";
-const posImage="https://images.unsplash.com/photo-1742836531271-98fd8151d257?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
-const warehouseImage="https://images.pexels.com/photos/6170405/pexels-photo-6170405.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-6170405.jpg&fm=jpg";
+const posImage="https://images.unsplash.com/photo-1556740767-414a9c4860c1?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
+const warehouseImage="https://images.unsplash.com/photo-1749244768351-2726dc23d26c?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000";
 export async function generateMetadata({params}:PageProps<"/[locale]/products">):Promise<Metadata>{const {locale}=await params;return locale==="id"?{title:"Produk",description:"Jelajahi produk Zirocraft untuk mendukung operasional bisnis dan pergudangan."}:{title:"Products",description:"Explore Zirocraft products for business and warehouse operations."};}
 export default async function ProductsPage({params}:PageProps<"/[locale]/products">){
  const {locale}=await params;if(locale!=="id"&&locale!=="en")notFound();const t=getDictionary(locale);const id=locale==="id";

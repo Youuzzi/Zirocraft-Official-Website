@@ -6,14 +6,13 @@
 
 | Asset use | Source / creator | Original source page | License status | Website use |
 | --- | --- | --- | --- | --- |
-| Retail / point-of-sale environment | Unsplash source page (SumUp brand/device visible in image) | https://unsplash.com/photos/person-using-a-tablet-at-a-stores-checkout-IlHemAQpJ-U | Unsplash License; depicted brand/trademark context needs review | Homepage hero, ZiroPOS portfolio and detail visuals |
-| Warehouse worker inspecting parcels | Tima Miroshnichenko / Pexels | https://www.pexels.com/photo/a-man-inspecting-parcels-on-a-shelves-6170405/ | Pexels License | ZiroLogistics portfolio and detail visuals |
+| Retail / point-of-sale environment | Blake Wisz / Unsplash | https://unsplash.com/photos/man-buying-item-in-shop-Kx3o6_m1Yv8 | Unsplash License | Homepage hero, ZiroPOS portfolio and detail visuals |
+| Warehouse interior and shelving | Russ Murray / Unsplash | https://unsplash.com/photos/a-warehouse-is-filled-with-shelves-and-boxes-M7G_m5XJ-go | Unsplash License | ZiroLogistics portfolio and detail visuals |
 
 ## Usage safeguards
 
-- Unsplash permits most commercial and personal uses, but its license does not grant rights to trademarks, recognizable people, or other protected material depicted in a photo. Review the source page and rights before launch.
-- Pexels permits website use, but prohibits implying endorsement by people or brands appearing in imagery.
+- Both source pages identify the images as free to use under the Unsplash License. The license generally permits commercial and personal use, but does not grant rights to recognizable people, trademarks, logos, or other protected material depicted in a photo.
 - These photographs are contextual stock visuals only. Never describe them as Zirocraft product screenshots, customers, staff, offices, case studies, or deployments.
-- Replace the retail image if the visible payment-device brand creates an unintended association.
+- Review the source pages and any depicted-person, trademark, and property rights before production launch.
 - Prefer Zirocraft-owned photography or commissioned/generated visuals when available.
 - Re-check source pages and license terms before production launch.
