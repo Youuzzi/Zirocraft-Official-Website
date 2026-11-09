@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = { title: "Privacy Policy", description: "Zirocraft website privacy policy." };
-const sections = {
+type LegalSection = [string, string[]];
+const sections: Record<"en" | "id", LegalSection[]> = {
   en: [
     ["1. Introduction", ["Zirocraft (we, our, or us) respects your privacy and is committed to handling personal information responsibly.", "This policy explains how information may be collected, used, and handled when you visit this website or contact us."]],
     ["2. Information We May Receive", ["Our website provides information about Zirocraft and its products. We do not currently provide public user accounts or a website-based registration system.", "If you contact us by email, we may receive information you choose to include, such as your name, email address, organization, and inquiry. Hosting providers may process technical information needed to operate the website."]],
