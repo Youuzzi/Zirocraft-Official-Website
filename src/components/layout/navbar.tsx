@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LanguageSwitcher from "@/components/layout/language-switcher";
 import type { Locale } from "@/lib/i18n/dictionaries";
 
 type Props = {
@@ -12,7 +13,6 @@ export default function Navbar({ locale, dictionary }: Props) {
     { label: dictionary.navigation.about, href: `/${locale}/about` },
     { label: dictionary.navigation.contact, href: `/${locale}/contact` }
   ];
-  const alternate = locale === "id" ? "en" : "id";
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur-lg">
@@ -24,9 +24,7 @@ export default function Navbar({ locale, dictionary }: Props) {
           {navigation.map((item) => <Link key={item.href} href={item.href} className="text-sm font-medium text-muted transition-colors hover:text-accent">{item.label}</Link>)}
         </nav>
         <div className="flex items-center gap-3">
-          <Link href={`/${alternate}`} hrefLang={alternate} aria-label={locale === "id" ? "Switch language to English" : "Ganti bahasa ke Indonesia"} className="rounded-full border border-border px-3 py-2 text-xs font-semibold text-foreground hover:border-accent hover:text-accent">
-            {alternate.toUpperCase()}
-          </Link>
+          <LanguageSwitcher locale={locale} />
           <Link href={`/${locale}/products`} className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover sm:inline-flex">{dictionary.navigation.cta}</Link>
           <details className="relative md:hidden">
             <summary className="cursor-pointer list-none rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground">Menu</summary>
