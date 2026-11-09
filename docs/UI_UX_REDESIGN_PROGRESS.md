@@ -85,3 +85,10 @@ After pulling commit `965164841546484ce4c7d8e628324135b9028a83`, the repository 
 | Final optimization | Passed |
 
 This is owner-reported local runtime/build evidence, not an independent execution by the assistant. It verifies compilation and static generation, but does not replace browser-based interaction, responsive-layout, accessibility, or visual QA.
+
+
+## 8. Shared image-source maintenance
+
+Commit `288855021530e6abdc71c841a69bdf1986574f90` centralizes the two existing illustrative Unsplash image sources in `src/lib/site-images.ts`. Homepage, About, product catalogue, product detail, and Contact now import the shared image configuration rather than duplicating long URLs. The existing images and their illustrative role are unchanged. Source image requests are bounded to 2000px wide at quality 75; Next.js `Image` continues to handle responsive rendering.
+
+This is a source-maintenance change only. No claim is made that image loading speed, Core Web Vitals, or visual quality has been measured. Owner-side lint, TypeScript, and production-build checks are required after pulling this commit.
