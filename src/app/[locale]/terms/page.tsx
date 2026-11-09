@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = { title: "Terms of Service", description: "Terms for accessing and using the Zirocraft website." };
+export async function generateMetadata({ params }: PageProps<"/[locale]/terms">): Promise<Metadata> {
+  const { locale } = await params;
+  return locale === "id"
+    ? { title: "Ketentuan Layanan", description: "Ketentuan penggunaan website resmi Zirocraft." }
+    : { title: "Terms of Service", description: "Terms for accessing and using the official Zirocraft website." };
+}
 type LegalSection = [string, string[]];
 const sections: Record<"en" | "id", LegalSection[]> = {
   en: [
