@@ -2,7 +2,7 @@
 
 **Project:** Zirocraft Official Website  
 **Branch:** `feature/corporate-product-portfolio`  
-**Latest implementation baseline:** `a69b22bcf8f6662b7506767173b9d1ffd9ea33d7`  
+**Latest implementation baseline:** `c04c27eef92512fb142ddbf3b6121dcd3124bb09`  
 **Status:** Editorial systems redesign in active implementation; owner-side build and browser review still required.
 
 ## 1. Design objective
@@ -24,6 +24,8 @@ Core visual language:
 - Contact page uses the confirmed contact email and does not simulate a non-functional form.
 - Shared navigation, mobile disclosure, language switching, footer, and legal page layouts updated.
 - Product information remains centralized in `src/lib/products.ts`.
+- Product-specific SVG storytelling now differs structurally: POS transaction/payment/record flow, WMS storage/rack/dispatch flow, and a separate connected-systems composition for the company.
+- Homepage portfolio panels now include the corresponding POS and WMS visual systems instead of generic letter marks.
 - Design direction and image asset register maintained in `docs/`.
 
 ## 3. Product and company truth safeguards
@@ -55,8 +57,9 @@ No local execution by the assistant is claimed. Do not mark these checks passed 
 
 ## 6. Next review sequence
 
-1. Finish distinct product-specific visual storytelling rather than reusing one illustration with only a color change.
-2. Audit desktop and mobile layouts across all public routes.
-3. Refine typography, spacing, responsive behavior, and navigation details based on rendered screenshots.
-4. Verify image source-to-file mapping and legal/metadata launch requirements.
-5. Re-run quality gates and obtain owner visual acceptance before merging to `main`.
+1. Pull the current feature branch and run the local quality gates.
+2. Review the homepage at desktop, tablet, and mobile widths; pay particular attention to the taller illustrated portfolio panels.
+3. Audit About, Products, product details, Contact, and legal pages for visual rhythm and responsive behavior.
+4. Refine typography, spacing, image choices, and navigation based on rendered screenshots.
+5. Verify image source-to-file mapping and legal/metadata launch requirements.
+6. Re-run quality gates and obtain owner visual acceptance before merging to `main`.
