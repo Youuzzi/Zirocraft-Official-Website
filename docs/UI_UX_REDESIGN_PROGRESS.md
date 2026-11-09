@@ -2,8 +2,8 @@
 
 **Project:** Zirocraft Official Website  
 **Branch:** `feature/corporate-product-portfolio`  
-**Last recorded commit:** `6b860fde244eebd0949997a4bb33b3809e5512cb`  
-**Status:** First implementation pass integrated; local quality gates passed
+**Last recorded commit:** `8138275faa98146d08ab41e778657d71e51a0f35`  
+**Status:** Editorial redesign implementation committed; local quality gates pending owner verification
 
 ## 1. Verified implementation scope
 
