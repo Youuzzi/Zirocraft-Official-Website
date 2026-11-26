@@ -191,7 +191,7 @@ for (const [path, expectedStatus] of [
   }
 }
 
-for (const [path, locale] of [["/id/contact", "id"], ["/en/contact", "en"]]) {
+for (const path of ["/id/contact", "/en/contact"]) {
   try {
     const response = await request(path);
     const html = await response.text();
