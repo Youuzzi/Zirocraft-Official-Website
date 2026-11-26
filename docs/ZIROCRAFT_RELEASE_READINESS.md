@@ -26,4 +26,4 @@ This checklist separates repository quality from launch readiness. A passing CI 
 
 ## Current validation boundary
 
-GitHub Actions validates ESLint and the Next.js production build. Browser-level visual QA, real-device testing, domain ownership, DNS, and production deployment are separate checks and must not be reported as complete until they have actually been performed.
+GitHub Actions validates ESLint, the Next.js production build, and a production-server smoke suite covering localized pages, generated Open Graph images, robots.txt, and sitemap.xml. Browser-level visual QA, real-device testing, domain ownership, DNS, and production deployment are separate checks and must not be reported as complete until they have actually been performed.
