@@ -50,6 +50,16 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Deployment Metadata
+
+Set `NEXT_PUBLIC_SITE_URL` to the canonical public origin when the production domain is configured, for example:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://your-verified-domain.example
+```
+
+The sitemap, robots sitemap reference, and absolute metadata URLs use this value. Vercel deployments fall back to the deployment host when the variable is not set. Outside Vercel, sitemap entries are intentionally omitted until a canonical origin is configured; this avoids publishing an assumed domain.
+
 ## Available Scripts
 
 | Command | Description |
