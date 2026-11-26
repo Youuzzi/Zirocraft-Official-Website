@@ -1,40 +1,63 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/dictionaries";
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const id = locale === "id";
+  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const handlePointer = (event: React.PointerEvent<HTMLElement>) => {
+    if (event.pointerType === "touch") return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    setPointer({
+      x: ((event.clientX - rect.left) / rect.width - 0.5) * 12,
+      y: ((event.clientY - rect.top) / rect.height - 0.5) * -12
+    });
+  };
+
   return (
-    <section className="relative overflow-hidden bg-[#15191f] text-white">
-      <div aria-hidden="true" className="absolute right-0 top-0 h-full w-[48%] border-l border-white/10 max-lg:hidden">
-        <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px)", backgroundSize: "64px 64px" }} />
-        <div className="absolute right-[13%] top-[16%] h-[62%] w-[58%] border border-white/20 motion-drift" />
-        <div className="absolute right-[20%] top-[23%] h-[48%] w-[45%] bg-[#315fea] p-5 shadow-2xl">
-          <div className="flex h-full flex-col justify-between border border-white/25 p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[.22em] text-blue-100">ZIROCRAFT / DIGITAL SYSTEMS</span>
-            <div className="grid grid-cols-4 gap-2">
-              <span className="col-span-3 h-2 bg-white/80" /><span className="h-2 bg-white/30" />
-              <span className="col-span-2 h-2 bg-white/55" /><span className="col-span-2 h-2 bg-white/20" />
-            </div>
-            <span className="font-mono text-xs text-white">BUILT AROUND REAL WORK.</span>
+    <section onPointerMove={handlePointer} className="hero-shell relative isolate overflow-hidden bg-[#11151b] text-white">
+      <div className="hero-grain pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="site-container relative z-10 grid min-h-[760px] items-center gap-10 py-24 lg:min-h-[820px] lg:grid-cols-[1.05fr_.95fr] lg:py-28">
+        <div className="relative z-20 max-w-[780px]">
+          <p className="eyebrow !text-[#d6ff55]">{id ? "Studio teknologi kreatif independen" : "Independent creative technology studio"}</p>
+          <h1 className="hero-title mt-8 text-balance">
+            {id ? <>Kami membuat<br /><span>ide bergerak.</span></> : <>We make<br /><span>ideas move.</span></>}
+          </h1>
+          <p className="mt-8 max-w-xl text-base leading-8 text-white/65 sm:text-lg">
+            {id
+              ? "Strategi, desain, dan software bertemu untuk membangun pengalaman digital serta sistem yang membantu bisnis melangkah lebih jauh."
+              : "Where strategy, design, and software meet to create digital experiences and systems that move businesses forward."}
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Link href={`/${locale}/products`} className="lime-button">{id ? "Jelajahi karya kami" : "Explore what we make"} <span aria-hidden="true">↗</span></Link>
+            <Link href={`/${locale}/contact`} className="text-link-light">{id ? "Mulai sebuah ide" : "Start a conversation"} <span aria-hidden="true">↗</span></Link>
+          </div>
+          <div className="mt-16 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-5 font-mono text-[10px] uppercase tracking-[.17em] text-white/45">
+            <span>01 / Think</span><span>02 / Design</span><span>03 / Build</span><span>04 / Evolve</span>
           </div>
         </div>
-        <span className="absolute bottom-[12%] left-[10%] font-mono text-[10px] tracking-[.2em] text-white/80">01 — 02 / PRODUCT THINKING</span>
-      </div>
-      <div className="site-container relative grid min-h-[680px] items-center py-24 sm:py-32 lg:min-h-[760px] lg:grid-cols-[1.08fr_.92fr]">
-        <div className="max-w-[760px] motion-rise">
-          <span className="eyebrow !text-[#9db4ff]">{id ? "Teknologi dengan tujuan" : "Technology with intent"}</span>
-          <h1 className="display-heading mt-8 max-w-[850px] text-balance">{id ? "Membangun teknologi yang bergerak bersama bisnis." : "Building technology that moves with business."}</h1>
-          <p className="mt-8 max-w-xl text-base leading-8 text-white/65 sm:text-lg">{id ? "Kami merancang dan mengembangkan perangkat lunak untuk membantu bisnis mengelola pekerjaan nyata—dari transaksi hingga operasional gudang." : "We design and build software that helps businesses manage real work—from everyday transactions to warehouse operations."}</p>
-          <div className="mt-10 flex flex-wrap items-center gap-5">
-            <Link href={`/${locale}/products`} className="inline-flex min-h-14 items-center gap-6 bg-[#315fea] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#2449b8]">{id ? "Jelajahi produk" : "Explore products"} <span aria-hidden="true">↗</span></Link>
-            <Link href={`/${locale}/about`} className="inline-flex min-h-12 items-center text-sm font-medium text-white/75 transition-colors hover:text-white">{id ? "Kenali ZiroCraft" : "Discover ZiroCraft"} <span aria-hidden="true" className="ml-3">→</span></Link>
+
+        <div className="hero-art relative mx-auto aspect-square w-full max-w-[590px]" aria-label={id ? "Komposisi visual interaktif ZiroCraft" : "Interactive ZiroCraft visual composition"}>
+          <div className="hero-art-label hero-art-label-top">ZC — 001 / CREATIVE SYSTEMS</div>
+          <div className="hero-orbit orbit-one" style={{ transform: `translate(-50%, -50%) rotateX(${pointer.y}deg) rotateY(${pointer.x}deg)` }}>
+            <div className="orbit-dot" />
           </div>
+          <div className="hero-orbit orbit-two" style={{ transform: `translate(-50%, -50%) rotateX(${-pointer.y * .7}deg) rotateY(${-pointer.x * .7}deg) rotate(58deg)` }} />
+          <div className="hero-core" style={{ transform: `translate(-50%, -50%) rotateX(${pointer.y * .55}deg) rotateY(${pointer.x * .55}deg)` }}>
+            <div className="core-face"><span>MAKE<br />IT<br /><b>MATTER.</b></span><i>ZIROCRAFT®</i></div>
+            <div className="core-side" />
+          </div>
+          <div className="hero-satellite satellite-a"><span>01</span><b>IDEA</b></div>
+          <div className="hero-satellite satellite-b"><span>02</span><b>IMPACT</b></div>
+          <div className="hero-art-cross cross-a">+</div>
+          <div className="hero-art-cross cross-b">+</div>
+          <div className="hero-art-label hero-art-label-bottom">{id ? "GERAKKAN KEMUNGKINAN" : "MOVE THE POSSIBLE"}</div>
         </div>
-        <div className="mt-16 flex items-end justify-between border-t border-white/15 pt-5 lg:hidden">
-          <span className="font-mono text-[10px] tracking-[.18em] text-white/80">ZIROCRAFT / DIGITAL SYSTEMS</span><span className="text-xs text-white/80">01 — 02</span>
-        </div>
-        <div className="absolute bottom-8 right-0 hidden font-mono text-[10px] tracking-[.18em] text-white/80 lg:block">INDEPENDENT SOFTWARE & PRODUCT DEVELOPMENT</div>
       </div>
+      <div className="hero-bottom-line" aria-hidden="true"><span>ZIROCRAFT</span><span>CREATIVE TECHNOLOGY / 2026</span><span>SCROLL TO EXPLORE ↓</span></div>
     </section>
   );
 }
