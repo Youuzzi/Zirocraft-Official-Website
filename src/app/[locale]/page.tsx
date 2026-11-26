@@ -31,12 +31,12 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               <span className="font-mono text-[10px] uppercase tracking-[.22em] text-blue-100">ZIROCRAFT / DIGITAL SYSTEMS</span>
               <div className="grid grid-cols-4 gap-2">
                 <span className="col-span-3 h-2 bg-white/80" /><span className="h-2 bg-white/30" />
-                <span className="col-span-2 h-2 bg-white/45" /><span className="col-span-2 h-2 bg-white/20" />
+                <span className="col-span-2 h-2 bg-white/55" /><span className="col-span-2 h-2 bg-white/20" />
               </div>
               <span className="font-mono text-xs text-white/70">BUILT AROUND REAL WORK.</span>
             </div>
           </div>
-          <span className="absolute bottom-[12%] left-[10%] font-mono text-[10px] tracking-[.2em] text-white/45">01 — 02 / PRODUCT THINKING</span>
+          <span className="absolute bottom-[12%] left-[10%] font-mono text-[10px] tracking-[.2em] text-white/55">01 — 02 / PRODUCT THINKING</span>
         </div>
         <div className="site-container relative grid min-h-[680px] items-center py-24 sm:py-32 lg:min-h-[760px] lg:grid-cols-[1.08fr_.92fr]">
           <div className="max-w-[760px] motion-rise">
@@ -49,16 +49,16 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             </div>
           </div>
           <div className="mt-16 flex items-end justify-between border-t border-white/15 pt-5 lg:hidden">
-            <span className="font-mono text-[10px] tracking-[.18em] text-white/45">ZIROCRAFT / DIGITAL SYSTEMS</span>
+            <span className="font-mono text-[10px] tracking-[.18em] text-white/55">ZIROCRAFT / DIGITAL SYSTEMS</span>
             <span className="text-xs text-white/55">01 — 02</span>
           </div>
-          <div className="absolute bottom-8 right-0 hidden font-mono text-[10px] tracking-[.18em] text-white/40 lg:block">INDEPENDENT SOFTWARE & PRODUCT DEVELOPMENT</div>
+          <div className="absolute bottom-8 right-0 hidden font-mono text-[10px] tracking-[.18em] text-white/55 lg:block">INDEPENDENT SOFTWARE & PRODUCT DEVELOPMENT</div>
         </div>
       </section>
 
       <section className="bg-[#f5f4f0] py-24 sm:py-32">
         <div className="site-container grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:gap-24">
-          <div><span className="eyebrow">{id ? "Sudut pandang kami" : "Our point of view"}</span><p className="mt-6 font-mono text-xs text-[#89919a]">01 / THE WHY</p></div>
+          <div><span className="eyebrow">{id ? "Sudut pandang kami" : "Our point of view"}</span><p className="mt-6 font-mono text-xs text-[#626d78]">01 / THE WHY</p></div>
           <div>
             <h2 className="section-heading max-w-4xl text-balance">{id ? "Teknologi terbaik bukan yang paling rumit. Tetapi yang membuat pekerjaan terasa lebih terarah." : "The best technology isn't the most complicated. It's what makes work feel more considered."}</h2>
             <div className="mt-10 grid gap-8 border-t border-[#d9dad6] pt-7 sm:grid-cols-[1fr_1fr]">
@@ -80,7 +80,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               const copy = productText(product, locale);
               return (
                 <article key={product.slug} className="grid gap-7 py-10 lg:grid-cols-[72px_1fr_1fr] lg:items-center lg:gap-10">
-                  <span className="font-mono text-xs text-[#89919a]">0{index + 1}</span>
+                  <span className="font-mono text-xs text-[#626d78]">0{index + 1}</span>
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-3"><span className="font-mono text-[10px] uppercase tracking-[.14em] text-[#315fea]">{copy.category}</span><span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[.1em] text-[#8b6939]"><span className="h-1.5 w-1.5 rounded-full bg-[#e5a34b]" />{id ? "Dalam pengembangan" : "In development"}</span></div>
                     <h3 className="mt-4 text-3xl font-semibold tracking-[-.055em] text-[#15191f] sm:text-4xl">{product.name}</h3>
