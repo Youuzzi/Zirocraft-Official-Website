@@ -1,4 +1,8 @@
-import Link from "next/link";\nimport type { Locale } from "@/lib/i18n/dictionaries";\n\nexport function AboutPageContent({ locale }: { locale: Locale }) {\n  const id = locale === "id";
+import Link from "next/link";
+import type { Locale } from "@/lib/i18n/dictionaries";
+
+export function AboutPageContent({ locale }: { locale: Locale }) {
+  const id = locale === "id";
   const principles = id ? [
     ["01", "Mulai dari konteks", "Memahami pekerjaan, orang, dan proses sebelum menentukan bentuk teknologi."],
     ["02", "Utamakan kejelasan", "Menyusun solusi agar alur, tanggung jawab, dan informasi lebih mudah dipahami."],
