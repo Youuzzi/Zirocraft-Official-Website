@@ -40,7 +40,8 @@ a { text-underline-offset: 4px; }
 #main-content { scroll-margin-top: 5rem; }
 #main-content:focus { outline: 2px solid var(--accent); outline-offset: -2px; }
 .site-container { width: min(100% - 3rem, 1320px); margin-inline: auto; }
-.eyebrow { display: inline-flex; align-items: center; gap: .7rem; color: #6558f5; font: 600 .68rem/1.2 var(--font-geist-mono), monospace; letter-spacing: .15em; text-transform: uppercase; }
+.eyebrow { display: inline-flex; align-items: center; gap: .7rem; color: #4b40bd; font: 600 .68rem/1.2 var(--font-geist-mono), monospace; letter-spacing: .15em; text-transform: uppercase; }
+.manifesto-section .eyebrow { color: #c2baff; }
 .eyebrow::before { content: ""; width: 1.55rem; height: 1px; background: currentColor; }
 .section-heading { font-size: clamp(2.5rem, 5vw, 5.2rem); line-height: .99; letter-spacing: -.075em; font-weight: 650; }
 .text-balance { text-wrap: balance; }
