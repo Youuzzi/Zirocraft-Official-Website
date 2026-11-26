@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zirocraft.com"),
-  title: "Zirocraft | Practical Technology",
-  description: "Zirocraft develops practical digital solutions for growing businesses."
+  title: "ZiroCraft | Practical Technology",
+  description: "ZiroCraft develops practical digital solutions for growing businesses."
 };
 
 export default function DefaultRootLayout({ children }: LayoutProps<"/">) {
-  return <html lang="id" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}><body className="min-h-full flex flex-col">{children}</body></html>;
+  return <html lang="id"><body>{children}</body></html>;
 }

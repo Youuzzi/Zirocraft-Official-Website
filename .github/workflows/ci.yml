@@ -1,0 +1,61 @@
+name: Website CI
+
+on:
+  pull_request:
+    branches: [main, feature/official-site-rebuild]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint and production build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: NEXT_PUBLIC_SITE_URL=https://example.test npm run build
+
+      - name: Install browser QA runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.65.1 @axe-core/playwright@4.10.2
+          npx playwright install --with-deps chromium
+
+      - name: Production route, browser, and accessibility QA
+        run: |
+          npm run start -- --hostname 127.0.0.1 > /tmp/zirocraft-next.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          npm run test:smoke
+          node scripts/browser-smoke.mjs
+          node scripts/accessibility-smoke.mjs
+
+      - name: Upload browser and accessibility QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zirocraft-browser-accessibility-qa
+          path: artifacts/
+          if-no-files-found: ignore
+          retention-days: 7

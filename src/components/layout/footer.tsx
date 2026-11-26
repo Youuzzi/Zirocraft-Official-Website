@@ -8,47 +8,41 @@ type Props = {
 };
 
 export default function Footer({ locale, dictionary }: Props) {
+  const id = locale === "id";
   const t = dictionary.footer;
-
   return (
-    <footer className="mt-auto border-t border-border bg-surface">
-      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+    <footer className="bg-[#15191f] text-white">
+      <div className="site-container py-16 sm:py-20">
+        <div className="grid gap-12 border-b border-white/15 pb-14 md:grid-cols-[1.3fr_.7fr_.7fr]">
           <div>
-            <Link href={`/${locale}`} className="relative block h-10 w-[190px]" aria-label="Zirocraft homepage">
-              <Image src="/MyLogo/Black%20Text.png" alt="Zirocraft" fill sizes="190px" className="object-contain object-left" />
+            <Link href={`/${locale}`} className="relative block h-10 w-[185px]" aria-label="ZiroCraft homepage">
+              <Image src="/MyLogo/White%20Text.png" alt="ZiroCraft" fill sizes="185px" className="object-contain object-left" />
             </Link>
-            <p className="mt-5 max-w-sm text-sm leading-7 text-muted">{t.tagline}</p>
+            <p className="mt-6 max-w-sm text-sm leading-7 text-white/55">{t.tagline}</p>
           </div>
-
           <div>
-            <h2 className="text-sm font-semibold text-foreground">{t.explore}</h2>
-            <ul className="mt-4 space-y-3 text-sm text-muted">
-              <li><Link href={`/${locale}/products`} className="transition-colors hover:text-accent">{dictionary.navigation.products}</Link></li>
-              <li><Link href={`/${locale}/products/ziropos`} className="transition-colors hover:text-accent">ZiroPOS</Link></li>
-              <li><Link href={`/${locale}/products/zirologistics`} className="transition-colors hover:text-accent">ZiroLogistics</Link></li>
+            <p className="font-mono text-[10px] uppercase tracking-[.18em] text-white/55">{id ? "Jelajahi" : "Explore"}</p>
+            <ul className="mt-5 space-y-3 text-sm text-white/70">
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/products`}>{dictionary.navigation.products}</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/products/ziropos`}>ZiroPOS</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/products/zirologistics`}>ZiroLogistics</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/services`}>{id ? "Layanan" : "Services"}</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/portfolio`}>{id ? "Portofolio" : "Portfolio"}</Link></li>
             </ul>
           </div>
-
           <div>
-            <h2 className="text-sm font-semibold text-foreground">{t.company}</h2>
-            <ul className="mt-4 space-y-3 text-sm text-muted">
-              <li><Link href={`/${locale}/about`} className="transition-colors hover:text-accent">{t.about}</Link></li>
-              <li><Link href={`/${locale}/contact`} className="transition-colors hover:text-accent">{t.contact}</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-sm font-semibold text-foreground">{t.legal}</h2>
-            <ul className="mt-4 space-y-3 text-sm text-muted">
-              <li><Link href={`/${locale}/privacy-policy`} className="transition-colors hover:text-accent">{t.privacy}</Link></li>
-              <li><Link href={`/${locale}/terms`} className="transition-colors hover:text-accent">{t.terms}</Link></li>
+            <p className="font-mono text-[10px] uppercase tracking-[.18em] text-white/55">{id ? "Perusahaan" : "Company"}</p>
+            <ul className="mt-5 space-y-3 text-sm text-white/70">
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/about`}>{dictionary.navigation.about}</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/contact`}>{dictionary.navigation.contact}</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/privacy-policy`}>{t.privacy}</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/terms`}>{t.terms}</Link></li>
             </ul>
           </div>
         </div>
-
-        <div className="mt-12 border-t border-border pt-6">
-          <p className="text-sm text-muted">© {new Date().getFullYear()} Zirocraft. {t.rights}</p>
+        <div className="flex flex-col justify-between gap-3 pt-6 text-[11px] text-white/55 sm:flex-row sm:items-center">
+          <p>© 2026 ZiroCraft. {t.rights}</p>
+          <p className="font-mono uppercase tracking-[.14em]">Precision in motion.</p>
         </div>
       </div>
     </footer>

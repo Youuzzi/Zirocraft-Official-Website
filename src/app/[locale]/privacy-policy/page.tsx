@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/privacy-policy">): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "id"
-    ? { title: "Kebijakan Privasi", description: "Kebijakan privasi website resmi Zirocraft." }
-    : { title: "Privacy Policy", description: "Privacy policy for the official Zirocraft website." };
+  const language = locale === "id" ? "id" : "en";
+  return createPageMetadata({
+    locale: language,
+    title: language === "id" ? "Kebijakan Privasi" : "Privacy Policy",
+    description: language === "id"
+      ? "Kebijakan privasi website resmi ZiroCraft."
+      : "Privacy policy for the official ZiroCraft website."
+  });
 }
 type LegalSection = [string, string[]];
 const sections: Record<"en" | "id", LegalSection[]> = {
@@ -39,5 +45,5 @@ export default async function PrivacyPolicyPage({ params }: PageProps<"/[locale]
   const { locale } = await params;
   if (locale !== "id" && locale !== "en") notFound();
   const id = locale === "id";
-  return <><section className="border-b border-border bg-surface py-20 sm:py-28"><div className="mx-auto max-w-7xl px-6 lg:px-8"><span className="text-sm font-semibold tracking-[0.16em] text-accent uppercase">{id ? "Informasi Legal" : "Legal Information"}</span><h1 className="mt-6 text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">{id ? "Kebijakan Privasi" : "Privacy Policy"}</h1><p className="mt-6 text-lg leading-8 text-muted">{id ? "Penjelasan mengenai penanganan informasi saat Anda berinteraksi dengan website Zirocraft." : "How information is handled when you interact with the Zirocraft website."}</p><p className="mt-6 text-sm text-muted">{id ? "Tanggal berlaku: 1 November 2026" : "Effective date: November 1, 2026"}</p></div></section><section className="py-20 sm:py-28"><article className="mx-auto max-w-3xl space-y-12 px-6 lg:px-8">{sections[locale].map(([title, paragraphs])=><section key={title}><h2 className="text-xl font-semibold text-foreground sm:text-2xl">{title}</h2><div className="mt-5 space-y-4">{paragraphs.map((p)=><p key={p} className="leading-8 text-muted">{p}</p>)}</div></section>)}<section><h2 className="text-xl font-semibold text-foreground">{id ? "11. Hubungi Kami" : "11. Contact Us"}</h2><p className="mt-5 leading-8 text-muted">{id ? "Untuk pertanyaan mengenai kebijakan ini, hubungi:" : "For questions regarding this policy, contact:"}</p><a className="mt-4 inline-block font-medium text-accent" href="mailto:zirocraftid@gmail.com">zirocraftid@gmail.com</a></section></article></section></>;
+  return <><section className="border-b border-[#d9dad6] bg-[#15191f] py-20 text-white sm:py-28"><div className="site-container"><span className="eyebrow !text-[#9db4ff]">{id ? "Informasi Legal" : "Legal Information"}</span><h1 className="mt-7 text-4xl font-semibold tracking-[-0.06em] sm:text-6xl">{id ? "Kebijakan Privasi" : "Privacy Policy"}</h1><p className="mt-6 max-w-2xl text-base leading-8 text-white/60">{id ? "Penjelasan mengenai penanganan informasi saat Anda berinteraksi dengan website Zirocraft." : "How information is handled when you interact with the Zirocraft website."}</p><p className="mt-6 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55">{id ? "Tanggal berlaku: 1 November 2026" : "Effective date: November 1, 2026"}</p></div></section><section className="bg-[#f5f4f0] py-20 sm:py-28"><article className="mx-auto max-w-3xl space-y-12 px-6 lg:px-8">{sections[locale].map(([title, paragraphs])=><section key={title}><h2 className="text-xl font-semibold tracking-[-.03em] text-[#15191f] sm:text-2xl">{title}</h2><div className="mt-5 space-y-4">{paragraphs.map((p)=><p key={p} className="text-sm leading-8 text-[#56616d]">{p}</p>)}</div></section>)}<section><h2 className="text-xl font-semibold tracking-[-.03em] text-[#15191f]">{id ? "11. Hubungi Kami" : "11. Contact Us"}</h2><p className="mt-5 leading-8 text-muted">{id ? "Untuk pertanyaan mengenai kebijakan ini, hubungi:" : "For questions regarding this policy, contact:"}</p><a className="mt-4 inline-block font-semibold text-[#284fce] hover:text-[#2449b8]" href="mailto:zirocraftid@gmail.com">zirocraftid@gmail.com</a></section></article></section></>;
 }

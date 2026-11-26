@@ -1,11 +1,15 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/lib/products";
+import { products } from "@/features/products";
 
-const siteUrl = "https://zirocraft.com";
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+const vercelHost = process.env.VERCEL_URL;
+const siteUrl = configuredSiteUrl ?? (vercelHost ? `https://${vercelHost}` : undefined);
 const locales = ["id", "en"] as const;
 const staticRoutes = [
   "",
   "/about",
+  "/services",
+  "/portfolio",
   "/contact",
   "/products",
   "/privacy-policy",
@@ -13,6 +17,9 @@ const staticRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Do not publish guessed canonical URLs before the production domain is configured.
+  if (!siteUrl) return [];
+
   const routes = [
     ...staticRoutes,
     ...products.map((product) => `/products/${product.slug}`)

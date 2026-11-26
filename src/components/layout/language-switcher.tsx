@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { products } from "@/lib/products";
+import { products } from "@/features/products";
 import type { Locale } from "@/lib/i18n/dictionaries";
 
 const translatedRoutes = new Set([
   "",
   "/about",
+  "/services",
+  "/portfolio",
   "/contact",
   "/products",
   "/privacy-policy",
@@ -29,7 +31,7 @@ export default function LanguageSwitcher({ locale }: { locale: Locale }) {
       hrefLang={alternate}
       lang={alternate}
       aria-label={locale === "id" ? "Switch language to English" : "Ganti bahasa ke Indonesia"}
-      className="inline-flex min-h-10 items-center justify-center rounded-full border border-border px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+      className="inline-flex min-h-11 min-w-10 items-center justify-center rounded-full border border-border px-2 py-2 text-xs font-semibold text-foreground transition-colors hover:border-accent hover:text-accent sm:px-3"
     >
       {alternate.toUpperCase()}
     </Link>
