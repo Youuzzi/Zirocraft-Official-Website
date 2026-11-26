@@ -108,7 +108,7 @@ for (const locale of locales) {
     failures.push(`/${locale}: reduced-motion preference was not respected (animation duration ${animationDuration})`);
   }
 
-  for (const route of ["/products/ziropos", "/contact"]) {
+  for (const route of ["/about", "/services", "/portfolio", "/products", "/products/ziropos", "/products/zirologistics", "/contact", "/privacy-policy", "/terms"]) {
     for (const width of reviewWidths) {
       await capture(page, locale, route, width);
     }
@@ -138,5 +138,5 @@ if (failures.length) {
   for (const failure of failures) console.error(`- ${failure}`);
   process.exitCode = 1;
 } else {
-  console.log("Browser QA passed: 320–1440px responsive layouts, localized navigation, mobile menu, keyboard skip link, reduced motion, product status, logo loading, and screenshots.");
+  console.log("Browser QA passed: 320–1440px responsive layouts across localized home, about, services, portfolio, product catalogue/details, contact, privacy, and terms pages; navigation, keyboard skip link, reduced motion, product status, logo loading, and screenshots.");
 }
