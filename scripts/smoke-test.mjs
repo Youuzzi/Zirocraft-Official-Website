@@ -1,8 +1,8 @@
 const baseUrl = process.env.SMOKE_BASE_URL ?? "http://127.0.0.1:3000";
 
 const routes = [
-  ["/id", "Membangun teknologi yang bergerak bersama bisnis"],
-  ["/en", "Building technology that moves with business"],
+  ["/id", "Kami membuat"],
+  ["/en", "We make"],
   ["/id/about", "ZiroCraft"],
   ["/en/about", "ZiroCraft"],
   ["/id/services", "Layanan"],
