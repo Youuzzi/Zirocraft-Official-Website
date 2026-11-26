@@ -9,6 +9,7 @@ This checklist separates repository quality from launch readiness. A passing CI 
 - [x] Production smoke tests crawl internal navigation links and verify localized product, service, portfolio, and legal routes.
 - [x] Browser QA verifies the skip-to-content link is the first keyboard stop; manual keyboard review remains recommended.
 - [x] Browser QA verifies the reduced-motion preference is respected.
+- [x] Automated axe-core scans cover localized pages at desktop width and localized homepages at 320px against WCAG 2.0/2.1/2.2 A/AA and axe best-practice rules. Any remaining incomplete/manual-review items must still be reviewed.
 - [ ] Inspect the generated Open Graph image for both `/id` and `/en` routes.
 - [ ] Confirm product descriptions still identify ZiroPOS and ZiroLogistics as **In Development**.
 - [ ] Confirm no illustrative product artwork is mistaken for a live product screenshot.
@@ -26,4 +27,4 @@ This checklist separates repository quality from launch readiness. A passing CI 
 
 ## Current validation boundary
 
-GitHub Actions validates ESLint, the Next.js production build, production-server route/security/SEO smoke tests, internal navigation links, and Chromium browser behavior at 320–1440px. It uploads responsive screenshots as a short-lived workflow artifact. Manual visual approval of those screenshots, testing on physical devices, domain ownership, DNS, and production deployment remain separate checks and must not be reported as complete until they have actually been performed.
+GitHub Actions validates ESLint, the Next.js production build, production-server route/security/SEO smoke tests, internal navigation links, Chromium browser behavior at 320–1440px, and automated axe-core accessibility rules on localized routes. It uploads responsive screenshots and a machine-readable accessibility report as short-lived workflow artifacts. Automated scans cannot establish full WCAG conformance or replace keyboard/screen-reader testing, manual visual approval, testing on physical devices, domain ownership, DNS, and production deployment; those checks remain separate and must not be reported as complete until they have actually been performed.
