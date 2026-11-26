@@ -1,1 +1,1 @@
-export { PortfolioPageContent } from "./components/portfolio-page";\n
+export { PortfolioPageContent } from "./components/portfolio-page";
