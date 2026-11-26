@@ -1,29 +1,41 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDictionary } from "@/lib/i18n/dictionaries";
 import { products, productText } from "@/lib/products";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/products">): Promise<Metadata> {
   const { locale } = await params;
   return locale === "id"
-    ? { title: "Produk", description: "Jelajahi produk Zirocraft untuk mendukung operasional bisnis dan pergudangan." }
-    : { title: "Products", description: "Explore Zirocraft products for business and warehouse operations." };
+    ? { title: "Produk", description: "Jelajahi produk perangkat lunak yang sedang dikembangkan ZiroCraft." }
+    : { title: "Products", description: "Explore software products currently being developed by ZiroCraft." };
 }
 
 export default async function ProductsPage({ params }: PageProps<"/[locale]/products">) {
   const { locale } = await params;
   if (locale !== "id" && locale !== "en") notFound();
-  const t = getDictionary(locale);
+  const id = locale === "id";
   return <>
-    <section className="bg-[#101828] py-24 text-white sm:py-32"><div className="mx-auto max-w-7xl px-6 lg:px-8">
-      <span className="text-sm font-semibold tracking-[0.16em] text-blue-300 uppercase">{t.products.eyebrow}</span><h1 className="mt-6 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-6xl">{t.products.title}</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">{t.products.description}</p>
-    </div></section>
-    <section className="bg-white py-20 sm:py-28"><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="grid gap-6 md:grid-cols-2">
-      {products.map((product) => { const copy = productText(product, locale); return <article key={product.slug} className="overflow-hidden rounded-3xl border border-border bg-white">
-        <div className="bg-[#101828] p-8 text-white sm:p-10"><span className="text-xs font-semibold uppercase tracking-wider text-blue-300">{copy.category}</span><h2 className="mt-8 text-3xl font-semibold">{product.name}</h2><p className="mt-4 max-w-lg leading-7 text-slate-300">{copy.summary}</p></div>
-        <div className="p-8 sm:p-10"><span className="inline-flex rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800">{t.home.status}</span><p className="mt-5 leading-7 text-muted">{copy.description}</p><Link href={`/${locale}/products/${product.slug}`} className="mt-7 inline-flex font-semibold text-accent hover:text-accent-hover">{t.home.learnMore} <span aria-hidden="true" className="ml-2">→</span></Link></div>
-      </article>})}
-    </div></div></section>
+    <section className="bg-[#15191f] py-24 text-white sm:py-36">
+      <div className="site-container"><span className="eyebrow !text-[#9db4ff]">{id ? "Portofolio produk" : "Product portfolio"}</span><h1 className="display-heading mt-8 max-w-4xl">{id ? "Perangkat lunak untuk pekerjaan yang berbeda." : "Software for different kinds of work."}</h1><p className="mt-8 max-w-2xl text-base leading-8 text-white/60">{id ? "Dua area operasional menjadi fokus pengembangan produk ZiroCraft saat ini. Keduanya memiliki kebutuhan dan pendekatan yang berbeda." : "Two operational domains are the current focus of ZiroCraft's product development. Each comes with its own needs and approach."}</p></div>
+    </section>
+    <section className="bg-[#f5f4f0] py-20 sm:py-28">
+      <div className="site-container">
+        {products.map((product,index) => {
+          const copy = productText(product,locale);
+          const isPos = product.slug === "ziropos";
+          return <article key={product.slug} className="grid gap-0 border-b border-[#d9dad6] py-10 first:pt-0 last:border-0 lg:grid-cols-[.9fr_1.1fr] lg:gap-16 lg:py-16">
+            <div className={`product-art ${isPos ? "product-art-pos" : "product-art-wms"} min-h-[300px] lg:min-h-[390px]`} aria-hidden="true"><div className="art-core" /><span className="absolute bottom-5 left-5 z-10 font-mono text-[10px] tracking-[.18em] text-[#26313b]/65">{isPos ? "TRANSACTIONS / BUSINESS" : "STORAGE / MOVEMENT"}</span></div>
+            <div className="flex flex-col justify-center py-8 lg:py-0">
+              <div className="flex flex-wrap items-center gap-3"><span className="font-mono text-[10px] uppercase tracking-[.15em] text-[#315fea]">0{index+1} / {copy.category}</span><span className="text-[10px] font-semibold uppercase tracking-[.12em] text-[#8b6939]">{id ? "Dalam pengembangan" : "In development"}</span></div>
+              <h2 className="mt-6 text-4xl font-semibold tracking-[-.06em] sm:text-5xl">{product.name}</h2>
+              <p className="mt-5 max-w-xl text-base leading-8 text-[#66717d]">{copy.summary}</p>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-[#89919a]">{copy.description}</p>
+              <Link href={`/${locale}/products/${product.slug}`} className="mt-8 inline-flex w-fit items-center gap-8 border-b border-[#15191f] pb-2 text-sm font-semibold hover:border-[#315fea] hover:text-[#315fea]">{id ? "Lihat arah pengembangan" : "Explore product direction"} <span aria-hidden="true">↗</span></Link>
+            </div>
+          </article>;
+        })}
+      </div>
+    </section>
+    <section className="bg-[#15191f] py-20 text-white sm:py-24"><div className="site-container flex flex-col justify-between gap-8 md:flex-row md:items-end"><div className="max-w-2xl"><span className="eyebrow !text-[#9db4ff]">{id ? "Punya kebutuhan khusus?" : "Have a specific need?"}</span><h2 className="mt-6 text-3xl font-semibold tracking-[-.05em] sm:text-4xl">{id ? "Mari diskusikan konteks bisnis Anda." : "Let's discuss your business context."}</h2></div><Link href={`/${locale}/contact`} className="inline-flex min-h-12 items-center justify-between gap-8 border border-white/30 px-5 text-sm font-semibold hover:bg-white hover:text-[#15191f]">{id ? "Hubungi kami" : "Get in touch"} <span aria-hidden="true">↗</span></Link></div></section>
   </>;
 }
