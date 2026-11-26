@@ -59,7 +59,7 @@ for (const [path, expected] of routes) {
     const locale = path.startsWith("/id") ? "id" : "en";
     const expectedOgLocale = locale === "id" ? "id_ID" : "en_US";
     if (!html.includes(`<html lang="${locale}"`)) failures.push(`${path}: document language should be ${locale}`);
-    const metaTags = html.match(/<meta\\b[^>]*>/g) ?? [];
+    const metaTags = html.match(/<meta\b[^>]*>/g) ?? [];
     const hasMeta = (attribute, value) => metaTags.some((tag) => tag.includes(`${attribute}="${value}"`));
     if (!hasMeta("property", "og:title")) failures.push(`${path}: Open Graph title is missing`);
     if (!hasMeta("property", "og:description")) failures.push(`${path}: Open Graph description is missing`);
