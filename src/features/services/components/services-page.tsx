@@ -1,4 +1,8 @@
-import Link from "next/link";\nimport type { Locale } from "@/lib/i18n/dictionaries";\n\nexport function ServicesPageContent({ locale }: { locale: Locale }) {\n  const id = locale === "id";
+import Link from "next/link";
+import type { Locale } from "@/lib/i18n/dictionaries";
+
+export function ServicesPageContent({ locale }: { locale: Locale }) {
+  const id = locale === "id";
   const items = id ? [
     ["01","Pengembangan website","Website perusahaan, landing page, dan pengalaman digital yang dirancang sesuai tujuan bisnis."],
     ["02","Software bisnis kustom","Aplikasi dan sistem internal yang mengikuti proses kerja, kebutuhan data, dan alur operasional."],
