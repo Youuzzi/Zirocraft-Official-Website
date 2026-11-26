@@ -29,7 +29,9 @@ const browser = await chromium.launch({ headless: true });
 
 try {
   for (const locale of locales) {
-    const page = await browser.newPage();
+    // axe-playwright requires pages created from an explicit browser context.
+    const context = await browser.newContext();
+    const page = await context.newPage();
     page.on("pageerror", (error) => {
       failures.push(`/${locale}: uncaught browser error: ${error.message}`);
     });
@@ -83,13 +85,13 @@ try {
           );
           for (const node of violation.nodes) {
             failures.push(`  target: ${node.target.join(", ")}`);
-            if (node.failureSummary) failures.push(`  ${node.failureSummary.replaceAll("\n", " ")}`);
+            if (node.failureSummary) failures.push(`  ${node.failureSummary.replaceAll("\\n", " ")}`);
           }
         }
       }
     }
 
-    await page.close();
+    await context.close();
   }
 } finally {
   await browser.close();
