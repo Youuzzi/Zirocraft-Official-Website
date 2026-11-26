@@ -3,6 +3,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products, productText } from "@/lib/products";
+import { HomeHero } from "@/features/home/components/home-hero";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
@@ -22,40 +23,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const id = locale === "id";
   return (
     <>
-      <section className="relative overflow-hidden bg-[#15191f] text-white">
-        <div aria-hidden="true" className="absolute right-0 top-0 h-full w-[48%] border-l border-white/10 max-lg:hidden">
-          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px)", backgroundSize: "64px 64px" }} />
-          <div className="absolute right-[13%] top-[16%] h-[62%] w-[58%] border border-white/20 motion-drift" />
-          <div className="absolute right-[20%] top-[23%] h-[48%] w-[45%] bg-[#315fea] p-5 shadow-2xl">
-            <div className="flex h-full flex-col justify-between border border-white/25 p-5">
-              <span className="font-mono text-[10px] uppercase tracking-[.22em] text-white">ZIROCRAFT / DIGITAL SYSTEMS</span>
-              <div className="grid grid-cols-4 gap-2">
-                <span className="col-span-3 h-2 bg-white/80" /><span className="h-2 bg-white/30" />
-                <span className="col-span-2 h-2 bg-white/55" /><span className="col-span-2 h-2 bg-white/20" />
-              </div>
-              <span className="font-mono text-xs text-white">BUILT AROUND REAL WORK.</span>
-            </div>
-          </div>
-          <span className="absolute bottom-[12%] left-[10%] font-mono text-[10px] tracking-[.2em] text-white/55">01 — 02 / PRODUCT THINKING</span>
-        </div>
-        <div className="site-container relative grid min-h-[680px] items-center py-24 sm:py-32 lg:min-h-[760px] lg:grid-cols-[1.08fr_.92fr]">
-          <div className="max-w-[760px] motion-rise">
-            <span className="eyebrow !text-[#9db4ff]">{id ? "Teknologi dengan tujuan" : "Technology with intent"}</span>
-            <h1 className="display-heading mt-8 max-w-[850px] text-balance">{id ? "Membangun teknologi yang bergerak bersama bisnis." : "Building technology that moves with business."}</h1>
-            <p className="mt-8 max-w-xl text-base leading-8 text-white/65 sm:text-lg">{id ? "Kami merancang dan mengembangkan perangkat lunak untuk membantu bisnis mengelola pekerjaan nyata—dari transaksi hingga operasional gudang." : "We design and build software that helps businesses manage real work—from everyday transactions to warehouse operations."}</p>
-            <div className="mt-10 flex flex-wrap items-center gap-5">
-              <Link href={`/${locale}/products`} className="inline-flex min-h-14 items-center gap-6 bg-[#315fea] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#2449b8]">{id ? "Jelajahi produk" : "Explore products"} <span aria-hidden="true">↗</span></Link>
-              <Link href={`/${locale}/about`} className="inline-flex min-h-12 items-center text-sm font-medium text-white/75 transition-colors hover:text-white">{id ? "Kenali ZiroCraft" : "Discover ZiroCraft"} <span aria-hidden="true" className="ml-3">→</span></Link>
-            </div>
-          </div>
-          <div className="mt-16 flex items-end justify-between border-t border-white/15 pt-5 lg:hidden">
-            <span className="font-mono text-[10px] tracking-[.18em] text-white/55">ZIROCRAFT / DIGITAL SYSTEMS</span>
-            <span className="text-xs text-white/55">01 — 02</span>
-          </div>
-          <div className="absolute bottom-8 right-0 hidden font-mono text-[10px] tracking-[.18em] text-white/55 lg:block">INDEPENDENT SOFTWARE & PRODUCT DEVELOPMENT</div>
-        </div>
-      </section>
-
+      <HomeHero locale={locale} />
       <section className="bg-[#f5f4f0] py-24 sm:py-32">
         <div className="site-container grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:gap-24">
           <div><span className="eyebrow">{id ? "Sudut pandang kami" : "Our point of view"}</span><p className="mt-6 font-mono text-xs text-[#626d78]">01 / THE WHY</p></div>
@@ -73,7 +41,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <div className="site-container">
           <div className="flex flex-col justify-between gap-7 border-b border-[#d9dad6] pb-8 sm:flex-row sm:items-end">
             <div><span className="eyebrow">{id ? "Produk yang sedang dibangun" : "What we're building"}</span><h2 className="section-heading mt-6 max-w-2xl">{id ? "Dua fokus. Satu cara berpikir." : "Two domains. One way of thinking."}</h2></div>
-            <Link href={`/${locale}/products`} className="inline-flex items-center gap-3 text-sm font-semibold text-[#284fce] hover:text-[#2449b8]">{id ? "Lihat semua produk" : "View all products"} <span aria-hidden="true">↗</span></Link>
+            <Link href={`/${locale}/products`} className="inline-flex items-center gap-3 text-sm font-semibold text-[#284fce] hover:text-[#1f3f9e]">{id ? "Lihat semua produk" : "View all products"} <span aria-hidden="true">↗</span></Link>
           </div>
           <div className="mt-12 divide-y divide-[#d9dad6]">
             {products.map((product, index) => {
@@ -87,7 +55,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                     <p className="mt-4 max-w-xl text-sm leading-7 text-[#56616d]">{copy.summary}</p>
                     <Link href={`/${locale}/products/${product.slug}`} className="mt-6 inline-flex items-center gap-3 text-sm font-semibold text-[#15191f] hover:text-[#284fce]">{id ? "Kenali produk" : "Discover the product"} <span aria-hidden="true">↗</span></Link>
                   </div>
-                  <div className={`product-art ${product.slug === "ziropos" ? "product-art-pos" : "product-art-wms"}`} aria-hidden="true"><div className="art-core" /><span className="absolute bottom-4 left-5 z-10 font-mono text-[9px] tracking-[.18em] text-[#26313b]">{product.slug === "ziropos" ? "POINT OF SALE / BUSINESS" : "WAREHOUSE / OPERATIONS"}</span></div>
+                  <div className={`product-art ${product.slug === "ziropos" ? "product-art-pos" : "product-art-wms"}`} aria-hidden="true"><div className="art-core" /><span className="absolute bottom-4 left-5 z-10 font-mono text-[9px] tracking-[.18em] text-[#15191f]">{product.slug === "ziropos" ? "POINT OF SALE / BUSINESS" : "WAREHOUSE / OPERATIONS"}</span></div>
                 </article>
               );
             })}
