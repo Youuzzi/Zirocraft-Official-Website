@@ -46,6 +46,9 @@ body {
 a { text-underline-offset: 4px; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
+#main-content { scroll-margin-top: 6rem; }
+#main-content:focus { outline: none; }
+
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
   .motion-rise { animation: rise-in .7s cubic-bezier(.2,.7,.2,1) both; }
