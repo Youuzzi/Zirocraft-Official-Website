@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products, productText } from "@/lib/products";
@@ -14,7 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = products.find((item) => item.slug === slug);
   if (!product) return {};
   const language = locale === "id" ? "id" : "en";
-  return { title: product.name, description: product.summary[language] };
+  return createPageMetadata({
+    locale: language,
+    title: product.name,
+    description: product.summary[language]
+  });
 }
 
 export default async function ProductDetailPage({ params }: Props) {

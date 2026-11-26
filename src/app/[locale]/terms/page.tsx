@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/terms">): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "id"
-    ? { title: "Ketentuan Layanan", description: "Ketentuan penggunaan website resmi Zirocraft." }
-    : { title: "Terms of Service", description: "Terms for accessing and using the official Zirocraft website." };
+  const language = locale === "id" ? "id" : "en";
+  return createPageMetadata({
+    locale: language,
+    title: language === "id" ? "Ketentuan Layanan" : "Terms of Service",
+    description: language === "id"
+      ? "Ketentuan penggunaan website resmi ZiroCraft."
+      : "Terms for accessing and using the official ZiroCraft website."
+  });
 }
 type LegalSection = [string, string[]];
 const sections: Record<"en" | "id", LegalSection[]> = {

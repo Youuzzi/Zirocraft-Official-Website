@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/portfolio">): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "id"
-    ? { title: "Portofolio", description: "Lihat produk dan pekerjaan pengembangan software ZiroCraft." }
-    : { title: "Portfolio", description: "Explore software products and development work by ZiroCraft." };
+  const language = locale === "id" ? "id" : "en";
+  return createPageMetadata({
+    locale: language,
+    title: language === "id" ? "Portofolio" : "Portfolio",
+    description: language === "id"
+      ? "Lihat produk dan pekerjaan pengembangan software ZiroCraft."
+      : "Explore software products and development work by ZiroCraft."
+  });
 }
 
 export default async function PortfolioPage({ params }: PageProps<"/[locale]/portfolio">) {

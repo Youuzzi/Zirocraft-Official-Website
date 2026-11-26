@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products, productText } from "@/lib/products";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
-  if (locale === "id") {
-    return {
-      title: "Solusi Digital untuk Bisnis Modern",
-      description: "ZiroCraft mengembangkan solusi digital dan perangkat lunak untuk membantu bisnis mengelola transaksi dan operasional dengan lebih terarah."
-    };
-  }
-  return {
-    title: "Digital Solutions for Modern Businesses",
-    description: "ZiroCraft develops digital solutions and software that help businesses manage transactions and operations with greater clarity."
-  };
+  const language = locale === "id" ? "id" : "en";
+  return createPageMetadata({
+    locale: language,
+    title: language === "id" ? "Solusi Digital untuk Bisnis Modern" : "Digital Solutions for Modern Businesses",
+    description: language === "id"
+      ? "ZiroCraft mengembangkan solusi digital dan perangkat lunak untuk membantu bisnis mengelola transaksi dan operasional dengan lebih terarah."
+      : "ZiroCraft develops digital solutions and software that help businesses manage transactions and operations with greater clarity."
+  });
 }
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
