@@ -26,12 +26,12 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
     </section>
     <section className="bg-[#f5f4f0] py-24 sm:py-32">
       <div className="site-container grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
-        <div><span className="eyebrow">{id ? "Hubungi kami" : "Reach us"}</span><p className="mt-6 font-mono text-xs text-[#89919a]">01 / EMAIL</p></div>
+        <div><span className="eyebrow">{id ? "Hubungi kami" : "Reach us"}</span><p className="mt-6 font-mono text-xs text-[#626d78]">01 / EMAIL</p></div>
         <div className="border-t border-[#d9dad6] pt-7">
           <h2 className="text-3xl font-semibold tracking-[-.05em] sm:text-4xl">{id ? "Ceritakan apa yang sedang Anda bangun." : "Tell us what you're working on."}</h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-[#66717d]">{id ? "Untuk pertanyaan umum, diskusi produk, atau peluang kerja sama, kirimkan email kepada kami. Sertakan konteks singkat agar percakapan bisa dimulai dengan jelas." : "For general inquiries, product discussions, or collaboration opportunities, send us an email. A little context helps us start the conversation clearly."}</p>
           <a href={`mailto:${contactEmail}`} className="mt-9 inline-flex min-h-14 items-center justify-between gap-8 bg-[#315fea] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#2449b8]">{contactEmail}<span aria-hidden="true">↗</span></a>
-          <p className="mt-4 text-xs text-[#89919a]">{id ? "Email akan terbuka melalui aplikasi email perangkat Anda." : "This will open your default email application."}</p>
+          <p className="mt-4 text-xs text-[#626d78]">{id ? "Email akan terbuka melalui aplikasi email perangkat Anda." : "This will open your default email application."}</p>
         </div>
       </div>
     </section>
