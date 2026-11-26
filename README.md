@@ -60,6 +60,10 @@ NEXT_PUBLIC_SITE_URL=https://your-verified-domain.example
 
 The sitemap, robots sitemap reference, and absolute metadata URLs use this value. Vercel deployments fall back to the deployment host when the variable is not set. Outside Vercel, sitemap entries are intentionally omitted until a canonical origin is configured; this avoids publishing an assumed domain.
 
+## Release Readiness
+
+Use [`docs/ZIROCRAFT_RELEASE_READINESS.md`](docs/ZIROCRAFT_RELEASE_READINESS.md) to track pre-merge review and production launch checks. CI passing does not replace browser-level visual QA or domain/deployment verification.
+
 ## Available Scripts
 
 | Command | Description |
