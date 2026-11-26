@@ -7,8 +7,8 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zirocraft.com"),
-  title: "Zirocraft | Practical Technology",
-  description: "Zirocraft develops practical digital solutions for growing businesses."
+  title: "ZiroCraft | Practical Technology",
+  description: "ZiroCraft develops practical digital solutions for growing businesses."
 };
 
 export default function DefaultRootLayout({ children }: LayoutProps<"/">) {
