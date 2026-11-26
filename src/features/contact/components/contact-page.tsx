@@ -12,13 +12,13 @@ export function ContactPageContent({ locale }: { locale: Locale }) {
     </section>
     <section className="bg-[#e9e8e2] py-24 text-[#15191f] sm:py-32">
       <div className="site-container grid gap-12 lg:grid-cols-[.65fr_1.35fr] lg:gap-24">
-        <div><span className="eyebrow">{id ? "Mari terhubung" : "Let's connect"}</span><p className="mt-6 font-mono text-xs text-[#626d78]">[ 01 / EMAIL ]</p><div className="mt-12 hidden h-40 w-40 items-center justify-center rounded-full border border-[#15191f]/20 text-5xl lg:flex" aria-hidden="true">↗</div></div>
+        <div><span className="eyebrow">{id ? "Mari terhubung" : "Let's connect"}</span><p className="mt-6 font-mono text-xs text-[#58616b]">[ 01 / EMAIL ]</p><div className="mt-12 hidden h-40 w-40 items-center justify-center rounded-full border border-[#15191f]/20 text-5xl lg:flex" aria-hidden="true">↗</div></div>
         <div className="border-t border-[#c9cbc5] pt-8">
-          <span className="font-mono text-[10px] tracking-[.16em] text-[#5965d8]">{id ? "KIRIM PESAN" : "SEND A MESSAGE"}</span>
+          <span className="font-mono text-[10px] tracking-[.16em] text-[#414db5]">{id ? "KIRIM PESAN" : "SEND A MESSAGE"}</span>
           <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-.06em] sm:text-6xl">{id ? "Apa yang sedang ingin Anda bangun?" : "What are you looking to build?"}</h2>
-          <p className="mt-7 max-w-xl text-base leading-8 text-[#66717d]">{id ? "Untuk pertanyaan umum, diskusi produk, atau peluang kerja sama, kirim email kepada kami. Sertakan tujuan, tantangan, dan gambaran singkat agar percakapan bisa dimulai dengan jelas." : "For general inquiries, product discussions, or collaboration opportunities, send us an email. Include your goal, challenge, and a little context so we can start clearly."}</p>
+          <p className="mt-7 max-w-xl text-base leading-8 text-[#58616b]">{id ? "Untuk pertanyaan umum, diskusi produk, atau peluang kerja sama, kirim email kepada kami. Sertakan tujuan, tantangan, dan gambaran singkat agar percakapan bisa dimulai dengan jelas." : "For general inquiries, product discussions, or collaboration opportunities, send us an email. Include your goal, challenge, and a little context so we can start clearly."}</p>
           <a href={mailto} aria-label={id ? `Kirim email ke ${contactEmail}` : `Send an email to ${contactEmail}`} className="mt-10 inline-flex min-h-16 w-full max-w-2xl items-center justify-between gap-8 bg-[#d6ff55] px-6 text-sm font-semibold text-[#11151b] transition-colors hover:bg-[#c4ee3e] sm:px-8">{contactEmail}<span aria-hidden="true" className="text-xl">↗</span></a>
-          <p className="mt-4 text-xs text-[#626d78]">{id ? "Email akan terbuka melalui aplikasi email perangkat Anda." : "This will open your default email application."}</p>
+          <p className="mt-4 text-xs text-[#58616b]">{id ? "Email akan terbuka melalui aplikasi email perangkat Anda." : "This will open your default email application."}</p>
         </div>
       </div>
     </section>
