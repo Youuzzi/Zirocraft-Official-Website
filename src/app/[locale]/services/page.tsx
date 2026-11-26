@@ -1,4 +1,9 @@
-import type { Metadata } from "next";\nimport { createPageMetadata } from "@/lib/metadata";\nimport { notFound } from "next/navigation";\nimport { ServicesPageContent } from "@/features/services";\n\nexport async function generateMetadata({ params }: PageProps<"/[locale]/services">): Promise<Metadata> {
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
+import { notFound } from "next/navigation";
+import { ServicesPageContent } from "@/features/services";
+
+export async function generateMetadata({ params }: PageProps<"/[locale]/services">): Promise<Metadata> {
   const { locale } = await params;
   const language = locale === "id" ? "id" : "en";
   return createPageMetadata({
@@ -10,4 +15,8 @@ import type { Metadata } from "next";\nimport { createPageMetadata } from "@/lib
   });
 }
 
-export default async function ServicesPage({ params }: PageProps<"/[locale]/services">) {\n  const { locale } = await params;\n  if (locale !== "id" && locale !== "en") notFound();\n  return <ServicesPageContent locale={locale} />;\n}\n
+export default async function ServicesPage({ params }: PageProps<"/[locale]/services">) {
+  const { locale } = await params;
+  if (locale !== "id" && locale !== "en") notFound();
+  return <ServicesPageContent locale={locale} />;
+}
