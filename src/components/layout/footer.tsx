@@ -23,7 +23,7 @@ export default function Footer({ locale, dictionary }: Props) {
             <a className="mt-6 inline-flex text-sm font-semibold text-[#d6ff55] hover:text-white" href="mailto:zirocraftid@gmail.com">zirocraftid@gmail.com ↗</a>
           </div>
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[.18em] text-white/40">{id ? "Jelajahi" : "Explore"}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[.18em] text-white/65">{id ? "Jelajahi" : "Explore"}</p>
             <ul className="mt-5 space-y-3 text-sm text-white/65">
               <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/products`}>{dictionary.navigation.products}</Link></li>
               <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/products/ziropos`}>ZiroPOS</Link></li>
@@ -33,7 +33,7 @@ export default function Footer({ locale, dictionary }: Props) {
             </ul>
           </div>
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[.18em] text-white/40">{id ? "Perusahaan" : "Company"}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[.18em] text-white/65">{id ? "Perusahaan" : "Company"}</p>
             <ul className="mt-5 space-y-3 text-sm text-white/65">
               <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/about`}>{dictionary.navigation.about}</Link></li>
               <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/contact`}>{dictionary.navigation.contact}</Link></li>
@@ -42,7 +42,7 @@ export default function Footer({ locale, dictionary }: Props) {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-3 pt-6 text-[10px] text-white/40 sm:flex-row sm:items-center">
+        <div className="flex flex-col justify-between gap-3 pt-6 text-[10px] text-white/65 sm:flex-row sm:items-center">
           <p>© 2026 ZiroCraft. {t.rights}</p>
           <p className="font-mono uppercase tracking-[.14em]">Think bigger. Build better. Move forward.</p>
         </div>
