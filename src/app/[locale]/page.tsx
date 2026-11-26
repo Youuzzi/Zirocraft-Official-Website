@@ -110,7 +110,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                 <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full border border-[#22B8C8]/25 transition-transform duration-700 group-hover:scale-125" />
                 <div className="relative flex items-start justify-between gap-4">
                   <span className="font-mono text-[10px] tracking-[.12em] text-[#155D95]">{item.category}</span>
-                  <span className="font-mono text-xs text-[#718596]">{item.number} / 02</span>
+                  <span className="font-mono text-xs text-[#526B7C]">{item.number} / 02</span>
                 </div>
                 <div className="relative mt-14">
                   <span className="font-mono text-[10px] uppercase tracking-[.14em] text-[#526B7C]">{item.product} · {id ? "Pengembangan internal" : "Internal development"}</span>
