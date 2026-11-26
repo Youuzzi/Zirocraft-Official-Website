@@ -5,7 +5,7 @@ export function ProductsHero({ locale }: { locale: Locale }) {
   return (
     <section className="bg-[#11151b] py-24 text-white sm:py-36">
       <div className="site-container">
-        <span className="eyebrow !text-[#d6ff55]">{id ? "Portofolio produk" : "Product portfolio"}</span>
+        <span className="eyebrow !text-[#A6A7F5]">{id ? "Portofolio produk" : "Product portfolio"}</span>
         <h1 className="display-heading mt-8 max-w-4xl">{id ? "Perangkat lunak untuk pekerjaan yang berbeda." : "Software for different kinds of work."}</h1>
         <p className="mt-8 max-w-2xl text-base leading-8 text-white/60">{id ? "Dua area operasional menjadi fokus pengembangan produk ZiroCraft saat ini. Keduanya memiliki kebutuhan dan pendekatan yang berbeda." : "Two operational domains are the current focus of ZiroCraft's product development. Each comes with its own needs and approach."}</p>
       </div>
