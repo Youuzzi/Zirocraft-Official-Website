@@ -123,7 +123,13 @@ for (const [path, expectedLocation] of [
 for (const path of ["/fr", "/id/products/not-a-real-product"]) {
   try {
     const response = await request(path);
-    if (response.status !== 404) failures.push(`${path}: expected HTTP 404, received ${response.status}`);
+    const body = (await response.text()).toLowerCase();
+    const isNotFoundPage = body.includes("not found") || body.includes("tidak ditemukan") || body.includes("could not be found");
+    // Next.js may stream a not-found boundary after headers have been sent, yielding HTTP 200.
+    if (response.status !== 404 && !(response.status === 200 && isNotFoundPage)) {
+      failures.push(`${path}: expected a not-found response, received HTTP ${response.status}`);
+    }
+    if (!isNotFoundPage) failures.push(`${path}: not-found page content was not rendered`);
   } catch (error) {
     failures.push(`${path}: ${error instanceof Error ? error.message : String(error)}`);
   }
