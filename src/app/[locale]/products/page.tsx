@@ -35,7 +35,7 @@ export default async function ProductsPage({ params }: PageProps<"/[locale]/prod
               <div className="flex flex-wrap items-center gap-3"><span className="font-mono text-[10px] uppercase tracking-[.15em] text-[#315fea]">0{index+1} / {copy.category}</span><span className="text-[10px] font-semibold uppercase tracking-[.12em] text-[#8b6939]">{id ? "Dalam pengembangan" : "In development"}</span></div>
               <h2 className="mt-6 text-4xl font-semibold tracking-[-.06em] sm:text-5xl">{product.name}</h2>
               <p className="mt-5 max-w-xl text-base leading-8 text-[#66717d]">{copy.summary}</p>
-              <p className="mt-4 max-w-xl text-sm leading-7 text-[#89919a]">{copy.description}</p>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-[#626d78]">{copy.description}</p>
               <Link href={`/${locale}/products/${product.slug}`} className="mt-8 inline-flex w-fit items-center gap-8 border-b border-[#15191f] pb-2 text-sm font-semibold hover:border-[#315fea] hover:text-[#315fea]">{id ? "Lihat arah pengembangan" : "Explore product direction"} <span aria-hidden="true">↗</span></Link>
             </div>
           </article>;
