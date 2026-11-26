@@ -20,6 +20,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
   const { locale } = await params;
   if (locale !== "id" && locale !== "en") notFound();
   const id = locale === "id";
+  const mailto = `mailto:${contactEmail}?subject=${encodeURIComponent(id ? "Pertanyaan untuk ZiroCraft" : "Inquiry for ZiroCraft")}`;
   return <>
     <section className="bg-[#15191f] py-24 text-white sm:py-36">
       <div className="site-container"><span className="eyebrow !text-[#9db4ff]">{id ? "Kontak" : "Contact"}</span><h1 className="display-heading mt-8 max-w-4xl">{id ? "Setiap solusi dimulai dari percakapan." : "Every useful solution starts with a conversation."}</h1><p className="mt-8 max-w-xl text-base leading-8 text-white/60">{id ? "Punya pertanyaan tentang produk, kebutuhan software, atau peluang kolaborasi? Kami terbuka untuk mendengarnya." : "Questions about our products, software needs, or a potential collaboration? We'd be glad to hear from you."}</p></div>
@@ -30,7 +31,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
         <div className="border-t border-[#d9dad6] pt-7">
           <h2 className="text-3xl font-semibold tracking-[-.05em] sm:text-4xl">{id ? "Ceritakan apa yang sedang Anda bangun." : "Tell us what you're working on."}</h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-[#66717d]">{id ? "Untuk pertanyaan umum, diskusi produk, atau peluang kerja sama, kirimkan email kepada kami. Sertakan konteks singkat agar percakapan bisa dimulai dengan jelas." : "For general inquiries, product discussions, or collaboration opportunities, send us an email. A little context helps us start the conversation clearly."}</p>
-          <a href={`mailto:${contactEmail}`} className="mt-9 inline-flex min-h-14 items-center justify-between gap-8 bg-[#315fea] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#2449b8]">{contactEmail}<span aria-hidden="true">↗</span></a>
+          <a href={mailto} aria-label={id ? `Kirim email ke ${contactEmail}` : `Send an email to ${contactEmail}`} className="mt-9 inline-flex min-h-14 items-center justify-between gap-8 bg-[#315fea] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#2449b8]">{contactEmail}<span aria-hidden="true">↗</span></a>
           <p className="mt-4 text-xs text-[#89919a]">{id ? "Email akan terbuka melalui aplikasi email perangkat Anda." : "This will open your default email application."}</p>
         </div>
       </div>
