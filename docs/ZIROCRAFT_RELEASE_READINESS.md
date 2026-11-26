@@ -6,7 +6,7 @@ This checklist separates repository quality from launch readiness. A passing CI 
 
 - [ ] Manually inspect the Playwright screenshot artifact for Indonesian and English homepages at 320px, 768px, and 1440px, plus product and contact pages at mobile and desktop widths.
 - [x] Automated Chromium checks verify mobile menu open/close, desktop navigation visibility, and responsive overflow at 320, 375, 768, 1024, and 1440px.
-- [x] Production smoke tests crawl internal navigation links and verify localized product, service, portfolio, and legal routes.
+- [x] Production smoke tests verify the root redirect, crawl internal navigation links, and cover localized product, service, portfolio, and legal routes.
 - [x] Browser QA verifies the skip-to-content link is the first keyboard stop; manual keyboard review remains recommended.
 - [x] Browser QA verifies the reduced-motion preference is respected.
 - [x] Automated axe-core scans cover localized pages at desktop width and localized homepages at 320px against WCAG 2.0/2.1/2.2 A/AA and axe best-practice rules. Any remaining incomplete/manual-review items must still be reviewed.
