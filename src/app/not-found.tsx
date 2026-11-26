@@ -7,15 +7,15 @@ export default function NotFound() {
         <p className="eyebrow">ZIROCRAFT / 404</p>
         <p className="mt-10 font-mono text-[clamp(5rem,18vw,12rem)] leading-none tracking-[-.09em] text-[#315fea]">404</p>
         <div className="mt-8 grid gap-8 border-t border-[#d9dad6] pt-8 lg:grid-cols-[.7fr_1.3fr] lg:gap-20">
-          <p className="font-mono text-xs uppercase tracking-[.16em] text-[#89919a]">Page not found / Halaman tidak ditemukan</p>
+          <p className="font-mono text-xs uppercase tracking-[.16em] text-[#626d78]">Page not found / Halaman tidak ditemukan</p>
           <div>
             <h1 className="max-w-2xl text-3xl font-semibold tracking-[-.055em] text-[#15191f] sm:text-5xl">
-              The page you're looking for isn't here.
+              The page you&apos;re looking for isn&apos;t here.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-8 text-[#66717d]">
               The address may have changed, or the page may no longer exist. You can return to the homepage and continue exploring ZiroCraft.
             </p>
-            <p className="mt-3 max-w-xl text-sm leading-7 text-[#89919a]">
+            <p className="mt-3 max-w-xl text-sm leading-7 text-[#626d78]">
               Alamat mungkin berubah atau halaman sudah tidak tersedia. Silakan kembali ke halaman utama ZiroCraft.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
