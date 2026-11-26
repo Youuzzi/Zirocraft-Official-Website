@@ -80,7 +80,7 @@ public/
 
 ## Adding a Product
 
-Add a product record to `src/lib/products.ts`. The catalog is shared by the homepage, portfolio page, and product detail route. Use a stable slug, localized category and copy, and an accurate status.
+Add a product record to `src/lib/products.ts`. The catalog is shared by the homepage, product catalogue, portfolio overview, and product detail route. Use a stable slug, localized category and copy, and an accurate status.
 
 Supported product statuses are `available`, `in-development`, and `coming-soon`. Only use `available` when public availability has been confirmed.
 
