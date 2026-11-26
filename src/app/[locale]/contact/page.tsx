@@ -1,4 +1,9 @@
-import type { Metadata } from "next";\nimport { createPageMetadata } from "@/lib/metadata";\nimport { notFound } from "next/navigation";\nimport { ContactPageContent } from "@/features/contact";\n\nexport async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
+import { notFound } from "next/navigation";
+import { ContactPageContent } from "@/features/contact";
+
+export async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
   const { locale } = await params;
   const language = locale === "id" ? "id" : "en";
   return createPageMetadata({
@@ -10,4 +15,8 @@ import type { Metadata } from "next";\nimport { createPageMetadata } from "@/lib
   });
 }
 
-export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {\n  const { locale } = await params;\n  if (locale !== "id" && locale !== "en") notFound();\n  return <ContactPageContent locale={locale} />;\n}\n
+export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {
+  const { locale } = await params;
+  if (locale !== "id" && locale !== "en") notFound();
+  return <ContactPageContent locale={locale} />;
+}
