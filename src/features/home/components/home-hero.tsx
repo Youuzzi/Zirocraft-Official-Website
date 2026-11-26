@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import type { PointerEvent } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/dictionaries";
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const id = locale === "id";
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
-  const handlePointer = (event: React.PointerEvent<HTMLElement>) => {
+  const handlePointer = (event: PointerEvent<HTMLElement>) => {
     if (event.pointerType === "touch") return;
     const rect = event.currentTarget.getBoundingClientRect();
     setPointer({
@@ -40,7 +41,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="hero-art relative mx-auto aspect-square w-full max-w-[590px]" aria-label={id ? "Komposisi visual interaktif ZiroCraft" : "Interactive ZiroCraft visual composition"}>
+        <div className="hero-art relative mx-auto aspect-square w-full max-w-[590px]" aria-hidden="true">
           <div className="hero-art-label hero-art-label-top">ZC — 001 / CREATIVE SYSTEMS</div>
           <div className="hero-orbit orbit-one" style={{ transform: `translate(-50%, -50%) rotateX(${pointer.y}deg) rotateY(${pointer.x}deg)` }}>
             <div className="orbit-dot" />
