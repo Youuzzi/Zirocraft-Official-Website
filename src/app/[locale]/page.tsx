@@ -113,7 +113,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                   <span className="font-mono text-xs text-[#718596]">{item.number} / 02</span>
                 </div>
                 <div className="relative mt-14">
-                  <span className="font-mono text-[10px] uppercase tracking-[.14em] text-[#60788A]">{item.product} · {id ? "Pengembangan internal" : "Internal development"}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[.14em] text-[#526B7C]">{item.product} · {id ? "Pengembangan internal" : "Internal development"}</span>
                   <h3 className="mt-3 max-w-lg text-3xl font-semibold tracking-[-.06em] sm:text-4xl">{item.title}</h3>
                   <p className="mt-4 max-w-xl text-sm leading-7 text-[#465766]">{item.copy}</p>
                 </div>
@@ -121,7 +121,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               </Link>
             ))}
           </div>
-          <p className="mt-5 text-xs leading-6 text-[#60788A]">{id ? "Sorotan ini merupakan pengembangan produk internal, bukan klaim implementasi pelanggan atau produk yang telah dirilis." : "These spotlights represent internal product development, not customer implementations or released products."}</p>
+          <p className="mt-5 text-xs leading-6 text-[#526B7C]">{id ? "Sorotan ini merupakan pengembangan produk internal, bukan klaim implementasi pelanggan atau produk yang telah dirilis." : "These spotlights represent internal product development, not customer implementations or released products."}</p>
         </div>
       </section>
 
