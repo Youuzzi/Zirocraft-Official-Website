@@ -6,5 +6,6 @@ export function isLocale(value: string): value is Locale {
 }
 
 export function getLocalizedPath(locale: Locale, path = "") {
-  return `/${locale}${path ? `/${path.replace(/^\\//, "")}` : ""}`;
+  const normalizedPath = path.replace(/^\/+/, "");
+  return normalizedPath ? \`/\${locale}/\${normalizedPath}\` : \`/\${locale}\`;
 }
