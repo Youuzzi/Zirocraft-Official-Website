@@ -26,6 +26,8 @@ export default function Footer({ locale, dictionary }: Props) {
               <li><Link className="transition-colors hover:text-white" href={`/${locale}/products`}>{dictionary.navigation.products}</Link></li>
               <li><Link className="transition-colors hover:text-white" href={`/${locale}/products/ziropos`}>ZiroPOS</Link></li>
               <li><Link className="transition-colors hover:text-white" href={`/${locale}/products/zirologistics`}>ZiroLogistics</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/services`}>{id ? "Layanan" : "Services"}</Link></li>
+              <li><Link className="transition-colors hover:text-white" href={`/${locale}/portfolio`}>{id ? "Portofolio" : "Portfolio"}</Link></li>
             </ul>
           </div>
           <div>
