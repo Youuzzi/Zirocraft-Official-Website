@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { products, productText } from "@/lib/products";
+import { products, productText } from "@/features/products";
 import { HomeHero } from "@/features/home/components/home-hero";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { products } from "@/lib/products";
+import { products } from "@/features/products";
 import type { Locale } from "@/lib/i18n/dictionaries";
 
 const translatedRoutes = new Set([
