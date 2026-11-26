@@ -72,7 +72,7 @@ for (const locale of locales) {
       failures.push(`/${locale} at ${width}px: header logo did not load (${JSON.stringify(imageState)})`);
     }
 
-    if (width < 768) {
+    if (width < 1024) {
       const summary = page.locator("header details > summary");
       if (!(await summary.isVisible())) failures.push(`/${locale} at ${width}px: mobile menu trigger is hidden`);
       await summary.click();
