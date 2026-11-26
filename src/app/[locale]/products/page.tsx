@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products, productText } from "@/lib/products";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/products">): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "id"
-    ? { title: "Produk", description: "Jelajahi produk perangkat lunak yang sedang dikembangkan ZiroCraft." }
-    : { title: "Products", description: "Explore software products currently being developed by ZiroCraft." };
+  const language = locale === "id" ? "id" : "en";
+  return createPageMetadata({
+    locale: language,
+    title: language === "id" ? "Produk" : "Products",
+    description: language === "id"
+      ? "Jelajahi produk perangkat lunak yang sedang dikembangkan ZiroCraft."
+      : "Explore software products currently being developed by ZiroCraft."
+  });
 }
 
 export default async function ProductsPage({ params }: PageProps<"/[locale]/products">) {
