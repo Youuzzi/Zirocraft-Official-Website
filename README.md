@@ -62,7 +62,7 @@ The sitemap, robots sitemap reference, and absolute metadata URLs use this value
 
 ## Release Readiness
 
-Use [`docs/ZIROCRAFT_RELEASE_READINESS.md`](docs/ZIROCRAFT_RELEASE_READINESS.md) to track pre-merge review and production launch checks. CI covers lint, production build, and route/SEO smoke tests; it does not replace browser-level visual QA or domain/deployment verification.
+Use [`docs/ZIROCRAFT_RELEASE_READINESS.md`](docs/ZIROCRAFT_RELEASE_READINESS.md) to track pre-merge review and production launch checks. CI runs ESLint, a production build, route/security/SEO smoke tests, Chromium browser checks, and automated axe accessibility scans. Manual visual approval, keyboard/screen-reader review, physical-device testing, domain ownership, DNS, and deployment verification remain separate release tasks.
 
 ## Available Scripts
 
@@ -72,29 +72,40 @@ Use [`docs/ZIROCRAFT_RELEASE_READINESS.md`](docs/ZIROCRAFT_RELEASE_READINESS.md)
 | `npm run lint` | Run ESLint |
 | `npm run build` | Create a production build |
 | `npm run start` | Start the production server |
+| `npm run test:smoke` | Run production route and SEO smoke tests |
+
+The CI workflow also runs browser and accessibility checks using Playwright and axe-core.
 
 ## Project Structure
 
 ```text
 src/
   app/
-    (root)/             # Root redirect and default document layout
+    (root)/             # Root redirect and document layout
     [locale]/           # Indonesian and English routes
-      products/
-        [slug]/         # Data-driven product detail pages
   components/
-    layout/             # Navbar, footer, language switcher
+    layout/             # Shared navbar, footer, and language switcher
+  features/
+    about/
+    contact/
+    home/
+    portfolio/
+    products/
+      components/
+      data/products.ts  # Central localized product catalog
+    services/
   lib/
-    i18n/               # Locale dictionaries
-    products.ts         # Central product catalog
+    i18n/               # Shared locale dictionaries
+    metadata.ts         # Shared page metadata helper
 
-public/
-  MyLogo/               # Official Zirocraft logo assets
+scripts/                # Route, browser, and accessibility QA
+docs/                   # Brand, architecture, tooling, and release guidance
+public/MyLogo/          # Official Zirocraft logo assets
 ```
 
 ## Adding a Product
 
-Add a product record to `src/lib/products.ts`. The catalog is shared by the homepage, product catalogue, portfolio overview, and product detail route. Use a stable slug, localized category and copy, and an accurate status.
+Add or update a product record in `src/features/products/data/products.ts`. The feature-owned catalog is shared by the homepage, product catalogue, portfolio overview, language switcher, and product detail route. Use a stable slug, localized category and copy, and an accurate status.
 
 Supported product statuses are `available`, `in-development`, and `coming-soon`. Only use `available` when public availability has been confirmed.
 
