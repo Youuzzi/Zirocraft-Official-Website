@@ -45,8 +45,8 @@ export default async function ProductDetailPage({ params }: Props) {
     </section>
     <section className="bg-[#f5f4f0] py-24 sm:py-32">
       <div className="site-container grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
-        <div><span className="eyebrow">{id ? "Arah produk" : "Product direction"}</span><p className="mt-6 font-mono text-xs text-[#89919a]">01 / OVERVIEW</p></div>
-        <div><h2 className="section-heading">{id ? "Dirancang untuk memahami dan menata pekerjaan operasional." : "Designed to bring structure to operational work."}</h2><p className="mt-8 max-w-3xl text-base leading-8 text-[#66717d]">{copy.description}</p><p className="mt-5 max-w-3xl text-sm leading-7 text-[#89919a]">{id ? "Halaman ini menjelaskan arah pengembangan, bukan penawaran ketersediaan produk. Cakupan dan kapabilitas dapat berubah seiring validasi dan proses pengembangan." : "This page describes the product direction, not product availability. Scope and capabilities may change as validation and development continue."}</p></div>
+        <div><span className="eyebrow">{id ? "Arah produk" : "Product direction"}</span><p className="mt-6 font-mono text-xs text-[#626d78]">01 / OVERVIEW</p></div>
+        <div><h2 className="section-heading">{id ? "Dirancang untuk memahami dan menata pekerjaan operasional." : "Designed to bring structure to operational work."}</h2><p className="mt-8 max-w-3xl text-base leading-8 text-[#66717d]">{copy.description}</p><p className="mt-5 max-w-3xl text-sm leading-7 text-[#626d78]">{id ? "Halaman ini menjelaskan arah pengembangan, bukan penawaran ketersediaan produk. Cakupan dan kapabilitas dapat berubah seiring validasi dan proses pengembangan." : "This page describes the product direction, not product availability. Scope and capabilities may change as validation and development continue."}</p></div>
       </div>
     </section>
     <section className="bg-white py-24 sm:py-32">
