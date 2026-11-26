@@ -12,13 +12,13 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zirocraft.com"),
-  title: { default: "Zirocraft | Practical Technology", template: "%s | Zirocraft" },
-  description: "Zirocraft develops practical digital solutions for growing businesses.",
-  applicationName: "Zirocraft",
+  title: { default: "ZiroCraft | Practical Technology", template: "%s | ZiroCraft" },
+  description: "ZiroCraft develops practical digital solutions for growing businesses.",
+  applicationName: "ZiroCraft",
   openGraph: {
     type: "website",
-    siteName: "Zirocraft",
-    title: "Zirocraft | Practical Technology",
+    siteName: "ZiroCraft",
+    title: "ZiroCraft | Practical Technology",
     description: "Building practical technology for growing businesses."
   }
 };
