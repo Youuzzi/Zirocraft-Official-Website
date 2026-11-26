@@ -56,6 +56,19 @@ for (const [path, expected] of routes) {
     if (!response.ok) failures.push(`${path}: expected HTTP 200, received ${response.status}`);
     if (!html.includes(expected)) failures.push(`${path}: expected page marker "${expected}" was not found`);
     if (!html.includes("<title>")) failures.push(`${path}: document title is missing`);
+    const locale = path.startsWith("/id") ? "id" : "en";
+    const expectedOgLocale = locale === "id" ? "id_ID" : "en_US";
+    if (!html.includes(`<html lang="${locale}"`)) failures.push(`${path}: document language should be ${locale}`);
+    const metaTags = html.match(/<meta\\b[^>]*>/g) ?? [];
+    const hasMeta = (attribute, value) => metaTags.some((tag) => tag.includes(`${attribute}="${value}"`));
+    if (!hasMeta("property", "og:title")) failures.push(`${path}: Open Graph title is missing`);
+    if (!hasMeta("property", "og:description")) failures.push(`${path}: Open Graph description is missing`);
+    if (!hasMeta("property", "og:locale") || !metaTags.some((tag) => tag.includes(`property="og:locale"`) && tag.includes(`content="${expectedOgLocale}"`))) {
+      failures.push(`${path}: Open Graph locale should be ${expectedOgLocale}`);
+    }
+    if (!metaTags.some((tag) => tag.includes('name="twitter:card"') && tag.includes('content="summary_large_image"'))) {
+      failures.push(`${path}: Twitter summary-large-image card is missing`);
+    }
   } catch (error) {
     failures.push(`${path}: ${error instanceof Error ? error.message : String(error)}`);
   }
@@ -156,5 +169,5 @@ if (failures.length) {
   for (const failure of failures) console.error(`- ${failure}`);
   process.exitCode = 1;
 } else {
-  console.log(`Production route smoke tests passed: ${routes.length} localized pages, redirects, internal navigation links, invalid-route 404s, security headers, 2 Open Graph images, robots.txt, and sitemap.xml.`);
+  console.log(`Production route smoke tests passed: ${routes.length} localized pages, redirects, internal navigation links, localized SEO metadata, invalid-route 404s, security headers, 2 Open Graph images, robots.txt, and sitemap.xml.`);
 }
