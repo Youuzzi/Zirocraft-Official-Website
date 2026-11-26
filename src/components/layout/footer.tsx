@@ -15,8 +15,9 @@ export default function Footer({ locale, dictionary }: Props) {
       <div className="site-container py-16 sm:py-20">
         <div className="grid gap-12 border-b border-white/15 pb-14 md:grid-cols-[1.3fr_.7fr_.7fr]">
           <div>
-            <Link href={`/${locale}`} className="relative block h-10 w-[185px]" aria-label="ZiroCraft homepage">
-              <Image src="/MyLogo/White%20Text.png" alt="ZiroCraft" fill sizes="185px" className="object-contain object-left" />
+            <Link href={`/${locale}`} className="inline-flex items-center gap-3" aria-label="ZiroCraft homepage">
+              <Image src="/MyLogo/mark-white-1400.png" alt="ZiroCraft" width={44} height={44} sizes="44px" className="h-10 w-10 object-contain" />
+              <span className="text-2xl font-semibold tracking-[-.065em] text-white">zirocraft<span className="text-[#d6ff55]">.</span></span>
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-7 text-white/55">{id ? "Membuat ide bergerak melalui teknologi, desain, dan software." : "Making ideas move through technology, design, and software."}</p>
             <a className="mt-6 inline-flex text-sm font-semibold text-[#d6ff55] hover:text-white" href="mailto:zirocraftid@gmail.com">zirocraftid@gmail.com ↗</a>
