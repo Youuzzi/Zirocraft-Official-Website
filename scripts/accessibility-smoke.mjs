@@ -32,6 +32,8 @@ try {
     // axe-playwright requires pages created from an explicit browser context.
     const context = await browser.newContext();
     const page = await context.newPage();
+    // Keep scans deterministic and avoid inspecting text during entrance animations.
+    await page.emulateMedia({ reducedMotion: "reduce" });
     page.on("pageerror", (error) => {
       failures.push(`/${locale}: uncaught browser error: ${error.message}`);
     });
