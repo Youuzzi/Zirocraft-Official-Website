@@ -1,4 +1,8 @@
-import Link from "next/link";\nimport type { Locale } from "@/lib/i18n/dictionaries";\n\nexport function PortfolioPageContent({ locale }: { locale: Locale }) {\n  const id = locale === "id";
+import Link from "next/link";
+import type { Locale } from "@/lib/i18n/dictionaries";
+
+export function PortfolioPageContent({ locale }: { locale: Locale }) {
+  const id = locale === "id";
   return <>
     <section className="bg-[#15191f] py-24 text-white sm:py-36"><div className="site-container"><span className="eyebrow !text-[#9db4ff]">{id ? "Portofolio & pengembangan" : "Portfolio & product work"}</span><h1 className="display-heading mt-8 max-w-5xl">{id ? "Ide yang dibentuk menjadi perangkat lunak." : "Ideas shaped into working software."}</h1><p className="mt-8 max-w-2xl text-base leading-8 text-white/60">{id ? "Halaman ini menampilkan area produk dan pekerjaan rekayasa yang sedang dibangun ZiroCraft. Status setiap proyek dijelaskan secara terbuka." : "This page presents product and engineering work being developed at ZiroCraft, with each project's status stated clearly."}</p></div></section>
     <section className="bg-[#f5f4f0] py-20 sm:py-28"><div className="site-container">
