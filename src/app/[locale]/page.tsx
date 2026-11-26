@@ -39,7 +39,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <div className="site-container grid gap-12 py-28 sm:py-36 lg:grid-cols-[.7fr_1.3fr] lg:gap-20">
           <div className="manifesto-side"><span className="eyebrow">{id ? "Sudut pandang kami" : "Our point of view"}</span><p className="mt-8 font-mono text-xs text-white/35">[ THE WHY / 001 ]</p><div className="manifesto-stamp" aria-hidden="true">ZC<br />®</div></div>
           <div>
-            <h2 className="manifesto-heading">{id ? <>Dunia tidak kekurangan teknologi.<br /><em>Dunia butuh teknologi yang berarti.</em></> : <>The world doesn't need more technology.<br /><em>It needs technology that means something.</em></>}</h2>
+            <h2 className="manifesto-heading">{id ? <>Dunia tidak kekurangan teknologi.<br /><em>Dunia butuh teknologi yang berarti.</em></> : <>The world doesn&apos;t need more technology.<br /><em>It needs technology that means something.</em></>}</h2>
             <div className="mt-12 grid gap-8 border-t border-white/15 pt-7 sm:grid-cols-2">
               <p className="text-base leading-8 text-white/60">{id ? "Kami percaya software yang baik lahir dari rasa ingin tahu, pemahaman terhadap masalah, dan keberanian untuk membuat sesuatu dengan cara berbeda." : "We believe good software comes from curiosity, a deep understanding of problems, and the courage to make things differently."}</p>
               <p className="text-base leading-8 text-white/60">{id ? "ZiroCraft adalah ruang untuk mengubah ide menjadi produk dan pengalaman digital yang berguna, jelas, dan siap berkembang." : "ZiroCraft is where ideas become useful, thoughtful digital products and experiences built to keep evolving."}</p>
@@ -105,7 +105,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <div className="closing-shape" aria-hidden="true" />
         <div className="site-container relative z-10 py-28 sm:py-40">
           <span className="eyebrow !text-[#11151b]">{id ? "Punya sesuatu dalam pikiran?" : "Got something in mind?"}</span>
-          <h2 className="closing-heading mt-8">{id ? <>Let's make<br /><em>it happen.</em></> : <>Let's make<br /><em>it happen.</em></>}</h2>
+          <h2 className="closing-heading mt-8">{id ? <>Mari wujudkan<br /><em>ide itu.</em></> : <>Let&apos;s make<br /><em>it happen.</em></>}</h2>
           <div className="mt-10 flex flex-col justify-between gap-8 border-t border-black/20 pt-7 sm:flex-row sm:items-end">
             <p className="max-w-md text-sm leading-7 text-black/65">{id ? "Ceritakan ide, tantangan, atau hal yang ingin kamu bangun. Mari mulai dari sebuah percakapan." : "Tell us about an idea, a challenge, or something you want to build. Let's start with a conversation."}</p>
             <Link href={`/${locale}/contact`} className="dark-button">{id ? "Hubungi ZiroCraft" : "Talk to ZiroCraft"} <span aria-hidden="true">↗</span></Link>
