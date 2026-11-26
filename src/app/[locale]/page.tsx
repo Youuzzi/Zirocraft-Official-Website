@@ -37,7 +37,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
       <section className="manifesto-section">
         <div className="site-container grid gap-12 py-28 sm:py-36 lg:grid-cols-[.7fr_1.3fr] lg:gap-20">
-          <div className="manifesto-side"><span className="eyebrow">{id ? "Sudut pandang kami" : "Our point of view"}</span><p className="mt-8 font-mono text-xs text-white/35">[ THE WHY / 001 ]</p><div className="manifesto-stamp" aria-hidden="true">ZC<br />®</div></div>
+          <div className="manifesto-side"><span className="eyebrow">{id ? "Sudut pandang kami" : "Our point of view"}</span><p className="mt-8 font-mono text-xs text-white/65">[ THE WHY / 001 ]</p><div className="manifesto-stamp" aria-hidden="true">ZC<br />®</div></div>
           <div>
             <h2 className="manifesto-heading">{id ? <>Dunia tidak kekurangan teknologi.<br /><em>Dunia butuh teknologi yang berarti.</em></> : <>The world doesn&apos;t need more technology.<br /><em>It needs technology that means something.</em></>}</h2>
             <div className="mt-12 grid gap-8 border-t border-white/15 pt-7 sm:grid-cols-2">
