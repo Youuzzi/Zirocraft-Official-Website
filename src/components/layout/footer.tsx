@@ -17,28 +17,28 @@ export default function Footer({ locale, dictionary }: Props) {
           <div>
             <Link href={`/${locale}`} className="inline-flex items-center gap-3" aria-label="ZiroCraft homepage">
               <Image src="/MyLogo/mark-white-1400.png" alt="ZiroCraft" width={44} height={44} sizes="44px" className="h-10 w-10 object-contain" />
-              <span className="text-2xl font-semibold tracking-[-.065em] text-white">zirocraft<span className="text-[#d6ff55]">.</span></span>
+              <span className="text-2xl font-semibold tracking-[-.065em] text-white">zirocraft<span className="text-[#A6A7F5]">.</span></span>
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-7 text-white/55">{id ? "Membuat ide bergerak melalui teknologi, desain, dan software." : "Making ideas move through technology, design, and software."}</p>
-            <a className="mt-6 inline-flex text-sm font-semibold text-[#d6ff55] hover:text-white" href="mailto:zirocraftid@gmail.com">zirocraftid@gmail.com ↗</a>
+            <a className="mt-6 inline-flex text-sm font-semibold text-[#A6A7F5] hover:text-white" href="mailto:zirocraftid@gmail.com">zirocraftid@gmail.com ↗</a>
           </div>
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[.18em] text-white/65">{id ? "Jelajahi" : "Explore"}</p>
             <ul className="mt-5 space-y-3 text-sm text-white/65">
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/products`}>{dictionary.navigation.products}</Link></li>
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/products/ziropos`}>ZiroPOS</Link></li>
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/products/zirologistics`}>ZiroLogistics</Link></li>
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/services`}>{id ? "Layanan" : "Services"}</Link></li>
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/portfolio`}>{id ? "Portofolio" : "Portfolio"}</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/products`}>{dictionary.navigation.products}</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/products/ziropos`}>ZiroPOS</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/products/zirologistics`}>ZiroLogistics</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/services`}>{id ? "Layanan" : "Services"}</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/portfolio`}>{id ? "Portofolio" : "Portfolio"}</Link></li>
             </ul>
           </div>
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[.18em] text-white/65">{id ? "Perusahaan" : "Company"}</p>
             <ul className="mt-5 space-y-3 text-sm text-white/65">
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/about`}>{dictionary.navigation.about}</Link></li>
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/contact`}>{dictionary.navigation.contact}</Link></li>
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/privacy-policy`}>{t.privacy}</Link></li>
-              <li><Link className="transition-colors hover:text-[#d6ff55]" href={`/${locale}/terms`}>{t.terms}</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/about`}>{dictionary.navigation.about}</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/contact`}>{dictionary.navigation.contact}</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/privacy-policy`}>{t.privacy}</Link></li>
+              <li><Link className="transition-colors hover:text-[#A6A7F5]" href={`/${locale}/terms`}>{t.terms}</Link></li>
             </ul>
           </div>
         </div>
