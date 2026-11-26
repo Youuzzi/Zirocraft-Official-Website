@@ -1,4 +1,9 @@
-import type { Metadata } from "next";\nimport { createPageMetadata } from "@/lib/metadata";\nimport { notFound } from "next/navigation";\nimport { PortfolioPageContent } from "@/features/portfolio";\n\nexport async function generateMetadata({ params }: PageProps<"/[locale]/portfolio">): Promise<Metadata> {
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
+import { notFound } from "next/navigation";
+import { PortfolioPageContent } from "@/features/portfolio";
+
+export async function generateMetadata({ params }: PageProps<"/[locale]/portfolio">): Promise<Metadata> {
   const { locale } = await params;
   const language = locale === "id" ? "id" : "en";
   return createPageMetadata({
@@ -10,4 +15,8 @@ import type { Metadata } from "next";\nimport { createPageMetadata } from "@/lib
   });
 }
 
-export default async function PortfolioPage({ params }: PageProps<"/[locale]/portfolio">) {\n  const { locale } = await params;\n  if (locale !== "id" && locale !== "en") notFound();\n  return <PortfolioPageContent locale={locale} />;\n}\n
+export default async function PortfolioPage({ params }: PageProps<"/[locale]/portfolio">) {
+  const { locale } = await params;
+  if (locale !== "id" && locale !== "en") notFound();
+  return <PortfolioPageContent locale={locale} />;
+}
