@@ -37,8 +37,8 @@ export function ProductDetailSections({ product, locale }: { product: Product; l
       </section>
       <section className="bg-[#11151b] py-20 text-white sm:py-24">
         <div className="site-container flex flex-col justify-between gap-8 sm:flex-row sm:items-center">
-          <div><span className="eyebrow !text-[#d6ff55]">{id ? "Diskusi produk" : "Product conversation"}</span><h2 className="mt-5 text-3xl font-semibold tracking-[-.05em]">{id ? "Ingin mengetahui lebih lanjut?" : "Want to learn more?"}</h2></div>
-          <Link href={`/${locale}/contact`} className="inline-flex min-h-12 items-center justify-between gap-8 bg-[#5965d8] px-5 text-sm font-semibold text-white hover:bg-[#2449b8">{id ? "Hubungi ZiroCraft" : "Contact ZiroCraft"} <span aria-hidden="true">↗</span></Link>
+          <div><span className="eyebrow !text-[#A6A7F5]">{id ? "Diskusi produk" : "Product conversation"}</span><h2 className="mt-5 text-3xl font-semibold tracking-[-.05em]">{id ? "Ingin mengetahui lebih lanjut?" : "Want to learn more?"}</h2></div>
+          <Link href={`/${locale}/contact`} className="inline-flex min-h-12 items-center justify-between gap-8 bg-[#6866C5] px-5 text-sm font-semibold text-white hover:bg-[#2449b8">{id ? "Hubungi ZiroCraft" : "Contact ZiroCraft"} <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
     </>
