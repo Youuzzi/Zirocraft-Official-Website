@@ -29,10 +29,10 @@ export default function Navbar({ locale, dictionary }: Props) {
           <LanguageSwitcher locale={locale} />
           <Link href={`/${locale}/contact`} className="hidden min-h-11 items-center gap-4 bg-[#15191f] px-5 text-xs font-semibold text-white transition-colors hover:bg-[#315fea] sm:inline-flex">{locale === "id" ? "Mulai percakapan" : "Start a conversation"} <span aria-hidden="true">↗</span></Link>
           <details className="group relative md:hidden">
-            <summary className="flex min-h-10 cursor-pointer list-none items-center gap-2 border border-[#d9dad6] px-3 text-xs font-semibold text-[#15191f] [&::-webkit-details-marker]:hidden">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 border border-[#d9dad6] px-3 text-xs font-semibold text-[#15191f] [&::-webkit-details-marker]:hidden">
               {dictionary.navigation.menu}<span aria-hidden="true" className="text-base transition-transform group-open:rotate-45">+</span>
             </summary>
-            <nav aria-label={dictionary.navigation.mobileLabel} className="absolute right-0 top-[calc(100%+12px)] flex w-[min(19rem,calc(100vw-2rem))] flex-col border border-[#d9dad6] bg-[#f5f4f0] p-3 shadow-xl">
+            <nav id="mobile-navigation" aria-label={dictionary.navigation.mobileLabel} className="absolute right-0 top-[calc(100%+12px)] flex w-[min(19rem,calc(100vw-2rem))] flex-col border border-[#d9dad6] bg-[#f5f4f0] p-3 shadow-xl">
               {links.map((item) => <Link key={item.href} href={item.href} className="px-3 py-3 text-sm font-medium text-[#59636e] hover:bg-white hover:text-[#315fea]">{item.label}</Link>)}
               <Link href={`/${locale}/contact`} className="mt-2 flex items-center justify-between bg-[#15191f] px-4 py-3 text-sm font-semibold text-white">{locale === "id" ? "Mulai percakapan" : "Start a conversation"} <span aria-hidden="true">↗</span></Link>
             </nav>
