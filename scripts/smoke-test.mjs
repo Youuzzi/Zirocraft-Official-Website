@@ -173,10 +173,43 @@ for (const path of ["/fr", "/id/products/not-a-real-product"]) {
   }
 }
 
+
+for (const [path, expectedStatus] of [
+  ["/id/products/ziropos", "Dalam pengembangan"],
+  ["/en/products/ziropos", "In development"],
+  ["/id/products/zirologistics", "Dalam pengembangan"],
+  ["/en/products/zirologistics", "In development"]
+]) {
+  try {
+    const response = await request(path);
+    const html = await response.text();
+    if (!response.ok || !html.toLowerCase().includes(expectedStatus.toLowerCase())) {
+      failures.push(`${path}: expected truthful product status "${expectedStatus}"`);
+    }
+  } catch (error) {
+    failures.push(`${path}: product status check failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+for (const path of ["/id/contact", "/en/contact"]) {
+  try {
+    const response = await request(path);
+    const html = await response.text();
+    if (!response.ok || !html.includes('href="mailto:zirocraftid@gmail.com?subject=')) {
+      failures.push(`${path}: verified contact email mailto handoff is missing`);
+    }
+    if (!html.includes("zirocraftid@gmail.com")) {
+      failures.push(`${path}: verified contact email is missing`);
+    }
+  } catch (error) {
+    failures.push(`${path}: contact handoff check failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
 if (failures.length) {
   console.error("Production route smoke tests failed:");
   for (const failure of failures) console.error(`- ${failure}`);
   process.exitCode = 1;
 } else {
-  console.log(`Production route smoke tests passed: root redirect, ${routes.length} localized pages, redirects, internal navigation links, localized SEO metadata, invalid-route 404s, security headers, 2 Open Graph images, robots.txt, and sitemap.xml.`);
+  console.log(`Production route smoke tests passed: root redirect, ${routes.length} localized pages, redirects, internal navigation links, localized SEO metadata, invalid-route 404s, security headers, 2 Open Graph images, both products’ in-development status, localized contact mailto handoffs, robots.txt, and sitemap.xml.`);
 }
