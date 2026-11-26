@@ -142,7 +142,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <section className="closing-section">
         <div className="closing-shape" aria-hidden="true" />
         <div className="site-container relative z-10 py-16 sm:py-24">
-          <span className="eyebrow !text-[#11151b]">{id ? "Punya proyek?" : "Have a project?"}</span>
+          <span className="eyebrow !text-[#0B1724]">{id ? "Punya proyek?" : "Have a project?"}</span>
           <h2 className="closing-heading mt-6">{id ? <>Mari mulai<br /><em>percakapan.</em></> : <>Let&apos;s start<br /><em>a conversation.</em></>}</h2>
           <div className="mt-8 flex flex-col justify-between gap-6 border-t border-black/20 pt-6 sm:flex-row sm:items-end">
             <p className="max-w-md text-sm leading-7 text-black/70">{id ? "Ceritakan kebutuhan atau ide yang ingin kamu wujudkan bersama ZiroCraft." : "Tell us what you need or what you want to build with ZiroCraft."}</p>
