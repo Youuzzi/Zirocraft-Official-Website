@@ -103,7 +103,7 @@ for (const locale of locales) {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await openPage(page, `/${locale}`);
-  const animationDuration = await page.locator(".motion-rise").first().evaluate((element) => getComputedStyle(element).animationDuration);
+  const animationDuration = await page.locator(".hero-core").first().evaluate((element) => getComputedStyle(element).animationDuration);
   if (Number.parseFloat(animationDuration) > 0.001) {
     failures.push(`/${locale}: reduced-motion preference was not respected (animation duration ${animationDuration})`);
   }
