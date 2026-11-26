@@ -19,8 +19,9 @@ export default function Navbar({ locale, dictionary }: Props) {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#11151b]/95 text-white backdrop-blur-xl">
       <div className="site-container flex min-h-[76px] items-center justify-between gap-3 sm:gap-5">
-        <Link href={`/${locale}`} className="relative block h-8 w-[132px] shrink-0 sm:h-10 sm:w-[180px]" aria-label="ZiroCraft homepage">
-          <Image src="/MyLogo/White%20Text.png" alt="ZiroCraft" fill priority sizes="(max-width: 640px) 132px, 180px" className="object-contain object-left" />
+        <Link href={`/${locale}`} className="flex shrink-0 items-center gap-2.5" aria-label="ZiroCraft homepage">
+          <Image src="/MyLogo/mark-white-1400.png" alt="ZiroCraft" width={42} height={42} priority sizes="42px" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+          <span className="text-[19px] font-semibold tracking-[-.065em] text-white sm:text-[21px]">zirocraft<span className="text-[#d6ff55]">.</span></span>
         </Link>
         <nav aria-label={dictionary.navigation.mainLabel} className="hidden items-center gap-8 lg:flex">
           {links.map((item) => <Link key={item.href} href={item.href} className="text-[12px] font-medium text-white/60 transition-colors hover:text-[#d6ff55]">{item.label}</Link>)}
