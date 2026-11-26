@@ -62,7 +62,7 @@ The sitemap, robots sitemap reference, and absolute metadata URLs use this value
 
 ## Release Readiness
 
-Use [`docs/ZIROCRAFT_RELEASE_READINESS.md`](docs/ZIROCRAFT_RELEASE_READINESS.md) to track pre-merge review and production launch checks. CI passing does not replace browser-level visual QA or domain/deployment verification.
+Use [`docs/ZIROCRAFT_RELEASE_READINESS.md`](docs/ZIROCRAFT_RELEASE_READINESS.md) to track pre-merge review and production launch checks. CI covers lint, production build, and route/SEO smoke tests; it does not replace browser-level visual QA or domain/deployment verification.
 
 ## Available Scripts
 
