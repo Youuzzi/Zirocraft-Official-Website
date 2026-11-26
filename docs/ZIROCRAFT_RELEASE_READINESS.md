@@ -4,11 +4,11 @@ This checklist separates repository quality from launch readiness. A passing CI 
 
 ## Before merging the rebuild
 
-- [ ] Review the Indonesian and English homepage at desktop, tablet, and mobile widths.
-- [ ] Verify the mobile disclosure menu opens, closes, and remains usable with keyboard and touch.
-- [ ] Follow every primary navigation, footer, product, service, portfolio, and legal link in both locales.
-- [ ] Confirm keyboard focus is visible and the skip-to-content link reaches the main content.
-- [ ] Check the site with reduced motion enabled.
+- [ ] Manually inspect the Playwright screenshot artifact for Indonesian and English homepages at 320px, 768px, and 1440px, plus product and contact pages at mobile and desktop widths.
+- [x] Automated Chromium checks verify mobile menu open/close, desktop navigation visibility, and responsive overflow at 320, 375, 768, 1024, and 1440px.
+- [x] Production smoke tests crawl internal navigation links and verify localized product, service, portfolio, and legal routes.
+- [x] Browser QA verifies the skip-to-content link is the first keyboard stop; manual keyboard review remains recommended.
+- [x] Browser QA verifies the reduced-motion preference is respected.
 - [ ] Inspect the generated Open Graph image for both `/id` and `/en` routes.
 - [ ] Confirm product descriptions still identify ZiroPOS and ZiroLogistics as **In Development**.
 - [ ] Confirm no illustrative product artwork is mistaken for a live product screenshot.
@@ -26,4 +26,4 @@ This checklist separates repository quality from launch readiness. A passing CI 
 
 ## Current validation boundary
 
-GitHub Actions validates ESLint, the Next.js production build, and a production-server smoke suite covering localized pages, generated Open Graph images, robots.txt, and sitemap.xml. Browser-level visual QA, real-device testing, domain ownership, DNS, and production deployment are separate checks and must not be reported as complete until they have actually been performed.
+GitHub Actions validates ESLint, the Next.js production build, production-server route/security/SEO smoke tests, internal navigation links, and Chromium browser behavior at 320–1440px. It uploads responsive screenshots as a short-lived workflow artifact. Manual visual approval of those screenshots, testing on physical devices, domain ownership, DNS, and production deployment remain separate checks and must not be reported as complete until they have actually been performed.
