@@ -11,6 +11,8 @@ type Props = {
 export default function Navbar({ locale, dictionary }: Props) {
   const links = [
     { label: dictionary.navigation.products, href: `/${locale}/products` },
+    { label: locale === "id" ? "Layanan" : "Services", href: `/${locale}/services` },
+    { label: locale === "id" ? "Portofolio" : "Portfolio", href: `/${locale}/portfolio` },
     { label: dictionary.navigation.about, href: `/${locale}/about` },
     { label: dictionary.navigation.contact, href: `/${locale}/contact` }
   ];
