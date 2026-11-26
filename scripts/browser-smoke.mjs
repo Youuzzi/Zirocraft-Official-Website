@@ -62,8 +62,15 @@ for (const locale of locales) {
 
     const logo = page.locator('header img[alt="ZiroCraft"]').first();
     await logo.waitFor({ state: "visible" });
-    const logoLoaded = await logo.evaluate((image) => image.complete && image.naturalWidth > 0);
-    if (!logoLoaded) failures.push(`/${locale} at ${width}px: header logo did not load`);
+    try {
+      await page.waitForFunction(() => {
+        const image = document.querySelector('header img[alt="ZiroCraft"]');
+        return image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0;
+      }, null, { timeout: 10_000 });
+    } catch {
+      const imageState = await logo.evaluate((image) => ({ src: image.currentSrc, complete: image.complete, naturalWidth: image.naturalWidth }));
+      failures.push(`/${locale} at ${width}px: header logo did not load (${JSON.stringify(imageState)})`);
+    }
 
     if (width < 768) {
       const summary = page.locator("header details > summary");
