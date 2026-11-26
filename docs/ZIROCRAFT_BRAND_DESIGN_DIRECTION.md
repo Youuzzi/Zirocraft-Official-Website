@@ -172,11 +172,11 @@ Not allowed without evidence:
 
 The five user-provided repositories are used as research inputs, not as templates:
 
-- **Vercel Agent Skills:** implementation quality, accessibility, responsive behavior, performance, composition, and content discipline.
-- **Microsoft Playwright CLI:** browser-based verification of real layouts and interactions at multiple viewport sizes.
-- **VoltAgent Awesome Design MD:** design-system documentation as a first-class artifact, with explicit tokens and component/layout rules.
-- **Taste Skill:** distinctive art direction, non-generic composition, purposeful motion, strong typography, and a high finish bar.
-- **Anthropic Claude Plugins Official:** clear organization and maintainable conventions for project assets and supporting metadata.
+- [Vercel Agent Skills](https://github.com/vercel-labs/agent-skills): implementation quality, accessibility, responsive behavior, performance, composition, and content discipline. The design direction prioritizes readable hierarchy, semantic controls, reduced motion, and a high finish bar.
+- [Microsoft Playwright CLI](https://github.com/microsoft/playwright-cli): browser-based verification of real layouts and interactions at multiple viewport sizes. Use this for visual regression and interaction checks once a browser QA environment is available.
+- [VoltAgent Awesome Design MD](https://github.com/VoltAgent/awesome-design-md): design-system documentation as a first-class artifact, with explicit tokens and component/layout rules. This informed the dedicated palette, typography, grid, imagery, and motion sections in this document.
+- [Taste Skill](https://github.com/Leonxlnx/taste-skill): distinctive art direction, non-generic composition, purposeful motion, strong typography, and a high finish bar. This is the primary inspiration for the editorial layout approach, adapted to ZiroCraft rather than copied.
+- [Anthropic Claude Plugins Official](https://github.com/anthropics/claude-plugins-official): clear organization and maintainable conventions for project assets and supporting metadata. This is an implementation-organization reference, not a visual design reference.
 
 The resulting ZiroCraft design must be original and grounded in the brand and product facts above.
 
