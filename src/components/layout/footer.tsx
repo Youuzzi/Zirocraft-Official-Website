@@ -41,7 +41,7 @@ export default function Footer({ locale, dictionary }: Props) {
           </div>
         </div>
         <div className="flex flex-col justify-between gap-3 pt-6 text-[11px] text-white/40 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} ZiroCraft. {t.rights}</p>
+          <p>© 2026 ZiroCraft. {t.rights}</p>
           <p className="font-mono uppercase tracking-[.14em]">Precision in motion.</p>
         </div>
       </div>
