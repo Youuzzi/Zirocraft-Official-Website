@@ -43,6 +43,17 @@ async function waitForServer() {
 await waitForServer();
 
 const failures = [];
+
+try {
+  const response = await request("/");
+  const location = response.headers.get("location");
+  if (response.status !== 307 || !location?.endsWith("/id")) {
+    failures.push(`/: expected HTTP 307 redirect to /id, received ${response.status} ${location ?? ""}`);
+  }
+} catch (error) {
+  failures.push(`/: ${error instanceof Error ? error.message : String(error)}`);
+}
+
 const internalPaths = new Set();
 for (const [path, expected] of routes) {
   try {
@@ -101,8 +112,6 @@ try {
 } catch (error) {
   failures.push(`SEO endpoints: ${error instanceof Error ? error.message : String(error)}`);
 }
-
-
 
 for (const path of [...internalPaths].sort()) {
   try {
@@ -169,5 +178,5 @@ if (failures.length) {
   for (const failure of failures) console.error(`- ${failure}`);
   process.exitCode = 1;
 } else {
-  console.log(`Production route smoke tests passed: ${routes.length} localized pages, redirects, internal navigation links, localized SEO metadata, invalid-route 404s, security headers, 2 Open Graph images, robots.txt, and sitemap.xml.`);
+  console.log(`Production route smoke tests passed: root redirect, ${routes.length} localized pages, redirects, internal navigation links, localized SEO metadata, invalid-route 404s, security headers, 2 Open Graph images, robots.txt, and sitemap.xml.`);
 }
