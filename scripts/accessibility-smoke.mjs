@@ -18,7 +18,7 @@ const routes = [
   "/terms"
 ];
 const viewports = [
-  { width: 320, height: 900, routes: [""] },
+  { width: 320, height: 900, routes },
   { width: 1440, height: 1000, routes }
 ];
 const results = [];
@@ -112,6 +112,6 @@ if (failures.length) {
 } else {
   const scanned = results.length;
   console.log(
-    `Accessibility audit passed: ${scanned} localized page/viewport combinations scanned against WCAG 2.0/2.1/2.2 A/AA and axe best-practice rules.`
+    `Accessibility audit passed: ${scanned} localized page/viewport combinations (all localized routes at 320px and 1440px) scanned against WCAG 2.0/2.1/2.2 A/AA and axe best-practice rules.`
   );
 }
