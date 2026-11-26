@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDictionary } from "@/lib/i18n/dictionaries";
 import { products, productText } from "@/lib/products";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   if (locale !== "id" && locale !== "en") notFound();
-  const t = getDictionary(locale);
   const id = locale === "id";
   return (
     <>
