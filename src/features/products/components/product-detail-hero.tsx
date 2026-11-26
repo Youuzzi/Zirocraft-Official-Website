@@ -17,7 +17,7 @@ export function ProductDetailHero({ product, locale }: { product: Product; local
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/65">{copy.summary}</p>
             <span className="mt-8 inline-flex items-center gap-2 border border-[#e5a34b]/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[.13em] text-[#f0c17d]"><span className="h-1.5 w-1.5 rounded-full bg-[#e5a34b]" />{id ? "Dalam pengembangan" : "In development"}</span>
           </div>
-          <div className={`product-art ${pos ? "product-art-pos" : "product-art-wms"} min-h-[260px] lg:min-h-[340px]`} aria-hidden="true"><div className="art-core" /><span className="absolute bottom-5 left-5 z-10 font-mono text-[10px] tracking-[.18em] text-[#26313b]/65">ZIROCRAFT / PRODUCT STUDY</span></div>
+          <div className={`product-art ${pos ? "product-art-pos" : "product-art-wms"} min-h-[260px] lg:min-h-[340px]`} aria-hidden="true"><div className="art-core" /><span className="absolute bottom-5 left-5 z-10 font-mono text-[10px] tracking-[.18em] text-[#15191f]">ZIROCRAFT / PRODUCT STUDY</span></div>
         </div>
       </div>
     </section>
