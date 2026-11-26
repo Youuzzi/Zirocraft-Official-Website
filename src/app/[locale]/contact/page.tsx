@@ -6,8 +6,8 @@ const contactEmail = "zirocraftid@gmail.com";
 export async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
   const { locale } = await params;
   return locale === "id"
-    ? { title: "Kontak Zirocraft", description: "Hubungi tim Zirocraft untuk pertanyaan, diskusi produk, atau kolaborasi." }
-    : { title: "Contact Zirocraft", description: "Get in touch with Zirocraft for inquiries, product discussions, or collaboration." };
+    ? { title: "Kontak ZiroCraft", description: "Hubungi ZiroCraft untuk pertanyaan, diskusi produk, atau kolaborasi." }
+    : { title: "Contact ZiroCraft", description: "Contact ZiroCraft for inquiries, product discussions, or collaboration." };
 }
 
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {
@@ -15,7 +15,19 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
   if (locale !== "id" && locale !== "en") notFound();
   const id = locale === "id";
   return <>
-    <section className="bg-[#101828] py-24 text-white sm:py-32"><div className="mx-auto max-w-7xl px-6 lg:px-8"><span className="text-sm font-semibold tracking-[0.16em] text-blue-300 uppercase">{id ? "Kontak" : "Contact"}</span><h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-6xl">{id ? "Mari mulai percakapan." : "Let's start a conversation."}</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">{id ? "Hubungi kami untuk pertanyaan umum, diskusi produk, atau peluang kolaborasi." : "Reach out for general inquiries, product discussions, or collaboration opportunities."}</p></div></section>
-    <section className="bg-white py-20 sm:py-28"><div className="mx-auto max-w-3xl px-6 lg:px-8"><div className="rounded-3xl border border-border p-8 sm:p-12"><h2 className="text-2xl font-semibold text-foreground">Email Zirocraft</h2><p className="mt-4 leading-7 text-muted">{id ? "Kirimkan pesan kepada kami melalui alamat email berikut. Kami akan meninjau pertanyaan Anda dan merespons sesuai kebutuhan." : "Send us a message using the email address below. We will review your inquiry and respond as appropriate."}</p><a href={`mailto:${contactEmail}`} className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-7 text-sm font-semibold text-white hover:bg-accent-hover">{contactEmail}</a></div></div></section>
+    <section className="bg-[#15191f] py-24 text-white sm:py-36">
+      <div className="site-container"><span className="eyebrow !text-[#9db4ff]">{id ? "Kontak" : "Contact"}</span><h1 className="display-heading mt-8 max-w-4xl">{id ? "Setiap solusi dimulai dari percakapan." : "Every useful solution starts with a conversation."}</h1><p className="mt-8 max-w-xl text-base leading-8 text-white/60">{id ? "Punya pertanyaan tentang produk, kebutuhan software, atau peluang kolaborasi? Kami terbuka untuk mendengarnya." : "Questions about our products, software needs, or a potential collaboration? We'd be glad to hear from you."}</p></div>
+    </section>
+    <section className="bg-[#f5f4f0] py-24 sm:py-32">
+      <div className="site-container grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
+        <div><span className="eyebrow">{id ? "Hubungi kami" : "Reach us"}</span><p className="mt-6 font-mono text-xs text-[#89919a]">01 / EMAIL</p></div>
+        <div className="border-t border-[#d9dad6] pt-7">
+          <h2 className="text-3xl font-semibold tracking-[-.05em] sm:text-4xl">{id ? "Ceritakan apa yang sedang Anda bangun." : "Tell us what you're working on."}</h2>
+          <p className="mt-6 max-w-xl text-base leading-8 text-[#66717d]">{id ? "Untuk pertanyaan umum, diskusi produk, atau peluang kerja sama, kirimkan email kepada kami. Sertakan konteks singkat agar percakapan bisa dimulai dengan jelas." : "For general inquiries, product discussions, or collaboration opportunities, send us an email. A little context helps us start the conversation clearly."}</p>
+          <a href={`mailto:${contactEmail}`} className="mt-9 inline-flex min-h-14 items-center justify-between gap-8 bg-[#315fea] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#2449b8]">{contactEmail}<span aria-hidden="true">↗</span></a>
+          <p className="mt-4 text-xs text-[#89919a]">{id ? "Email akan terbuka melalui aplikasi email perangkat Anda." : "This will open your default email application."}</p>
+        </div>
+      </div>
+    </section>
   </>;
 }
