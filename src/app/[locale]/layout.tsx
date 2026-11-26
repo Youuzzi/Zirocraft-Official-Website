@@ -10,7 +10,12 @@ import "../globals.css";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+const vercelHost = process.env.VERCEL_URL;
+const siteUrl = configuredSiteUrl ?? (vercelHost ? `https://${vercelHost}` : undefined);
+
 export const metadata: Metadata = {
+  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: { default: "ZiroCraft | Practical Technology", template: "%s | ZiroCraft" },
   description: "ZiroCraft develops practical digital solutions for growing businesses.",
   applicationName: "ZiroCraft",
@@ -31,5 +36,5 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   if (locale !== "id" && locale !== "en") notFound();
   const validLocale = locale as Locale;
   const dictionary = getDictionary(validLocale);
-  return <html lang={validLocale} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}><body className="min-h-full flex flex-col"><Navbar locale={validLocale} dictionary={dictionary} /><main className="flex-1">{children}</main><Footer locale={validLocale} dictionary={dictionary} /></body></html>;
+  return <html lang={validLocale} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}><body className="min-h-full flex flex-col"><Navbar locale={validLocale} dictionary={dictionary} /><a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#15191f] focus:shadow-lg">{validLocale === "id" ? "Lewati ke konten utama" : "Skip to main content"}</a><main id="main-content" tabIndex={-1} className="flex-1">{children}</main><Footer locale={validLocale} dictionary={dictionary} /></body></html>;
 }
