@@ -4,12 +4,12 @@ This checklist separates repository quality from launch readiness. A passing CI 
 
 ## Before merging the rebuild
 
-- [ ] Manually inspect the Playwright screenshot artifact for Indonesian and English homepages at 320px, 768px, and 1440px, plus product and contact pages at mobile and desktop widths.
-- [x] Automated Chromium checks verify mobile menu open/close, desktop navigation visibility, and responsive overflow at 320, 375, 768, 1024, and 1440px.
+- [ ] Manually inspect the Playwright screenshot artifact for Indonesian and English homepages at 320px, 768px, and 1440px, plus all supporting, product, and legal pages at 320px and 1440px.
+- [x] Automated Chromium checks verify mobile menu open/close, desktop navigation visibility, and responsive overflow at 320, 375, 768, 1024, and 1440px across home, about, services, portfolio, product catalogue/details, contact, privacy, and terms routes.
 - [x] Production smoke tests verify the root redirect, crawl internal navigation links, and cover localized product, service, portfolio, and legal routes.
 - [x] Browser QA verifies the skip-to-content link is the first keyboard stop; manual keyboard review remains recommended.
 - [x] Browser QA verifies the reduced-motion preference is respected.
-- [x] Automated axe-core scans cover localized pages at desktop width and localized homepages at 320px against WCAG 2.0/2.1/2.2 A/AA and axe best-practice rules. Any remaining incomplete/manual-review items must still be reviewed.
+- [x] Automated axe-core scans cover every localized route at 320px and 1440px against WCAG 2.0/2.1/2.2 A/AA and axe best-practice rules. Any remaining incomplete/manual-review items must still be reviewed.
 - [ ] Inspect the generated Open Graph image for both `/id` and `/en` routes.
 - [ ] Confirm product descriptions still identify ZiroPOS and ZiroLogistics as **In Development**.
 - [ ] Confirm no illustrative product artwork is mistaken for a live product screenshot.
