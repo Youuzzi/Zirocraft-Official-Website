@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/about">): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "id"
-    ? { title: "Tentang ZiroCraft", description: "Kenali cara ZiroCraft membangun solusi digital dan produk perangkat lunak." }
-    : { title: "About ZiroCraft", description: "Learn how ZiroCraft approaches digital solutions and software products." };
+  const language = locale === "id" ? "id" : "en";
+  return createPageMetadata({
+    locale: language,
+    title: language === "id" ? "Tentang ZiroCraft" : "About ZiroCraft",
+    description: language === "id"
+      ? "Kenali cara ZiroCraft membangun solusi digital dan produk perangkat lunak."
+      : "Learn how ZiroCraft approaches digital solutions and software products."
+  });
 }
 
 export default async function AboutPage({ params }: PageProps<"/[locale]/about">) {
