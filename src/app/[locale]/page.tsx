@@ -10,10 +10,10 @@ export async function generateMetadata({ params }: PageProps<"/[locale]">): Prom
   const language = locale === "id" ? "id" : "en";
   return createPageMetadata({
     locale: language,
-    title: language === "id" ? "Solusi Digital untuk Bisnis Modern" : "Digital Solutions for Modern Businesses",
+    title: language === "id" ? "Studio Teknologi Kreatif" : "Creative Technology Studio",
     description: language === "id"
-      ? "ZiroCraft mengembangkan solusi digital dan perangkat lunak untuk membantu bisnis mengelola transaksi dan operasional dengan lebih terarah."
-      : "ZiroCraft develops digital solutions and software that help businesses manage transactions and operations with greater clarity."
+      ? "ZiroCraft menggabungkan strategi, desain, dan software untuk menciptakan pengalaman digital dan sistem bisnis."
+      : "ZiroCraft brings strategy, design, and software together to create digital experiences and business systems."
   });
 }
 
@@ -21,41 +21,70 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   if (locale !== "id" && locale !== "en") notFound();
   const id = locale === "id";
+  const services = id
+    ? [{ n: "01", title: "Digital experiences", copy: "Website dan pengalaman digital yang punya karakter, tujuan, dan arah." }, { n: "02", title: "Business software", copy: "Aplikasi yang menyederhanakan pekerjaan dan menghubungkan proses bisnis." }, { n: "03", title: "Product engineering", copy: "Dari ide awal hingga software yang terus berkembang bersama penggunanya." }]
+    : [{ n: "01", title: "Digital experiences", copy: "Websites and digital experiences with character, purpose, and direction." }, { n: "02", title: "Business software", copy: "Applications that simplify work and connect business processes." }, { n: "03", title: "Product engineering", copy: "From the first idea to software that evolves with its users." }];
+
   return (
     <>
       <HomeHero locale={locale} />
-      <section className="bg-[#f5f4f0] py-24 sm:py-32">
-        <div className="site-container grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:gap-24">
-          <div><span className="eyebrow">{id ? "Sudut pandang kami" : "Our point of view"}</span><p className="mt-6 font-mono text-xs text-[#626d78]">01 / THE WHY</p></div>
+
+      <section className="ticker-band" aria-label={id ? "Fokus ZiroCraft" : "ZiroCraft focus"}>
+        <div className="ticker-track" aria-hidden="true">
+          {Array.from({ length: 4 }).map((_, index) => <span key={index}>THINK BIGGER <b>✳</b> BUILD BETTER <b>✳</b> MOVE FORWARD <b>✳</b></span>)}
+        </div>
+      </section>
+
+      <section className="manifesto-section">
+        <div className="site-container grid gap-12 py-28 sm:py-36 lg:grid-cols-[.7fr_1.3fr] lg:gap-20">
+          <div className="manifesto-side"><span className="eyebrow">{id ? "Sudut pandang kami" : "Our point of view"}</span><p className="mt-8 font-mono text-xs text-white/35">[ THE WHY / 001 ]</p><div className="manifesto-stamp" aria-hidden="true">ZC<br />®</div></div>
           <div>
-            <h2 className="section-heading max-w-4xl text-balance">{id ? "Teknologi terbaik bukan yang paling rumit. Tetapi yang membuat pekerjaan terasa lebih terarah." : "The best technology isn't the most complicated. It's what makes work feel more considered."}</h2>
-            <div className="mt-10 grid gap-8 border-t border-[#d9dad6] pt-7 sm:grid-cols-[1fr_1fr]">
-              <p className="text-base leading-8 text-[#56616d]">{id ? "ZiroCraft adalah perusahaan software yang berfokus pada solusi digital dan produk untuk kebutuhan operasional bisnis." : "ZiroCraft is a software company focused on digital solutions and products for business operations."}</p>
-              <p className="text-base leading-8 text-[#56616d]">{id ? "Kami memulai dari memahami alur kerja, merapikan masalah, lalu membangun perangkat lunak yang dapat berkembang bersama kebutuhan." : "We start by understanding workflows, clarifying the problem, then building software that can evolve with changing needs."}</p>
+            <h2 className="manifesto-heading">{id ? <>Dunia tidak kekurangan teknologi.<br /><em>Dunia butuh teknologi yang berarti.</em></> : <>The world doesn't need more technology.<br /><em>It needs technology that means something.</em></>}</h2>
+            <div className="mt-12 grid gap-8 border-t border-white/15 pt-7 sm:grid-cols-2">
+              <p className="text-base leading-8 text-white/60">{id ? "Kami percaya software yang baik lahir dari rasa ingin tahu, pemahaman terhadap masalah, dan keberanian untuk membuat sesuatu dengan cara berbeda." : "We believe good software comes from curiosity, a deep understanding of problems, and the courage to make things differently."}</p>
+              <p className="text-base leading-8 text-white/60">{id ? "ZiroCraft adalah ruang untuk mengubah ide menjadi produk dan pengalaman digital yang berguna, jelas, dan siap berkembang." : "ZiroCraft is where ideas become useful, thoughtful digital products and experiences built to keep evolving."}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-24 sm:py-32">
-        <div className="site-container">
-          <div className="flex flex-col justify-between gap-7 border-b border-[#d9dad6] pb-8 sm:flex-row sm:items-end">
-            <div><span className="eyebrow">{id ? "Produk yang sedang dibangun" : "What we're building"}</span><h2 className="section-heading mt-6 max-w-2xl">{id ? "Dua fokus. Satu cara berpikir." : "Two domains. One way of thinking."}</h2></div>
-            <Link href={`/${locale}/products`} className="inline-flex items-center gap-3 text-sm font-semibold text-[#284fce] hover:text-[#1f3f9e]">{id ? "Lihat semua produk" : "View all products"} <span aria-hidden="true">↗</span></Link>
+      <section className="services-section">
+        <div className="site-container py-28 sm:py-36">
+          <div className="flex flex-col justify-between gap-8 border-b border-[#282d34] pb-10 md:flex-row md:items-end">
+            <div><span className="eyebrow">{id ? "Apa yang kami lakukan" : "What we do"}</span><h2 className="section-heading mt-6 max-w-3xl text-white">{id ? "Dari pikiran pertama hingga produk yang nyata." : "From the first thought to something real."}</h2></div>
+            <p className="max-w-sm text-sm leading-7 text-white/50">{id ? "Kami bergerak lintas disiplin untuk menciptakan solusi digital yang terasa utuh—bukan sekadar terlihat bagus." : "We work across disciplines to create digital solutions that feel complete—not just look good."}</p>
           </div>
-          <div className="mt-12 divide-y divide-[#d9dad6]">
+          <div className="service-list mt-6">
+            {services.map((service) => <article key={service.n} className="service-row group"><span className="service-number">{service.n}</span><h3>{service.title}</h3><p>{service.copy}</p><span className="service-arrow" aria-hidden="true">↗</span></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="products-section">
+        <div className="site-container py-28 sm:py-36">
+          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <div><span className="eyebrow">{id ? "Dibangun di studio" : "Made in the studio"}</span><h2 className="section-heading mt-6 max-w-3xl">{id ? "Produk dengan ambisi yang nyata." : "Products with real ambition."}</h2></div>
+            <Link href={`/${locale}/products`} className="text-link-dark">{id ? "Jelajahi semua produk" : "Explore all products"} <span aria-hidden="true">↗</span></Link>
+          </div>
+          <div className="product-showcase mt-14">
             {products.map((product, index) => {
               const copy = productText(product, locale);
               return (
-                <article key={product.slug} className="grid gap-7 py-10 lg:grid-cols-[72px_1fr_1fr] lg:items-center lg:gap-10">
-                  <span className="font-mono text-xs text-[#626d78]">0{index + 1}</span>
-                  <div className="min-w-0">
-                    <div className="flex flex-wrap items-center gap-3"><span className="font-mono text-[10px] uppercase tracking-[.14em] text-[#284fce]">{copy.category}</span><span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[.1em] text-[#8b6939]"><span className="h-1.5 w-1.5 rounded-full bg-[#e5a34b]" />{id ? "Dalam pengembangan" : "In development"}</span></div>
-                    <h3 className="mt-4 text-3xl font-semibold tracking-[-.055em] text-[#15191f] sm:text-4xl">{product.name}</h3>
-                    <p className="mt-4 max-w-xl text-sm leading-7 text-[#56616d]">{copy.summary}</p>
-                    <Link href={`/${locale}/products/${product.slug}`} className="mt-6 inline-flex items-center gap-3 text-sm font-semibold text-[#15191f] hover:text-[#284fce]">{id ? "Kenali produk" : "Discover the product"} <span aria-hidden="true">↗</span></Link>
-                  </div>
-                  <div className={`product-art ${product.slug === "ziropos" ? "product-art-pos" : "product-art-wms"}`} aria-hidden="true"><div className="art-core" /><span className="absolute bottom-4 left-5 z-10 font-mono text-[9px] tracking-[.18em] text-[#15191f]">{product.slug === "ziropos" ? "POINT OF SALE / BUSINESS" : "WAREHOUSE / OPERATIONS"}</span></div>
+                <article key={product.slug} className={`showcase-card showcase-${index + 1}`}>
+                  <Link href={`/${locale}/products/${product.slug}`} className="showcase-link" aria-label={`${product.name}: ${id ? "lihat detail produk" : "view product details"}`}>
+                    <div className={`showcase-art showcase-art-${product.slug}`}>
+                      <div className="showcase-window">
+                        <div className="window-top"><span /><span /><span /><b>{product.name.toUpperCase()}</b></div>
+                        {product.slug === "ziropos" ? <div className="pos-screen"><div className="pos-sidebar" /><div className="pos-main"><i /><i /><i /><strong /></div><div className="pos-total" /></div> : <div className="warehouse-screen"><div className="warehouse-aisle" /><div className="warehouse-aisle" /><div className="warehouse-aisle" /><div className="warehouse-floor" /></div>}
+                      </div>
+                      <span className="showcase-orbit" aria-hidden="true" />
+                      <span className="showcase-art-index">0{index + 1} / 02</span>
+                    </div>
+                    <div className="showcase-info">
+                      <div><span className="product-status"><i />{id ? "Dalam pengembangan" : "In development"}</span><h3>{product.name}</h3><p>{copy.summary}</p></div>
+                      <span className="showcase-cta" aria-hidden="true">↗</span>
+                    </div>
+                  </Link>
                 </article>
               );
             })}
@@ -63,20 +92,24 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         </div>
       </section>
 
-      <section className="bg-[#e9e8e2] py-24 sm:py-32">
-        <div className="site-container grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-end">
-          <div><span className="eyebrow">{id ? "Cara kami bekerja" : "How we work"}</span><h2 className="section-heading mt-6 max-w-2xl">{id ? "Dibangun dengan pertimbangan. Dikembangkan dengan tujuan." : "Designed with consideration. Developed with intent."}</h2></div>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="border-t border-[#bfc1bb] pt-5"><span className="font-mono text-xs text-[#284fce]">A / 01</span><h3 className="mt-4 text-lg font-semibold">{id ? "Mulai dari masalah" : "Start with the problem"}</h3><p className="mt-3 text-sm leading-7 text-[#56616d]">{id ? "Memahami konteks dan alur kerja sebelum menentukan bentuk solusi." : "Understand the context and workflow before deciding on a solution."}</p></div>
-            <div className="border-t border-[#bfc1bb] pt-5"><span className="font-mono text-xs text-[#284fce]">B / 02</span><h3 className="mt-4 text-lg font-semibold">{id ? "Bangun untuk berkembang" : "Build to evolve"}</h3><p className="mt-3 text-sm leading-7 text-[#56616d]">{id ? "Memikirkan kejelasan, kemampuan adaptasi, dan pemeliharaan sejak awal." : "Consider clarity, adaptability, and maintainability from the beginning."}</p></div>
+      <section className="process-section">
+        <div className="site-container grid gap-12 py-28 sm:py-36 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+          <div><span className="eyebrow">{id ? "Cara kami bergerak" : "How we move"}</span><h2 className="section-heading mt-6 text-white">{id ? "Rasa ingin tahu adalah titik awal." : "Curiosity is where it starts."}</h2><p className="mt-7 max-w-md text-sm leading-7 text-white/55">{id ? "Setiap tantangan punya konteks. Kami menyelaminya sebelum menentukan apa yang perlu dibangun." : "Every challenge has a context. We get into it before deciding what should be built."}</p></div>
+          <div className="process-steps">
+            {[{n:"01",t:id?"Temukan":"Discover",d:id?"Memahami orang, proses, dan masalah yang sebenarnya.":"Understand the people, processes, and real problem."},{n:"02",t:id?"Bayangkan":"Imagine",d:id?"Membuka kemungkinan dan merancang arah yang tepat.":"Explore possibilities and shape the right direction."},{n:"03",t:id?"Wujudkan":"Make",d:id?"Membangun dengan detail, disiplin, dan tujuan.":"Build with detail, discipline, and intention."},{n:"04",t:id?"Kembangkan":"Evolve",d:id?"Belajar dari penggunaan dan terus membuatnya lebih baik.":"Learn from use and keep making it better."}].map(step => <div className="process-step" key={step.n}><span>{step.n}</span><h3>{step.t}</h3><p>{step.d}</p><i aria-hidden="true">↗</i></div>)}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#15191f] py-24 text-white sm:py-32">
-        <div className="site-container flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
-          <div className="max-w-3xl"><span className="eyebrow !text-[#9db4ff]">{id ? "Mari berdiskusi" : "Start a conversation"}</span><h2 className="section-heading mt-6 text-balance">{id ? "Punya masalah operasional yang ingin dibuat lebih sederhana?" : "Have an operational challenge worth making simpler?"}</h2><p className="mt-6 max-w-xl text-base leading-8 text-white/60">{id ? "Ceritakan kebutuhan atau ide Anda. Kami terbuka untuk diskusi produk dan kolaborasi." : "Tell us about your needs or ideas. We're open to product discussions and collaboration."}</p></div>
-          <Link href={`/${locale}/contact`} className="inline-flex min-h-14 shrink-0 items-center justify-between gap-10 border border-white/25 px-6 text-sm font-semibold transition-colors hover:border-white hover:bg-white hover:text-[#15191f]">{id ? "Hubungi ZiroCraft" : "Contact ZiroCraft"} <span aria-hidden="true">↗</span></Link>
+      <section className="closing-section">
+        <div className="closing-shape" aria-hidden="true" />
+        <div className="site-container relative z-10 py-28 sm:py-40">
+          <span className="eyebrow !text-[#11151b]">{id ? "Punya sesuatu dalam pikiran?" : "Got something in mind?"}</span>
+          <h2 className="closing-heading mt-8">{id ? <>Let's make<br /><em>it happen.</em></> : <>Let's make<br /><em>it happen.</em></>}</h2>
+          <div className="mt-10 flex flex-col justify-between gap-8 border-t border-black/20 pt-7 sm:flex-row sm:items-end">
+            <p className="max-w-md text-sm leading-7 text-black/65">{id ? "Ceritakan ide, tantangan, atau hal yang ingin kamu bangun. Mari mulai dari sebuah percakapan." : "Tell us about an idea, a challenge, or something you want to build. Let's start with a conversation."}</p>
+            <Link href={`/${locale}/contact`} className="dark-button">{id ? "Hubungi ZiroCraft" : "Talk to ZiroCraft"} <span aria-hidden="true">↗</span></Link>
+          </div>
         </div>
       </section>
     </>
