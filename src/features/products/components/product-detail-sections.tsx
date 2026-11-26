@@ -17,7 +17,7 @@ export function ProductDetailSections({ product, locale }: { product: Product; l
           <div><span className="eyebrow">{id ? "Arah produk" : "Product direction"}</span><p className="mt-6 font-mono text-xs text-[#626d78]">01 / OVERVIEW</p></div>
           <div>
             <h2 className="section-heading">{id ? "Dirancang untuk memahami dan menata pekerjaan operasional." : "Designed to bring structure to operational work."}</h2>
-            <p className="mt-8 max-w-3xl text-base leading-8 text-[#66717d]">{copy.description}</p>
+            <p className="mt-8 max-w-3xl text-base leading-8 text-[#56616d]">{copy.description}</p>
             <p className="mt-5 max-w-3xl text-sm leading-7 text-[#626d78]">{id ? "Halaman ini menjelaskan arah pengembangan, bukan penawaran ketersediaan produk. Cakupan dan kapabilitas dapat berubah seiring validasi dan proses pengembangan." : "This page describes the product direction, not product availability. Scope and capabilities may change as validation and development continue."}</p>
           </div>
         </div>
@@ -29,7 +29,7 @@ export function ProductDetailSections({ product, locale }: { product: Product; l
           <div className="mt-12 border-t border-[#d9dad6]">
             {scope.map(([number, title, description]) => (
               <article key={number} className="grid gap-4 border-b border-[#d9dad6] py-8 sm:grid-cols-[80px_1fr_1fr]">
-                <span className="font-mono text-xs text-[#315fea]">{number}</span><h3 className="text-xl font-semibold tracking-[-.04em]">{title}</h3><p className="text-sm leading-7 text-[#66717d]">{description}</p>
+                <span className="font-mono text-xs text-[#284fce]">{number}</span><h3 className="text-xl font-semibold tracking-[-.04em]">{title}</h3><p className="text-sm leading-7 text-[#56616d]">{description}</p>
               </article>
             ))}
           </div>
