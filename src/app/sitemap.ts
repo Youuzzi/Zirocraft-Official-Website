@@ -6,6 +6,8 @@ const locales = ["id", "en"] as const;
 const staticRoutes = [
   "",
   "/about",
+  "/services",
+  "/portfolio",
   "/contact",
   "/products",
   "/privacy-policy",
