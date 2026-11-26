@@ -43,10 +43,16 @@ async function waitForServer() {
 await waitForServer();
 
 const failures = [];
+const internalPaths = new Set();
 for (const [path, expected] of routes) {
   try {
     const response = await request(path);
     const html = await response.text();
+    for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
+      if (href.startsWith("/") && !href.startsWith("//") && !href.startsWith("/#")) {
+        internalPaths.add(new URL(href, baseUrl).pathname);
+      }
+    }
     if (!response.ok) failures.push(`${path}: expected HTTP 200, received ${response.status}`);
     if (!html.includes(expected)) failures.push(`${path}: expected page marker "${expected}" was not found`);
     if (!html.includes("<title>")) failures.push(`${path}: document title is missing`);
@@ -83,6 +89,16 @@ try {
   failures.push(`SEO endpoints: ${error instanceof Error ? error.message : String(error)}`);
 }
 
+
+
+for (const path of [...internalPaths].sort()) {
+  try {
+    const response = await fetch(new URL(path, baseUrl));
+    if (!response.ok) failures.push(`Internal navigation link ${path}: expected a successful response, received HTTP ${response.status}`);
+  } catch (error) {
+    failures.push(`Internal navigation link ${path}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
 
 const securityHeaders = [
   ["x-content-type-options", "nosniff"],
@@ -140,5 +156,5 @@ if (failures.length) {
   for (const failure of failures) console.error(`- ${failure}`);
   process.exitCode = 1;
 } else {
-  console.log(`Production route smoke tests passed: ${routes.length} localized pages, redirects, invalid-route 404s, security headers, 2 Open Graph images, robots.txt, and sitemap.xml.`);
+  console.log(`Production route smoke tests passed: ${routes.length} localized pages, redirects, internal navigation links, invalid-route 404s, security headers, 2 Open Graph images, robots.txt, and sitemap.xml.`);
 }
