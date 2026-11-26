@@ -83,10 +83,62 @@ try {
   failures.push(`SEO endpoints: ${error instanceof Error ? error.message : String(error)}`);
 }
 
+
+const securityHeaders = [
+  ["x-content-type-options", "nosniff"],
+  ["x-frame-options", "DENY"],
+  ["referrer-policy", "strict-origin-when-cross-origin"],
+  ["permissions-policy", "camera=(), microphone=(), geolocation=()"],
+  ["cross-origin-opener-policy", "same-origin"],
+  ["strict-transport-security", "max-age=31536000; includeSubDomains"]
+];
+
+try {
+  const homepage = await request("/id");
+  for (const [header, expected] of securityHeaders) {
+    const actual = homepage.headers.get(header);
+    if (actual !== expected) failures.push(`/id: expected ${header} "${expected}", received "${actual}"`);
+  }
+} catch (error) {
+  failures.push(`Security response headers: ${error instanceof Error ? error.message : String(error)}`);
+}
+
+for (const [path, expectedLocation] of [
+  ["/about", "/id/about"],
+  ["/services", "/id/services"],
+  ["/portfolio", "/id/portfolio"],
+  ["/products/ziropos", "/id/products/ziropos"]
+]) {
+  try {
+    const response = await request(path);
+    const location = response.headers.get("location");
+    if (![301, 308].includes(response.status) || !location?.endsWith(expectedLocation)) {
+      failures.push(`${path}: expected permanent redirect to ${expectedLocation}, received ${response.status} ${location ?? ""}`);
+    }
+  } catch (error) {
+    failures.push(`${path}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+for (const path of ["/fr", "/id/products/not-a-real-product"]) {
+  try {
+    const response = await request(path);
+    const body = (await response.text()).toLowerCase();
+    const isNotFoundPage = body.includes("not found") || body.includes("tidak ditemukan") || body.includes("could not be found");
+    // Next.js may stream a not-found boundary after headers have been sent, yielding HTTP 200.
+    if (response.status !== 404 && !(response.status === 200 && isNotFoundPage)) {
+      failures.push(`${path}: expected a not-found response, received HTTP ${response.status}`);
+    }
+    if (!isNotFoundPage) failures.push(`${path}: not-found page content was not rendered`);
+  } catch (error) {
+    failures.push(`${path}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
 if (failures.length) {
   console.error("Production route smoke tests failed:");
   for (const failure of failures) console.error(`- ${failure}`);
   process.exitCode = 1;
 } else {
-  console.log(`Production route smoke tests passed: ${routes.length} localized pages, 2 Open Graph images, robots.txt, and sitemap.xml.`);
+  console.log(`Production route smoke tests passed: ${routes.length} localized pages, redirects, invalid-route 404s, security headers, 2 Open Graph images, robots.txt, and sitemap.xml.`);
 }
