@@ -13,9 +13,9 @@ export function ProductDetailHero({ product, locale }: { product: Product; local
         <Link href={`/${locale}/products`} className="inline-flex items-center gap-3 text-xs font-medium text-white/55 hover:text-white">← {id ? "Semua produk" : "All products"}</Link>
         <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_.8fr] lg:items-end">
           <div>
-            <span className="eyebrow !text-[#d6ff55]">{copy.category}</span><h1 className="display-heading mt-7">{product.name}</h1>
+            <span className="eyebrow !text-[#A6A7F5]">{copy.category}</span><h1 className="display-heading mt-7">{product.name}</h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/65">{copy.summary}</p>
-            <span className="mt-8 inline-flex items-center gap-2 border border-[#e5a34b]/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[.13em] text-[#f0c17d]"><span className="h-1.5 w-1.5 rounded-full bg-[#e5a34b]" />{id ? "Dalam pengembangan" : "In development"}</span>
+            <span className="mt-8 inline-flex items-center gap-2 border border-[#FF806E]/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[.13em] text-[#FFB0A2]"><span className="h-1.5 w-1.5 rounded-full bg-[#FF806E]" />{id ? "Dalam pengembangan" : "In development"}</span>
           </div>
           <div className={`product-art ${pos ? "product-art-pos" : "product-art-wms"} min-h-[260px] lg:min-h-[340px]`} aria-hidden="true"><div className="art-core" /><span className="absolute bottom-5 left-5 z-10 font-mono text-[10px] tracking-[.18em] text-[#11151b]">ZIROCRAFT / PRODUCT STUDY</span></div>
         </div>
