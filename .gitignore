@@ -55,3 +55,6 @@ bower_components/
 jspm_packages/
 web_modules/
 *.tgz
+
+node_modules.zip
+*.zip
