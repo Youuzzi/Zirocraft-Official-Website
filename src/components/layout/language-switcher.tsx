@@ -8,6 +8,8 @@ import type { Locale } from "@/lib/i18n/dictionaries";
 const translatedRoutes = new Set([
   "",
   "/about",
+  "/services",
+  "/portfolio",
   "/contact",
   "/products",
   "/privacy-policy",
