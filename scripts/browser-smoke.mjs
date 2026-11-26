@@ -88,6 +88,10 @@ for (const locale of locales) {
     }
 
     if ([320, 768, 1440].includes(width)) {
+      // Keep the keyboard-focus assertion above, but capture a neutral visual state.
+      await page.evaluate(() => {
+        if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+      });
       await page.screenshot({
         path: `${outputDirectory}/${locale}-home-${width}px.png`,
         fullPage: true,
