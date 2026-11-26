@@ -2,7 +2,7 @@ name: Website CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, feature/official-site-rebuild]
   push:
     branches: [main]
 
