@@ -1,1 +1,1 @@
-export { ContactPageContent } from "./components/contact-page";\n
+export { ContactPageContent } from "./components/contact-page";
