@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDictionary } from "@/lib/i18n/dictionaries";
 import { products, productText } from "@/lib/products";
 
 type Props = PageProps<"/[locale]/products/[slug]">;
@@ -14,7 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const product = products.find((item) => item.slug === slug);
   if (!product) return {};
-  return { title: product.name, description: product.summary[locale === "id" ? "id" : "en"] };
+  const language = locale === "id" ? "id" : "en";
+  return { title: product.name, description: product.summary[language] };
 }
 
 export default async function ProductDetailPage({ params }: Props) {
@@ -22,15 +22,34 @@ export default async function ProductDetailPage({ params }: Props) {
   if (locale !== "id" && locale !== "en") notFound();
   const product = products.find((item) => item.slug === slug);
   if (!product) notFound();
-  const t = getDictionary(locale);
-  const copy = productText(product, locale);
+  const id = locale === "id";
+  const copy = productText(product,locale);
+  const pos = product.slug === "ziropos";
+  const scope = pos
+    ? (id ? [["01","Konteks usaha","Dirancang dengan mempertimbangkan kebutuhan transaksi dan pengelolaan usaha."],["02","Operasional toko","Arah pengembangan mencakup pengelolaan aktivitas bisnis dan konteks multi-toko."],["03","Fondasi produk","Dikembangkan bertahap dengan perhatian pada struktur dan kebutuhan bisnis yang beragam."]] : [["01","Business context","Designed with transaction and business-management needs in mind."],["02","Store operations","The product direction considers business activity and multi-store contexts."],["03","Product foundation","Developed iteratively with attention to structure and varied business needs."]])
+    : (id ? [["01","Struktur gudang","Merepresentasikan gudang, lokasi penyimpanan, dan barang secara terstruktur."],["02","Alur persediaan","Fokus pengembangan mencakup aktivitas penerimaan, pengeluaran, dan visibilitas stok."],["03","Kontrol operasional","Mendukung pendekatan kerja yang lebih tertata untuk operasional gudang kecil hingga menengah."]] : [["01","Warehouse structure","Represent warehouses, storage locations, and items in a structured way."],["02","Inventory workflows","Development focuses on receiving, dispatch, and stock visibility."],["03","Operational control","A considered approach for small and medium-sized warehouse operations."]]);
   return <>
-    <section className="relative isolate overflow-hidden bg-[#101828] py-24 text-white sm:py-32"><div aria-hidden="true" className="absolute -right-32 -top-40 -z-10 h-[450px] w-[450px] rounded-full bg-blue-600/20 blur-[120px]" /><div className="mx-auto max-w-7xl px-6 lg:px-8">
-      <Link href={`/${locale}/products`} className="text-sm font-medium text-blue-300 hover:text-white">← {t.products.back}</Link><span className="mt-12 block text-sm font-semibold tracking-[0.16em] text-blue-300 uppercase">{copy.category}</span><h1 className="mt-5 text-5xl font-semibold tracking-tight sm:text-7xl">{product.name}</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">{copy.summary}</p><span className="mt-8 inline-flex rounded-full bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-200">{t.home.status}</span>
-    </div></section>
-    <section className="bg-white py-20 sm:py-28"><div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_320px] lg:px-8">
-      <div className="max-w-3xl"><h2 className="text-3xl font-semibold tracking-tight text-foreground">{locale === "id" ? "Tentang produk" : "About the product"}</h2><p className="mt-6 text-lg leading-8 text-muted">{copy.description}</p><p className="mt-8 text-sm leading-7 text-muted">{locale === "id" ? "Informasi ini menggambarkan arah pengembangan saat ini. Ketersediaan dan cakupan fitur dapat berubah selama proses pengembangan." : "This information describes the current development direction. Availability and feature scope may change as development progresses."}</p></div>
-      <aside className="h-fit rounded-2xl border border-border bg-surface p-7"><h2 className="text-lg font-semibold text-foreground">{t.products.contact}</h2><p className="mt-3 text-sm leading-7 text-muted">{locale === "id" ? "Hubungi Zirocraft untuk berdiskusi mengenai produk dan kebutuhan operasional." : "Contact Zirocraft to discuss the product and your operational needs."}</p><Link href={`/${locale}/contact`} className="mt-6 inline-flex font-semibold text-accent">{t.home.contact} →</Link></aside>
-    </div></section>
+    <section className="bg-[#15191f] py-20 text-white sm:py-32">
+      <div className="site-container">
+        <Link href={`/${locale}/products`} className="inline-flex items-center gap-3 text-xs font-medium text-white/55 hover:text-white">← {id ? "Semua produk" : "All products"}</Link>
+        <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_.8fr] lg:items-end">
+          <div><span className="eyebrow !text-[#9db4ff]">{copy.category}</span><h1 className="display-heading mt-7">{product.name}</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-white/65">{copy.summary}</p><span className="mt-8 inline-flex items-center gap-2 border border-[#e5a34b]/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[.13em] text-[#f0c17d]"><span className="h-1.5 w-1.5 rounded-full bg-[#e5a34b]" />{id ? "Dalam pengembangan" : "In development"}</span></div>
+          <div className={`product-art ${pos ? "product-art-pos" : "product-art-wms"} min-h-[260px] lg:min-h-[340px]`} aria-hidden="true"><div className="art-core" /><span className="absolute bottom-5 left-5 z-10 font-mono text-[10px] tracking-[.18em] text-[#26313b]/65">ZIROCRAFT / PRODUCT STUDY</span></div>
+        </div>
+      </div>
+    </section>
+    <section className="bg-[#f5f4f0] py-24 sm:py-32">
+      <div className="site-container grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
+        <div><span className="eyebrow">{id ? "Arah produk" : "Product direction"}</span><p className="mt-6 font-mono text-xs text-[#89919a]">01 / OVERVIEW</p></div>
+        <div><h2 className="section-heading">{id ? "Dirancang untuk memahami dan menata pekerjaan operasional." : "Designed to bring structure to operational work."}</h2><p className="mt-8 max-w-3xl text-base leading-8 text-[#66717d]">{copy.description}</p><p className="mt-5 max-w-3xl text-sm leading-7 text-[#89919a]">{id ? "Halaman ini menjelaskan arah pengembangan, bukan penawaran ketersediaan produk. Cakupan dan kapabilitas dapat berubah seiring validasi dan proses pengembangan." : "This page describes the product direction, not product availability. Scope and capabilities may change as validation and development continue."}</p></div>
+      </div>
+    </section>
+    <section className="bg-white py-24 sm:py-32">
+      <div className="site-container">
+        <span className="eyebrow">{id ? "Area perhatian" : "Areas of focus"}</span><h2 className="section-heading mt-6 max-w-3xl">{id ? "Ruang lingkup yang sedang dieksplorasi." : "The areas currently being explored."}</h2>
+        <div className="mt-12 border-t border-[#d9dad6]">{scope.map(([number,title,description]) => <article key={number} className="grid gap-4 border-b border-[#d9dad6] py-8 sm:grid-cols-[80px_1fr_1fr]"><span className="font-mono text-xs text-[#315fea]">{number}</span><h3 className="text-xl font-semibold tracking-[-.04em]">{title}</h3><p className="text-sm leading-7 text-[#66717d]">{description}</p></article>)}</div>
+      </div>
+    </section>
+    <section className="bg-[#15191f] py-20 text-white sm:py-24"><div className="site-container flex flex-col justify-between gap-8 sm:flex-row sm:items-center"><div><span className="eyebrow !text-[#9db4ff]">{id ? "Diskusi produk" : "Product conversation"}</span><h2 className="mt-5 text-3xl font-semibold tracking-[-.05em]">{id ? "Ingin mengetahui lebih lanjut?" : "Want to learn more?"}</h2></div><Link href={`/${locale}/contact`} className="inline-flex min-h-12 items-center justify-between gap-8 bg-[#315fea] px-5 text-sm font-semibold text-white hover:bg-[#2449b8]">{id ? "Hubungi ZiroCraft" : "Contact ZiroCraft"} <span aria-hidden="true">↗</span></Link></div></section>
   </>;
 }
