@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/privacy-policy">): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "id"
-    ? { title: "Kebijakan Privasi", description: "Kebijakan privasi website resmi Zirocraft." }
-    : { title: "Privacy Policy", description: "Privacy policy for the official Zirocraft website." };
+  const language = locale === "id" ? "id" : "en";
+  return createPageMetadata({
+    locale: language,
+    title: language === "id" ? "Kebijakan Privasi" : "Privacy Policy",
+    description: language === "id"
+      ? "Kebijakan privasi website resmi ZiroCraft."
+      : "Privacy policy for the official ZiroCraft website."
+  });
 }
 type LegalSection = [string, string[]];
 const sections: Record<"en" | "id", LegalSection[]> = {
