@@ -34,14 +34,14 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
         <span className="eyebrow !text-[#9db4ff]">{id ? "Tentang ZiroCraft" : "About ZiroCraft"}</span>
         <h1 className="display-heading mt-8 max-w-5xl text-balance">{id ? "Kami membangun perangkat lunak untuk pekerjaan yang nyata." : "We build software for the work that actually happens."}</h1>
         <div className="mt-12 grid gap-8 border-t border-white/15 pt-7 md:grid-cols-[1fr_1fr]">
-          <p className="font-mono text-xs uppercase tracking-[.16em] text-white/45">{id ? "Perusahaan software & pengembangan produk digital" : "Software company & digital product development"}</p>
+          <p className="font-mono text-xs uppercase tracking-[.16em] text-white/55">{id ? "Perusahaan software & pengembangan produk digital" : "Software company & digital product development"}</p>
           <p className="max-w-xl text-base leading-8 text-white/65">{id ? "ZiroCraft berfokus pada pengembangan solusi digital dan produk perangkat lunak untuk membantu bisnis mengelola proses operasionalnya." : "ZiroCraft focuses on digital solutions and software products that help businesses manage their operational processes."}</p>
         </div>
       </div>
     </section>
     <section className="bg-[#f5f4f0] py-24 sm:py-32">
       <div className="site-container grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
-        <div><span className="eyebrow">{id ? "Keyakinan kami" : "What we believe"}</span><p className="mt-6 font-mono text-xs text-[#89919a]">01 / OUR APPROACH</p></div>
+        <div><span className="eyebrow">{id ? "Keyakinan kami" : "What we believe"}</span><p className="mt-6 font-mono text-xs text-[#626d78]">01 / OUR APPROACH</p></div>
         <div><h2 className="section-heading max-w-4xl">{id ? "Teknologi harus mengikuti kebutuhan manusia dan proses bisnis—bukan sebaliknya." : "Technology should serve people and business processes—not the other way around."}</h2><p className="mt-8 max-w-2xl text-base leading-8 text-[#66717d]">{id ? "Kami melihat software sebagai alat untuk memperjelas pekerjaan, mengurangi kerumitan yang tidak perlu, dan membuka ruang untuk perbaikan bertahap." : "We see software as a way to bring clarity to work, reduce unnecessary complexity, and make room for continuous improvement."}</p></div>
       </div>
     </section>
