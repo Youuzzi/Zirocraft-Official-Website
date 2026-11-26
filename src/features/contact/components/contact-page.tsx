@@ -1,4 +1,9 @@
-import type { Locale } from "@/lib/i18n/dictionaries";\n\nexport function ContactPageContent({ locale }: { locale: Locale }) {\n  const id = locale === "id";
+import type { Locale } from "@/lib/i18n/dictionaries";
+
+const contactEmail = "zirocraftid@gmail.com";
+
+export function ContactPageContent({ locale }: { locale: Locale }) {
+  const id = locale === "id";
   const mailto = `mailto:${contactEmail}?subject=${encodeURIComponent(id ? "Pertanyaan untuk ZiroCraft" : "Inquiry for ZiroCraft")}`;
   return <>
     <section className="bg-[#15191f] py-24 text-white sm:py-36">
