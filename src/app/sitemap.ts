@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/lib/products";
+import { products } from "@/features/products";
 
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
 const vercelHost = process.env.VERCEL_URL;
